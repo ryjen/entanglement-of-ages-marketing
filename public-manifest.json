@@ -5,7 +5,7 @@
       "id": "site-placeholder-home",
       "path": "src/index.html",
       "title": "Entanglement of Ages",
-      "summary": "Public Entanglement of Ages overview spanning four ages and recurring pressures around survival, authority, personhood, and measurement.",
+      "summary": "Public Entanglement of Ages overview using reader-order discovery, chronological Great Age structure, and recurring cross-age arcs.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -13,14 +13,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "423026be9fac648b763344e27cf6fdb7f537492f282ac07ae8ad7789c915b1b4",
+      "checksum_sha256": "51472ed6c3e6b2f727adf681be0a7ed3a3404aac59ab23cb94645f086bbcbde5",
       "replacement_status": "current"
     },
     {
       "id": "site-placeholder-books",
       "path": "src/books/index.html",
       "title": "Books",
-      "summary": "Public Entanglement of Ages book index with premise-level summaries for the four-book cycle.",
+      "summary": "Public reader-order guide for The Fatherless, Neurion, Age of Embers, and The Age of Forms.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -28,14 +28,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "842b1d4f7edf74a805264b097e9e8c736daf72f601a8e63d537f85694dc69097",
+      "checksum_sha256": "572cbecf5ee43b4a36909267886a00b0a561a4011189fe0a077b8065b3f58581",
       "replacement_status": "current"
     },
     {
       "id": "site-placeholder-original",
       "path": "src/books/the-fatherless/index.html",
       "title": "The Fatherless",
-      "summary": "Public premise overview of Book II, The Fatherless, in the Aurelian Republic.",
+      "summary": "Public premise overview of the first novel, The Fatherless, in the Aurelian Republic.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -43,14 +43,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/the-fatherless/",
-      "checksum_sha256": "a35dbfa71b2a16b4c14a75a92041d408ef788766dee47f3b9b3ea4959eaa31f9",
+      "checksum_sha256": "3caa86350d8361f17d1a889b0da3b673dda77b6e7acf6877b5185bf90a681d48",
       "replacement_status": "current"
     },
     {
       "id": "site-placeholder-prequel",
       "path": "src/books/prequel/index.html",
-      "title": "The Fatherless: Age of Embers",
-      "summary": "Public premise overview of the prehistoric prequel's survival and migration conflict.",
+      "title": "Age of Embers",
+      "summary": "Legacy public route for the prehistoric prequel and its survival, observation, and stewardship conflict.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -58,14 +58,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/prequel/",
-      "checksum_sha256": "f34f9d10f81271232572e3ea6ddd165a86276fbfbd8c75b0dd6eb55bc698e65c",
+      "checksum_sha256": "2fa26658b4dd8922b0b98490d629d4bf7f585757776298889dab724229ab9e8f",
       "replacement_status": "current"
     },
     {
       "id": "site-placeholder-sequel",
       "path": "src/books/sequel/index.html",
-      "title": "The Fatherless II: Neurion",
-      "summary": "Public premise overview of the sequel's synthetic-personhood and ownership conflict.",
+      "title": "Neurion",
+      "summary": "Legacy public route for the second novel and its synthetic-personhood and ownership conflict.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -73,7 +73,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/sequel/",
-      "checksum_sha256": "b9e531d99bbb9b23bae2f465bf50135d00adb51d0ef0533abf59b0c3645335f9",
+      "checksum_sha256": "2d20fe3a1b54397883bf86b21bee6fbc25554192fe4f341ce52e5d933313b715",
       "replacement_status": "current"
     },
     {
@@ -94,8 +94,8 @@
     {
       "id": "site-placeholder-world",
       "path": "src/world/index.html",
-      "title": "World",
-      "summary": "Public spoiler-safe overview of Entanglement of Ages across four ages, settings, and premise-level social pressures.",
+      "title": "The ages",
+      "summary": "Stable public entry point to the chronological four-age overview now integrated into the main narrative.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -103,7 +103,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/world/",
-      "checksum_sha256": "9a8b191583f13a7475c9dad7f3a8d3f4de2ca399cb8174ca89be90010a1e9db3",
+      "checksum_sha256": "b39d9279fb20d272b25229a7d94af44df53bc7464ea253601326c5dfdf4bbddc",
       "replacement_status": "current"
     },
     {
@@ -118,7 +118,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/news/",
-      "checksum_sha256": "cf030e40e304cc452a288b0feacb59d44d47a1f60cb662aace8d6cc4fc3a8601",
+      "checksum_sha256": "9ab2f5dc48d08a395075852bfb319af34388509e277abaaa446699d600e61bd3",
       "replacement_status": "current"
     },
     {
@@ -133,7 +133,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/about/",
-      "checksum_sha256": "905fa710728b7803fd9f0b1bdb91eb642c44de72374ed18736270a62714cb951",
+      "checksum_sha256": "0ff4c1340f7e9fb116b7647ce63bab32f7810c6fd00cb5266293937677aa4efa",
       "replacement_status": "current"
     },
     {
@@ -178,36 +178,6 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/styles/home.v2.css",
-      "checksum_sha256": null,
-      "replacement_status": "current"
-    },
-    {
-      "id": "style-home-polish-v1",
-      "path": "src/styles/home-polish.v1.css",
-      "title": "Homepage polish v1",
-      "summary": "Post-v2 homepage typography, alignment, and responsive wrapping refinements.",
-      "content_type": "site-asset",
-      "spoiler_tier": "placeholder",
-      "approval_state": "placeholder",
-      "rights_status": "repository-authored",
-      "provenance_class": "public-native",
-      "publication_date": null,
-      "canonical_url": "/styles/home-polish.v1.css",
-      "checksum_sha256": null,
-      "replacement_status": "current"
-    },
-    {
-      "id": "style-layout-polish-v1",
-      "path": "src/styles/layout-polish.v1.css",
-      "title": "Shared layout polish v1",
-      "summary": "Wrap-safe hero title tokens and homepage composition alignment refinements.",
-      "content_type": "site-asset",
-      "spoiler_tier": "placeholder",
-      "approval_state": "placeholder",
-      "rights_status": "repository-authored",
-      "provenance_class": "public-native",
-      "publication_date": null,
-      "canonical_url": "/styles/layout-polish.v1.css",
       "checksum_sha256": null,
       "replacement_status": "current"
     },
@@ -384,8 +354,8 @@
     {
       "id": "cover-age-of-embers",
       "path": "src/media/covers/age-of-embers-cover.webp",
-      "title": "The Fatherless: Age of Embers cover",
-      "summary": "Project-generated portrait cover artwork for The Fatherless: Age of Embers.",
+      "title": "Age of Embers cover",
+      "summary": "Project-generated portrait cover artwork for Age of Embers.",
       "content_type": "site-asset",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -403,8 +373,8 @@
     {
       "id": "cover-neurion",
       "path": "src/media/covers/neurion-cover.webp",
-      "title": "The Fatherless II: Neurion cover",
-      "summary": "Project-generated portrait cover artwork for The Fatherless II: Neurion.",
+      "title": "Neurion cover",
+      "summary": "Project-generated portrait cover artwork for Neurion.",
       "content_type": "site-asset",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -465,7 +435,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/press/",
-      "checksum_sha256": "7cf19e026268e02032dcbf5f040e53066fc7ac94ac31f1b8fb4962d6300e50dc",
+      "checksum_sha256": "b4b64326c798bdcf766a7ac55e74565a3d9a07525d4452aa32fac026f09d9e85",
       "replacement_status": "current"
     },
     {
@@ -480,7 +450,7 @@
       "provenance_class": "public-native",
       "publication_date": "2026-08-08",
       "canonical_url": "/news/2026-08-08-public-trilogy-site/",
-      "checksum_sha256": "2f4f4fe4d0df713e038b8f3c33799195de9fd87a13bb31bfa98390d9d3b727ba",
+      "checksum_sha256": "13a37c014b39992aa745ebf002a92c872acac2398d4c1b3dee3686ebd99521bf",
       "replacement_status": "current"
     },
     {
@@ -546,8 +516,8 @@
     {
       "id": "site-book-age-of-embers",
       "path": "src/books/age-of-embers/index.html",
-      "title": "The Fatherless: Age of Embers",
-      "summary": "Public premise overview of Book I and its survival, migration, possession, and stewardship conflict.",
+      "title": "Age of Embers",
+      "summary": "Public premise overview of the prequel and its survival, migration, possession, observation, and stewardship conflict.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -555,14 +525,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-embers/",
-      "checksum_sha256": "953b02b41df10f82ddb734a25283686839f2fc4af79772072baf5d2e36cd7e21",
+      "checksum_sha256": "1c5468a67bf9d72cf4fbf0ddf0907383bc6bad46212af76a919b7579e9cc8da9",
       "replacement_status": "current"
     },
     {
       "id": "site-book-neurion",
       "path": "src/books/neurion/index.html",
-      "title": "The Fatherless II: Neurion",
-      "summary": "Public premise overview of Book III and its synthetic-personhood, ownership, consent, and plural-agency conflict.",
+      "title": "Neurion",
+      "summary": "Public premise overview of the second novel and its synthetic-personhood, ownership, consent, and plural-agency conflict.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -570,14 +540,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/neurion/",
-      "checksum_sha256": "feb06159b47c4c130dac6a87c8a57920a51d5e8cbe85b1a9f441e072a3643f0c",
+      "checksum_sha256": "acfa915fc25876d800a53724b7135f8309875a941f89d1ed2da0acbd75ff2cc1",
       "replacement_status": "current"
     },
     {
       "id": "site-book-age-of-forms",
       "path": "src/books/age-of-forms/index.html",
       "title": "The Age of Forms",
-      "summary": "Public premise overview of Book IV: material abundance, scarce meaning and attention, purpose-bound measurement, comparative value, and the realization that nobody wins.",
+      "summary": "Public premise overview of the fourth novel: material abundance, scarce meaning and attention, purpose-bound measurement, comparative value, and the realization that nobody wins.",
       "content_type": "page",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -585,7 +555,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-forms/",
-      "checksum_sha256": "0603de5b4381fb4e140407b05c2a4ee8aa0b0d6c011f4f09b3ced1186768e8e3",
+      "checksum_sha256": "7f94ce68aa4a6e8181ce472d255e99b4302dea4a6f215941b2b9fc9a09e54ada",
       "replacement_status": "current"
     }
   ]
