@@ -61,6 +61,18 @@ test('homepage arc treatment stays readable and avoids the retired question-card
   assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
 });
 
+test('homepage print treatment remains legible after CSS consolidation', async () => {
+  const css = await read('src/styles/arcs.v1.css');
+  assert.match(css, /@media print\{[\s\S]*\.home-page \*\{color:#000!important;text-shadow:none!important\}/);
+  assert.match(css, /\.home-page \.hero__media,\.era-card__media,\.era-card::after\{display:none\}/);
+  assert.match(css, /\.era-card__copy\{position:static\}/);
+});
+
+test('news index identifies News as the current primary destination', async () => {
+  const html = await read('src/news/index.html');
+  assert.match(html, /<a href="\.\.\/news\/" aria-current="page">News<\/a>/);
+});
+
 test('all public HTML surfaces share the narrative primary navigation contract', async () => {
   for (const pagePath of publicHtmlPages) {
     const html = await read(pagePath);
