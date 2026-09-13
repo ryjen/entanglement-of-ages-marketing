@@ -304,3 +304,5 @@ blockquote {
   .hero::before, .hero::after { display: none; }
   .hero__panel { box-shadow: none; background: transparent; }
 }
+
+.title-lock{white-space:nowrap}

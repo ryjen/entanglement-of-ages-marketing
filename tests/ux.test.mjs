@@ -11,8 +11,10 @@ const publicHtmlPages = [
   'src/index.html',
   'src/books/index.html',
   'src/books/prequel/index.html',
+  'src/books/age-of-embers/index.html',
   'src/books/the-fatherless/index.html',
   'src/books/sequel/index.html',
+  'src/books/neurion/index.html',
   'src/books/age-of-forms/index.html',
   'src/world/index.html',
   'src/about/index.html',
@@ -28,53 +30,47 @@ const trilogyOverviewPages = [
   'src/news/index.html',
   'src/press/index.html',
 ];
-const primaryNavLabels = ['Home', 'The series', 'Books', 'World', 'About', 'News'];
+const primaryNavLabels = ['The books', 'Entanglement', 'The ages', 'Editions', 'Contribute', 'News'];
 
 test('homepage keeps a focused story-first journey', async () => {
   const html = await read('src/index.html');
   const heroStart = html.indexOf('<section class="hero hero--trilogy');
   const heroEnd = html.indexOf('</section>', heroStart);
   assert.ok(heroStart >= 0 && heroEnd > heroStart, 'homepage hero must exist');
-
   const hero = html.slice(heroStart, heroEnd);
-  const heroActions = [...hero.matchAll(/<a class="button(?: button--quiet)?"[^>]*>([^<]+)<\/a>/g)]
-    .map(match => match[1].trim());
-  assert.deepEqual(heroActions, ['Explore the series', 'Help shape the books']);
+  const heroActions = [...hero.matchAll(/<a class="button(?: button--quiet)?"[^>]*>([^<]+)<\/a>/g)].map(match => match[1].trim());
+  assert.deepEqual(heroActions, ['Enter the cycle', 'See what connects the ages']);
 
-  const betaStatus = html.search(/class="[^"]*\bbeta-status\b[^"]*"/);
-  const trilogy = html.indexOf('id="trilogy"');
-  const arcs = html.indexOf('id="arcs-title"');
-  const editorial = html.indexOf('id="editorial-beta"');
-  const updates = html.indexOf('id="release-updates"');
-
-  assert.ok([betaStatus, trilogy, arcs, editorial, updates].every(index => index >= 0), 'all journey stages must exist');
-  assert.ok(betaStatus < trilogy, 'beta status should be visible before the trilogy');
-  assert.ok(trilogy < arcs, 'the trilogy should lead into recurring questions');
-  assert.ok(arcs < editorial, 'editorial participation should follow story and themes');
-  assert.ok(editorial < updates, 'release follow-up should come after editorial participation');
-  assert.match(html, /class="editorial-section panel beta-status"/, 'beta status should retain stable layout and panel fallbacks');
-  assert.match(html, /class="theme-mark beta-status__label"/, 'beta label should retain the stable theme-mark fallback');
-  assert.match(html, /styles\/home-polish\.v1\.css/, 'homepage should load the versioned polish layer');
+  const stages = [
+    html.search(/class="[^"]*\bbeta-status\b[^"]*"/),
+    html.indexOf('id="books"'), html.indexOf('id="entanglement"'), html.indexOf('id="ages"'),
+    html.indexOf('id="evolution-title"'), html.indexOf('id="editions"'), html.indexOf('id="contribute"'),
+  ];
+  assert.ok(stages.every(index => index >= 0), 'all narrative journey stages must exist');
+  assert.deepEqual([...stages].sort((a,b) => a-b), stages, 'narrative stages should appear in intentional order');
+  assert.match(html, /styles\/home\.v2\.css/);
+  assert.match(html, /styles\/arcs\.v1\.css/);
+  assert.doesNotMatch(html, /home-polish|layout-polish|narrative\.v1/);
 });
 
-test('homepage polish keeps supporting content restrained and wrap-safe', async () => {
-  const css = await read('src/styles/home-polish.v1.css');
-
-  assert.match(css, /\.home-hero__panel h1\{[^}]*overflow-wrap:normal;[^}]*word-break:normal/, 'hero title should never break inside Entanglement');
-  assert.match(css, /\.beta-status a\{[^}]*white-space:nowrap/, 'editorial beta CTA should stay together');
-  assert.match(css, /\.trilogy-question-grid article\{[^}]*justify-items:center;[^}]*text-align:center/, 'question cards should be consistently centered');
-  assert.match(css, /\.trilogy-question-grid p\{[^}]*font:500 clamp\(1\.05rem,1\.4vw,1\.3rem\)\/1\.45 var\(--font-sans\)/, 'question copy should remain supporting text rather than headline scale');
+test('homepage arc treatment stays readable and avoids the retired question-card layer', async () => {
+  const [html, css] = await Promise.all([read('src/index.html'), read('src/styles/arcs.v1.css')]);
+  assert.match(html, /class="arc-score"/);
+  assert.match(html, /class="story-sword-note"/);
+  assert.doesNotMatch(html, /trilogy-question-grid/);
+  assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
 });
 
-test('all public HTML surfaces share one primary navigation contract', async () => {
+test('all public HTML surfaces share the narrative primary navigation contract', async () => {
   for (const pagePath of publicHtmlPages) {
     const html = await read(pagePath);
     const nav = html.match(/<nav class="primary-nav"[^>]*>([\s\S]*?)<\/nav>/);
     assert.ok(nav, `${pagePath} must contain the primary navigation`);
     const labels = [...nav[1].matchAll(/<a\b[^>]*>([^<]+)<\/a>/g)].map(match => match[1].trim());
-    assert.deepEqual(labels, primaryNavLabels, `${pagePath} should use the shared primary nav order and labels`);
-    assert.doesNotMatch(nav[1], />Characters</, `${pagePath} should keep Characters out of primary navigation`);
-    assert.doesNotMatch(nav[1], />Press</, `${pagePath} should keep Press as a contextual industry destination rather than primary navigation`);
+    assert.deepEqual(labels, primaryNavLabels, `${pagePath} should use the narrative nav order and labels`);
+    assert.doesNotMatch(nav[1], />Books</);
+    assert.doesNotMatch(nav[1], />World</);
+    assert.doesNotMatch(nav[1], /#trilogy/);
   }
 });
 
