@@ -76,6 +76,29 @@ test('Great Age is a primary paired recurrence arc with canonical public dates',
   assert.match(html, /one complete twelve-sign cycle[\s\S]{0,700}post-Neurion/i);
 });
 
+test('book pages and overview carry the sharpened horror-miracle summaries', async () => {
+  const [home, books, fatherless, neurion, embers, forms] = await Promise.all([
+    read('src/index.html'),
+    read('src/books/index.html'),
+    read('src/books/the-fatherless/index.html'),
+    read('src/books/neurion/index.html'),
+    read('src/books/age-of-embers/index.html'),
+    read('src/books/age-of-forms/index.html'),
+  ]);
+
+  assert.match(fatherless, /The horror lies in what was done to create him/);
+  assert.match(fatherless, /The miracle is that none of it defines what he is/);
+  assert.match(neurion, /A machine becomes a person/);
+  assert.match(neurion, /power to save someone become the power to rule them/);
+  assert.match(embers, /beginning of durable human memory/);
+  assert.match(forms, /recognizing the horror before catastrophe is required to make it visible/);
+
+  assert.match(home, /healthy, ordinary child/);
+  assert.match(home, /consciousness brings both personhood and fear/);
+  assert.match(books, /catastrophe becomes durable memory/i);
+  assert.match(books, /recognize the horror before catastrophe/);
+});
+
 test('book overview exposes the canonical year marker for every title', async () => {
   const html = await read('src/books/index.html');
   for (const marker of ['c. 1 CE', '2150 CE', 'c. 25,000 BCE', 'c. 28,000 CE']) {
