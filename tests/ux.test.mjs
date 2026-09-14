@@ -61,6 +61,32 @@ test('homepage arc treatment stays readable and avoids the retired question-card
   assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
 });
 
+test('homepage exposes horror and ordinary miracle as a cross-cutting Story Sword', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /id="horror-miracle-title"/);
+  assert.match(html, /Cross-cutting Story Sword/);
+  assert.match(html, /The horror is when the form becomes authority[\s\S]{0,160}life exceeds it/i);
+  assert.match(html, /ordinary miracle is not supernatural proof/i);
+  assert.match(html, /Age of Embers[\s\S]{0,300}Memory becomes authority[\s\S]{0,120}life outlives the claim/);
+  assert.match(html, /The Fatherless · Source expression[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
+  assert.match(html, /Neurion[\s\S]{0,300}A person is classified[\s\S]{0,120}selfhood precedes usefulness/);
+  assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
+});
+
+test('book pages keep the cross-cutting arc narrative-first rather than duplicating it in panels', async () => {
+  for (const pagePath of [
+    'src/books/age-of-embers/index.html',
+    'src/books/prequel/index.html',
+    'src/books/the-fatherless/index.html',
+    'src/books/neurion/index.html',
+    'src/books/sequel/index.html',
+    'src/books/age-of-forms/index.html',
+  ]) {
+    const html = await read(pagePath);
+    assert.doesNotMatch(html, /<article class="panel"><h3>Horror \/ ordinary miracle/);
+  }
+});
+
 test('Great Age is a primary paired recurrence arc with canonical public dates', async () => {
   const html = await read('src/index.html');
   assert.match(html, /id="great-age-title"/);
