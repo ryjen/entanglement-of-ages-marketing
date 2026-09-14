@@ -16,7 +16,7 @@ JavaScript is the only custom scripting language. Deployment diagnostics are sub
 
 ```sh
 node tools/site.mjs pages-state
-node tools/site.mjs origin https://ryjen.github.io/entaglement-of-ages-marketing/
+node tools/site.mjs origin https://ryjen.github.io/entanglement-of-ages-marketing/
 node tools/site.mjs origin https://eoa.ryanjennin.gs/
 node tools/site.mjs cloudflare https://eoa.ryanjennin.gs/
 ```
@@ -43,7 +43,7 @@ A manual run against a non-`main` branch is expected to run validation only. It 
 
 Before custom-domain attachment, the expected project origin is:
 
-`https://ryjen.github.io/entaglement-of-ages-marketing/`
+`https://ryjen.github.io/entanglement-of-ages-marketing/`
 
 ## Deployment verification
 

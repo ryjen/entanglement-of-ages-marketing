@@ -2,7 +2,7 @@
 
 Public, reader-facing repository for the **Entanglement of Ages** book series.
 
-Canonical repository: `ryjen/entaglement-of-ages-marketing`.
+Canonical repository: `ryjen/entanglement-of-ages-marketing`.
 
 The public series currently covers:
 
@@ -16,7 +16,7 @@ This repository contains only material intentionally approved for public release
 ## Repository boundary
 
 - Public website source, approved excerpts, approved artwork, press material, release information, and deployment configuration live here.
-- Private authoring and canon development remain outside this repository in `ryjen/entaglement-of-ages`.
+- Private authoring and canon development remain outside this repository in `ryjen/entanglement-of-ages`.
 - This repository must build and deploy without access to any private repository, private token, or cross-repository secret.
 - Public history must remain clean: do not mirror, subtree, or transplant private Git history.
 - The public repository remains an independently reviewed derivative of the private series workspace; there is no automatic private-to-public synchronization.
