@@ -83,6 +83,14 @@ test('book overview exposes the canonical year marker for every title', async ()
   }
 });
 
+test('press facts expose the same canonical year markers', async () => {
+  const html = await read('src/press/index.html');
+  for (const marker of ['c. 25,000 BCE', 'c. 1 CE', '2150 CE', 'c. 28,000 CE']) {
+    assert.match(html, new RegExp(marker.replace('.', '\\.')));
+  }
+  assert.doesNotMatch(html, /a later age|Aurelian Republic · 2150/);
+});
+
 test('homepage print treatment remains legible after CSS consolidation', async () => {
   const css = await read('src/styles/arcs.v1.css');
   assert.match(css, /@media print\{[\s\S]*\.home-page \*\{color:#000!important;text-shadow:none!important\}/);
