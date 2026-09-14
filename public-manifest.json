@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "6f6a3aa6719252a0d06a716515e05c7af37b0da29c1bbac9dd94785a2960e4c9",
+      "checksum_sha256": "be09aefa3bee1a4f66f7beb485aa0cd32a3cf11c8222b7e294b2d074a86a4a6f",
       "replacement_status": "current"
     },
     {
@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "d62f1b48f8372de4608ef0c46c739caeacf860302e0f1b5c11bad5b7e9aa3e32",
+      "checksum_sha256": "43d469346003c4508e70be7d50a75530706d87df5f0ccdc59352d509140f104a",
       "replacement_status": "current"
     },
     {
@@ -525,7 +525,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-embers/",
-      "checksum_sha256": "cfe824840dcc0cd58e720c323b94c5d75958c8680b244bb669f510ecf628c09d",
+      "checksum_sha256": "79232a6b6f1615735c0ccb4da6265187b02607b0a3505ba105eeabd630dd4f44",
       "replacement_status": "current"
     },
     {
@@ -555,7 +555,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-forms/",
-      "checksum_sha256": "6433fac4fc5a92e41770d285270ffb48493eb4fc54d0741577b49689447a2a57",
+      "checksum_sha256": "ace29f2bce50d02d862df2af1c1d48f21ef2a231ea7b729e822054b77a18c455",
       "replacement_status": "current"
     }
   ]

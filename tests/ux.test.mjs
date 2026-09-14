@@ -102,6 +102,35 @@ test('Great Age is a primary paired recurrence arc with canonical public dates',
   assert.match(html, /one complete twelve-sign cycle[\s\S]{0,700}post-Neurion/i);
 });
 
+test('public canon keeps the solar flare unique to Age of Embers', async () => {
+  const [embers, neurion, forms] = await Promise.all([
+    read('src/books/age-of-embers/index.html'),
+    read('src/books/neurion/index.html'),
+    read('src/books/age-of-forms/index.html'),
+  ]);
+
+  assert.match(embers, /solar flare/i);
+  assert.doesNotMatch(embers, /massive\s+solar/i);
+  assert.doesNotMatch(neurion, /solar flare|flare warning|solar disturbance/i);
+  assert.doesNotMatch(forms, /solar flare|flare warning|solar disturbance/i);
+});
+
+test('homepage exposes the Habirim witness Story Sword across all four ages', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /Habirim|witness/i);
+  assert.match(html, /observe[\s\S]{0,180}preserve[\s\S]{0,180}contradict[\s\S]{0,180}renew/i);
+  assert.match(html, /Frequency Holders/i);
+});
+
+test('Age of Forms public summary leads with concrete human stakes', async () => {
+  const html = await read('src/books/age-of-forms/index.html');
+  assert.match(html, /Marek[\s\S]{0,500}(passed over|excluded)[\s\S]{0,700}Aren/i);
+  assert.match(html, /same (?:ecology|system)[\s\S]{0,300}(reward|recognition|influence|intimacy)/i);
+  assert.match(html, /Great Age[\s\S]{0,500}(atmospheric|orbital|disturbance)/i);
+  assert.match(html, /Frequency Holders|witness tradition/i);
+  assert.match(html, /Nobody wins[.] Humanity changes[.]/i);
+});
+
 test('book pages and overview carry the sharpened horror-miracle summaries', async () => {
   const [home, books, fatherless, neurion, embers, forms] = await Promise.all([
     read('src/index.html'),
@@ -117,7 +146,8 @@ test('book pages and overview carry the sharpened horror-miracle summaries', asy
   assert.match(neurion, /A machine becomes a person/);
   assert.match(neurion, /power to save someone become the power to rule them/);
   assert.match(embers, /beginning of durable human memory/);
-  assert.match(forms, /recognizing the horror before catastrophe is required to make it visible/);
+  assert.match(forms, /recognize the horror[\s\S]{0,180}while there is still time to change/i);
+  assert.match(forms, /smaller miracle may be enough/i);
 
   assert.match(home, /healthy, ordinary child/);
   assert.match(home, /consciousness brings both personhood and fear/);
