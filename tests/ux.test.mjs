@@ -73,19 +73,17 @@ test('homepage exposes horror and ordinary miracle as a cross-cutting Story Swor
   assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
 });
 
-test('book pages carry their local horror and ordinary-miracle manifestation', async () => {
-  const expectations = new Map([
-    ['src/books/age-of-embers/index.html', [/Horror \/ ordinary miracle/, /preserved memory[\s\S]{0,180}inherited authority/i, /memory continue[\s\S]{0,180}final ownership/i]],
-    ['src/books/prequel/index.html', [/Horror \/ ordinary miracle/, /preserved memory[\s\S]{0,180}inherited authority/i, /memory continue[\s\S]{0,180}final ownership/i]],
-    ['src/books/the-fatherless/index.html', [/Horror \/ ordinary miracle · Source expression/, /stolen truth and consent/i, /Yasael is simply a living child/i, /does not justify[\s\S]{0,180}supernatural destiny/i]],
-    ['src/books/neurion/index.html', [/Horror \/ ordinary miracle/, /classify[\s\S]{0,180}before that person can consent/i, /selfhood[\s\S]{0,180}before usefulness/i]],
-    ['src/books/sequel/index.html', [/Horror \/ ordinary miracle/, /classify[\s\S]{0,180}before that person can consent/i, /selfhood[\s\S]{0,180}before usefulness/i]],
-    ['src/books/age-of-forms/index.html', [/Horror \/ ordinary miracle/, /forms can harden[\s\S]{0,180}consciousness/i, /release a form[\s\S]{0,180}ceasing to be a person/i]],
-  ]);
-
-  for (const [pagePath, patterns] of expectations) {
+test('book pages keep the cross-cutting arc narrative-first rather than duplicating it in panels', async () => {
+  for (const pagePath of [
+    'src/books/age-of-embers/index.html',
+    'src/books/prequel/index.html',
+    'src/books/the-fatherless/index.html',
+    'src/books/neurion/index.html',
+    'src/books/sequel/index.html',
+    'src/books/age-of-forms/index.html',
+  ]) {
     const html = await read(pagePath);
-    for (const pattern of patterns) assert.match(html, pattern, `${pagePath} should expose its canon-consistent manifestation`);
+    assert.doesNotMatch(html, /<article class="panel"><h3>Horror \/ ordinary miracle/);
   }
 });
 
@@ -102,6 +100,29 @@ test('Great Age is a primary paired recurrence arc with canonical public dates',
   assert.match(html, /Neurion[\s\S]{0,500}Pisces → Aquarius/);
   assert.match(html, /The Age of Forms[\s\S]{0,700}Pisces → Aquarius/);
   assert.match(html, /one complete twelve-sign cycle[\s\S]{0,700}post-Neurion/i);
+});
+
+test('book pages and overview carry the sharpened horror-miracle summaries', async () => {
+  const [home, books, fatherless, neurion, embers, forms] = await Promise.all([
+    read('src/index.html'),
+    read('src/books/index.html'),
+    read('src/books/the-fatherless/index.html'),
+    read('src/books/neurion/index.html'),
+    read('src/books/age-of-embers/index.html'),
+    read('src/books/age-of-forms/index.html'),
+  ]);
+
+  assert.match(fatherless, /The horror lies in what was done to create him/);
+  assert.match(fatherless, /The miracle is that none of it defines what he is/);
+  assert.match(neurion, /A machine becomes a person/);
+  assert.match(neurion, /power to save someone become the power to rule them/);
+  assert.match(embers, /beginning of durable human memory/);
+  assert.match(forms, /recognizing the horror before catastrophe is required to make it visible/);
+
+  assert.match(home, /healthy, ordinary child/);
+  assert.match(home, /consciousness brings both personhood and fear/);
+  assert.match(books, /catastrophe becomes durable memory/i);
+  assert.match(books, /recognize the horror before catastrophe/);
 });
 
 test('book overview exposes the canonical year marker for every title', async () => {
