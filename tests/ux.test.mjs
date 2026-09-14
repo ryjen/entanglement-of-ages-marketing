@@ -61,6 +61,34 @@ test('homepage arc treatment stays readable and avoids the retired question-card
   assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
 });
 
+test('homepage exposes horror and ordinary miracle as a cross-cutting Story Sword', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /id="horror-miracle-title"/);
+  assert.match(html, /Cross-cutting Story Sword/);
+  assert.match(html, /The horror is when the form becomes authority[\s\S]{0,160}life exceeds it/i);
+  assert.match(html, /ordinary miracle is not supernatural proof/i);
+  assert.match(html, /Age of Embers[\s\S]{0,300}Memory becomes authority[\s\S]{0,120}life outlives the claim/);
+  assert.match(html, /The Fatherless · Source expression[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
+  assert.match(html, /Neurion[\s\S]{0,300}A person is classified[\s\S]{0,120}selfhood precedes usefulness/);
+  assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
+});
+
+test('book pages carry their local horror and ordinary-miracle manifestation', async () => {
+  const expectations = new Map([
+    ['src/books/age-of-embers/index.html', [/Horror \/ ordinary miracle/, /preserved memory[\s\S]{0,180}inherited authority/i, /memory continue[\s\S]{0,180}final ownership/i]],
+    ['src/books/prequel/index.html', [/Horror \/ ordinary miracle/, /preserved memory[\s\S]{0,180}inherited authority/i, /memory continue[\s\S]{0,180}final ownership/i]],
+    ['src/books/the-fatherless/index.html', [/Horror \/ ordinary miracle · Source expression/, /stolen truth and consent/i, /Yasael is simply a living child/i, /does not justify[\s\S]{0,180}supernatural destiny/i]],
+    ['src/books/neurion/index.html', [/Horror \/ ordinary miracle/, /classify[\s\S]{0,180}before that person can consent/i, /selfhood[\s\S]{0,180}before usefulness/i]],
+    ['src/books/sequel/index.html', [/Horror \/ ordinary miracle/, /classify[\s\S]{0,180}before that person can consent/i, /selfhood[\s\S]{0,180}before usefulness/i]],
+    ['src/books/age-of-forms/index.html', [/Horror \/ ordinary miracle/, /forms can harden[\s\S]{0,180}consciousness/i, /release a form[\s\S]{0,180}ceasing to be a person/i]],
+  ]);
+
+  for (const [pagePath, patterns] of expectations) {
+    const html = await read(pagePath);
+    for (const pattern of patterns) assert.match(html, pattern, `${pagePath} should expose its canon-consistent manifestation`);
+  }
+});
+
 test('Great Age is a primary paired recurrence arc with canonical public dates', async () => {
   const html = await read('src/index.html');
   assert.match(html, /id="great-age-title"/);
