@@ -61,6 +61,28 @@ test('homepage arc treatment stays readable and avoids the retired question-card
   assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
 });
 
+test('Great Age is a primary paired recurrence arc with canonical public dates', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /id="great-age-title"/);
+  assert.match(html, /class="evolution-line great-age-line"/);
+  assert.match(html, /c\. 25,000 BCE/);
+  assert.match(html, /c\. 1 CE/);
+  assert.match(html, /2150 CE/);
+  assert.match(html, /c\. 28,000 CE/);
+  assert.match(html, /Age of Embers[\s\S]{0,500}Aries → Pisces/);
+  assert.match(html, /The Fatherless[\s\S]{0,500}Aries → Pisces/);
+  assert.match(html, /Neurion[\s\S]{0,500}Pisces → Aquarius/);
+  assert.match(html, /The Age of Forms[\s\S]{0,700}Pisces → Aquarius/);
+  assert.match(html, /one complete twelve-sign cycle[\s\S]{0,700}post-Neurion/i);
+});
+
+test('book overview exposes the canonical year marker for every title', async () => {
+  const html = await read('src/books/index.html');
+  for (const marker of ['c. 1 CE', '2150 CE', 'c. 25,000 BCE', 'c. 28,000 CE']) {
+    assert.match(html, new RegExp(marker.replace('.', '\\.')));
+  }
+});
+
 test('homepage print treatment remains legible after CSS consolidation', async () => {
   const css = await read('src/styles/arcs.v1.css');
   assert.match(css, /@media print\{[\s\S]*\.home-page \*\{color:#000!important;text-shadow:none!important\}/);

@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "51472ed6c3e6b2f727adf681be0a7ed3a3404aac59ab23cb94645f086bbcbde5",
+      "checksum_sha256": "8c88e18417814a053072ae661f8f8cc693313a62631fa7fd556ff2e6ef250416",
       "replacement_status": "current"
     },
     {
@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "572cbecf5ee43b4a36909267886a00b0a561a4011189fe0a077b8065b3f58581",
+      "checksum_sha256": "bfcf5e42e5556a7369595f8091fbeef065088570f17828feff3a1943a9baca00",
       "replacement_status": "current"
     },
     {
@@ -43,7 +43,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/the-fatherless/",
-      "checksum_sha256": "3caa86350d8361f17d1a889b0da3b673dda77b6e7acf6877b5185bf90a681d48",
+      "checksum_sha256": "4a3e6f43e32150e4d70679935bf650060e58e35b3d456cf4b7b18182f9e16a3e",
       "replacement_status": "current"
     },
     {
@@ -58,7 +58,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/prequel/",
-      "checksum_sha256": "2fa26658b4dd8922b0b98490d629d4bf7f585757776298889dab724229ab9e8f",
+      "checksum_sha256": "a31dd6fef8358e3bd7d3093e9eb2c4ccaeb5ad665229e62d03d972695c323da5",
       "replacement_status": "current"
     },
     {
@@ -73,7 +73,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/sequel/",
-      "checksum_sha256": "2d20fe3a1b54397883bf86b21bee6fbc25554192fe4f341ce52e5d933313b715",
+      "checksum_sha256": "7d44ba23c7207fe9f6eca160d94163b075ab2eedb8348e7705b4b58a51967760",
       "replacement_status": "current"
     },
     {
@@ -103,7 +103,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/world/",
-      "checksum_sha256": "b39d9279fb20d272b25229a7d94af44df53bc7464ea253601326c5dfdf4bbddc",
+      "checksum_sha256": "ce25234cb8887b70ef74577786143d4a39e711d493272c41f1a5b2c89d3cf5f4",
       "replacement_status": "current"
     },
     {
@@ -525,7 +525,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-embers/",
-      "checksum_sha256": "1c5468a67bf9d72cf4fbf0ddf0907383bc6bad46212af76a919b7579e9cc8da9",
+      "checksum_sha256": "53d6be3a631a0e11606b607bb64ee358b2164caf72e43150f84b25f125a9cef3",
       "replacement_status": "current"
     },
     {
@@ -540,7 +540,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/neurion/",
-      "checksum_sha256": "acfa915fc25876d800a53724b7135f8309875a941f89d1ed2da0acbd75ff2cc1",
+      "checksum_sha256": "2a6afd9dffb9b916fad6662352439641bcf137e9aded1bb7dea5ccab6d2181b0",
       "replacement_status": "current"
     },
     {
@@ -555,7 +555,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-forms/",
-      "checksum_sha256": "7f94ce68aa4a6e8181ce472d255e99b4302dea4a6f215941b2b9fc9a09e54ada",
+      "checksum_sha256": "fab97983be2d0c64b5f3b8d707a3cb5269973a20828a906338c127dfc765085a",
       "replacement_status": "current"
     }
   ]
