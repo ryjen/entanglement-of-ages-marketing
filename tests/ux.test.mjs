@@ -21,6 +21,7 @@ const publicHtmlPages = [
   'src/news/index.html',
   'src/news/2026-08-08-public-trilogy-site/index.html',
   'src/press/index.html',
+  'src/adaptation/index.html',
   'src/characters/index.html',
 ];
 const trilogyOverviewPages = [
@@ -29,6 +30,7 @@ const trilogyOverviewPages = [
   'src/about/index.html',
   'src/news/index.html',
   'src/press/index.html',
+  'src/adaptation/index.html',
 ];
 const primaryNavLabels = ['The books', 'Entanglement', 'The ages', 'Editions', 'Contribute', 'News'];
 
@@ -168,6 +170,45 @@ test('press facts expose the same canonical year markers', async () => {
     assert.match(html, new RegExp(marker.replace('.', '\\.')));
   }
   assert.doesNotMatch(html, /a later age|Aurelian Republic · 2150/);
+});
+
+test('adaptation page exposes the approved screen-development pitch without joining primary navigation', async () => {
+  const html = await read('src/adaptation/index.html');
+  assert.match(html, /A child meant to justify slavery becomes the accusation against it/i);
+  assert.match(html, /limited anthology series/i);
+  assert.match(html, /interconnected feature films/i);
+  assert.match(html, /individual novel adaptations/i);
+  assert.match(html, /info@ryanjennin\.gs/);
+  assert.match(html, /href="\.\.\/press\/"/);
+  assert.doesNotMatch(html.match(/<nav class="primary-nav"[^>]*>[\s\S]*?<\/nav>/)?.[0] ?? '', /Adaptation/);
+});
+
+test('newsletter signup posts directly to the Entanglement of Ages Buttondown list', async () => {
+  for (const pagePath of ['src/index.html', 'src/news/index.html']) {
+    const html = await read(pagePath);
+    assert.match(html, /<form[^>]+action="https:\/\/buttondown\.com\/api\/emails\/embed-subscribe\/entanglement-of-ages"[^>]+method="post"/i);
+    assert.match(html, /<label[^>]+for="newsletter-email-[^"]+"/i);
+    assert.match(html, /<input[^>]+type="email"[^>]+name="email"[^>]+autocomplete="email"[^>]+required/i);
+    assert.match(html, /<input[^>]+type="hidden"[^>]+name="embed"[^>]+value="1"/i);
+  }
+
+  const surfaces = await Promise.all([
+    read('src/index.html'),
+    read('src/news/index.html'),
+    read('src/press/index.html'),
+  ]);
+  assert.doesNotMatch(surfaces.join('\n'), /buttondown\.com\/thefatherless/i);
+});
+
+test('industry and discovery surfaces link contextually to adaptation', async () => {
+  const [home, press, sitemap] = await Promise.all([
+    read('src/index.html'),
+    read('src/press/index.html'),
+    read('src/sitemap.xml'),
+  ]);
+  assert.match(home, /href="adaptation\/"/);
+  assert.match(press, /href="\.\.\/adaptation\/"/);
+  assert.match(sitemap, /https:\/\/eoa\.ryanjennin\.gs\/adaptation\//);
 });
 
 test('homepage print treatment remains legible after CSS consolidation', async () => {
