@@ -118,7 +118,8 @@ Form requirements:
 - input `type="email"`, `name="email"`, `required`, and `autocomplete="email"`;
 - a visible `<label>` associated with the email input;
 - hidden `embed=1` field;
-- hidden `tag` inputs for source attribution when useful (for example `release-updates` plus `source-home` or `source-news`);
+- one hidden `tag` for source attribution: `source-home` on Home or `source-news` on News;
+- do not add a second `tag` control merely to mark `release-updates`: Buttondown accepts repeated tags, but this repository's HTML validator rejects duplicate form-control names, and the newsletter identity already conveys the release/project-update purpose;
 - submit button with explicit subscription wording;
 - no JavaScript `fetch` wrapper around the form;
 - no email address in a query string, client log, analytics event, or repository-controlled storage;
@@ -208,10 +209,10 @@ Before completion:
 2. Verify source/publication manifest integrity and refreshed checksums for every changed approved artifact.
 3. Validate HTML and accessibility semantics for the email form, including visible label, `required`, `autocomplete="email"`, and keyboard operation.
 4. Verify `/adaptation/` canonical URL, metadata, links, sitemap inclusion, and secondary-navigation treatment.
-5. Verify newsletter form action is exactly `https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages`, with `name="email"`, `embed=1`, source tags, POST method, and no JavaScript submission interception.
+5. Verify newsletter form action is exactly `https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages`, with `name="email"`, `embed=1`, exactly one source-attribution `tag`, POST method, and no JavaScript submission interception.
 6. Verify all repository-controlled newsletter links use `https://buttondown.com/entanglement-of-ages` rather than the stale `thefatherless` URL.
 7. Verify the browser follows Buttondown-hosted validation/CAPTCHA responses correctly rather than treating navigation away as an error.
-8. Run browser smoke tests for desktop/mobile layout and keyboard interaction.
+8. Run browser smoke tests for desktop/mobile layout and keyboard interaction, including `/adaptation/` in both reader-layout and hero-contrast matrices.
 9. Verify no private canon, private repository coordinates, secrets, or subscriber data are introduced.
 10. Confirm all public adaptation copy remains consistent with the current private series architecture and public rights policy.
 11. Manually verify Buttondown's subscriber-visible display name, description, sender identity, confirmation page, and unsubscribe path before release. Do not submit a real test address without an address explicitly intended for testing.
