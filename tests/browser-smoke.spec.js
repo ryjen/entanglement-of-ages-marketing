@@ -13,6 +13,7 @@ const readerRoutes = [
   'news/',
   'news/2026-08-08-public-trilogy-site/',
   'press/',
+  'adaptation/',
   'characters/',
 ];
 const heroRoutes = [
@@ -24,6 +25,7 @@ const heroRoutes = [
   'about/',
   'news/',
   'press/',
+  'adaptation/',
 ];
 const viewports = [
   { name: 'mobile', width: 375, height: 812 },
