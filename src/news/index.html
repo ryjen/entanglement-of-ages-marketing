@@ -38,11 +38,18 @@
       <p class="eyebrow">Release updates</p>
       <h2 id="updates-title">Get the public updates by email</h2>
       <p>Join for publication, excerpt, and release updates. This list does not imply that a preorder, publication date, or commercial edition exists.</p>
-      <div class="actions">
-        <a class="button" href="https://buttondown.com/thefatherless?tag=release-updates&amp;tag=source-news" rel="external">Join release updates</a>
-        <a class="button button--quiet" href="../feed.xml">Use Atom instead</a>
-      </div>
-      <p class="notice">Buttondown will ask you to confirm by email before subscription. Only your email address is needed; you can unsubscribe at any time.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages" method="post">
+        <label for="newsletter-email-news"><strong>Email address</strong></label>
+        <div class="actions">
+          <input class="button button--quiet" id="newsletter-email-news" type="email" name="email" autocomplete="email" required size="28">
+          <button class="button" type="submit">Join the newsletter</button>
+        </div>
+        <input type="hidden" name="embed" value="1">
+        <input type="hidden" name="tag" value="release-updates">
+        <input type="hidden" name="tag" value="source-news">
+      </form>
+      <div class="actions"><a class="button button--quiet" href="../feed.xml">Use Atom instead</a></div>
+      <p class="notice">Your email goes directly to Buttondown. Confirmation may be required, and every newsletter includes an unsubscribe option.</p>
     </section>
     <section class="editorial-section" aria-labelledby="latest-title">
       <p class="eyebrow">Latest</p>

@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "f672aa1cf07acb66f162e461337d798a060e555d24168f7a59b36c9903c59225",
+      "checksum_sha256": "7a7cf377593e0a35286cb028d23a5c92b95c7014c555d8808aa39d70d8d9844d",
       "replacement_status": "current"
     },
     {
@@ -118,7 +118,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/news/",
-      "checksum_sha256": "9ab2f5dc48d08a395075852bfb319af34388509e277abaaa446699d600e61bd3",
+      "checksum_sha256": "307f3b52a259c2edf78f6bebdce07adbbc0e4015299332e1846bbeba49be66f5",
       "replacement_status": "current"
     },
     {
@@ -435,7 +435,22 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/press/",
-      "checksum_sha256": "818521591e4ffa8562e10031a2a087a32afdca54a534fcdff466a2f2568861da",
+      "checksum_sha256": "960e42a949b3ae7d5a99440180bfa743e04cfacebf3bebad077123a0876b292e",
+      "replacement_status": "current"
+    },
+    {
+      "id": "screen-adaptation",
+      "path": "src/adaptation/index.html",
+      "title": "Screen & Adaptation",
+      "summary": "Producer-facing premise-level screen adaptation positioning, development state, and rights/contact route for Entanglement of Ages.",
+      "content_type": "press",
+      "spoiler_tier": "premise",
+      "approval_state": "approved",
+      "rights_status": "repository-authored",
+      "provenance_class": "public-native",
+      "publication_date": null,
+      "canonical_url": "/adaptation/",
+      "checksum_sha256": "4cf6d78432b663f85564e27aa57f133fcd83a0dbbb54378d15a487a2b3c579bd",
       "replacement_status": "current"
     },
     {
@@ -510,7 +525,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/sitemap.xml",
-      "checksum_sha256": "ce935df6066f0bd75ad0ae0916dd637f0bd2cddc488b2b7724d8a8caa919beca",
+      "checksum_sha256": "86ee2876248b938d660a57ba7640ddf63bd3ae25088b6b348f15acbb1014cfb6",
       "replacement_status": "current"
     },
     {

@@ -25,9 +25,9 @@ The reader journey should establish what the trilogy is, where each volume sits,
 
 ### Industry and press
 
-`Home / About → Press → approved synopsis, creator information, rights/contact route, approved assets`
+`Home / About → Press → Adaptation → approved synopsis, screen positioning, creator information, rights/contact route, approved assets`
 
-Press material is secondary to the reader experience and must contain only explicitly approved public claims and assets.
+Press and adaptation material are secondary to the reader experience and must contain only explicitly approved public claims and assets. `/adaptation/` is a contextual industry route and must not become a seventh primary-navigation destination.
 
 ### Returning reader
 
@@ -58,6 +58,7 @@ Repository implementation details must never be required to understand the books
 /news/{yyyy}/{public-slug}/
 /about/
 /about/faq/
+/adaptation/
 /press/
 /contact/
 ```
