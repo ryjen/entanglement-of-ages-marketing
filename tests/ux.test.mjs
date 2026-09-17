@@ -208,7 +208,7 @@ test('industry and discovery surfaces link contextually to adaptation', async ()
   ]);
   assert.match(home, /href="adaptation\/"/);
   assert.match(press, /href="\.\.\/adaptation\/"/);
-  assert.match(sitemap, /https:\/\/eoa\.ryanjennin\.gs\/adaptation\//);
+  assert.match(sitemap, /https:\/\/entanglementofages\.com\/adaptation\//);
 });
 
 test('homepage print treatment remains legible after CSS consolidation', async () => {
