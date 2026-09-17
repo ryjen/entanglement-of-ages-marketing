@@ -92,23 +92,25 @@ Avoid implying that screen rights have been optioned or that production partners
 
 ### Provider
 
-Keep Buttondown as the subscriber system. The existing legacy username/slug `thefatherless` may remain; public-facing site copy should use *Entanglement of Ages* branding.
+Use the existing *Entanglement of Ages* Buttondown newsletter:
 
-Before making signup prominent site-wide, verify the Buttondown account's subscriber-visible configuration:
+`https://buttondown.com/entanglement-of-ages`
+
+The newsletter identity already matches the public project, so there is no legacy-slug migration in scope. Existing site references to `buttondown.com/thefatherless` are stale and must be replaced.
+
+Before release, verify the subscriber-visible Buttondown configuration remains coherent with the public site:
 
 - newsletter display name is *Entanglement of Ages*;
-- description reflects the four-book project rather than a Fatherless-only newsletter;
+- description reflects the four-book project;
 - author/from name clearly identifies Ryan Jennings / Entanglement of Ages;
 - sender or reply-to address is current;
-- confirmation, archive, and unsubscribe surfaces do not create a misleading Fatherless-only identity.
-
-This is a branding/configuration check, not a requirement to change the `thefatherless` username. Buttondown treats the display name separately from the username/archive slug.
+- confirmation, archive, and unsubscribe surfaces use the current project identity.
 
 ### Embedded form
 
-Use Buttondown's documented static HTML endpoint directly from the browser:
+Use Buttondown's static HTML subscription endpoint directly from the browser:
 
-`https://buttondown.com/api/emails/embed-subscribe/thefatherless`
+`https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages`
 
 Form requirements:
 
@@ -129,23 +131,18 @@ The site must not persist, log, proxy, or process subscriber email addresses.
 ### Placement
 
 1. Homepage: add one compact signup row within `home-endmatter`, after Planned editions and before Editorial development. This keeps the newsletter visible without adding another large card section.
-2. News: replace or augment the existing outbound signup button with the embedded form; retain Atom as the alternative.
+2. News: replace the stale outbound `thefatherless` signup link with the embedded *Entanglement of Ages* form; retain Atom as the alternative.
 3. Adaptation page: do not foreground the newsletter. A footer-level or utility link to News is sufficient; avoid adding a third prominent signup form unless later evidence justifies it.
 
 Avoid modal popups, exit-intent prompts, or repeated sticky signup UI.
 
-## Rebranding and consent continuity
+## Consent continuity
 
-The list originated under *The Fatherless*. The public project has since expanded/rebranded to *Entanglement of Ages*.
+Keep Buttondown as the system of record for subscriber consent/status; the marketing repository must not duplicate subscriber data.
 
-For existing subscribers:
+If any current subscribers originally opted in while the project was branded primarily as *The Fatherless*, preserve the original scope of project, manuscript, publication, excerpt, and release updates. The first relevant send can briefly acknowledge that *The Fatherless* now sits within the broader *Entanglement of Ages* project rather than silently broadening the list into unrelated author marketing.
 
-- preserve the original scope: project, manuscript, publication, excerpt, and release updates;
-- do not silently broaden the list into unrelated author marketing;
-- the first newsletter sent under the *Entanglement of Ages* identity should briefly explain that *The Fatherless* has expanded into / is now presented within *Entanglement of Ages*;
-- keep Buttondown's consent/subscriber history rather than migrating addresses to a fresh list without need.
-
-For Canadian commercial-email compliance, treat the list as potentially subject to CASL whenever a message has a commercial purpose. Operationally this means preserving evidence of consent, clearly identifying the sender/contact, and keeping a working unsubscribe mechanism in every applicable message. Buttondown should remain the system of record for subscriber consent/status; the marketing repository should not duplicate that data.
+For Canadian commercial-email compliance, treat the list as potentially subject to CASL whenever a message has a commercial purpose: preserve evidence of consent, clearly identify the sender/contact, and keep a working unsubscribe mechanism in every applicable message.
 
 ## Data flow and privacy
 
@@ -211,14 +208,15 @@ Before completion:
 2. Verify source/publication manifest integrity and refreshed checksums for every changed approved artifact.
 3. Validate HTML and accessibility semantics for the email form, including visible label, `required`, `autocomplete="email"`, and keyboard operation.
 4. Verify `/adaptation/` canonical URL, metadata, links, sitemap inclusion, and secondary-navigation treatment.
-5. Verify newsletter form action, `name="email"`, `embed=1`, source tags, POST method, and absence of JavaScript submission interception.
-6. Verify the browser follows Buttondown-hosted validation/CAPTCHA responses correctly rather than treating navigation away as an error.
-7. Run browser smoke tests for desktop/mobile layout and keyboard interaction.
-8. Verify no private canon, private repository coordinates, secrets, or subscriber data are introduced.
-9. Confirm all public adaptation copy remains consistent with the current private series architecture and public rights policy.
-10. Manually verify Buttondown's subscriber-visible display name, description, sender identity, confirmation page, and unsubscribe path before promoting the form site-wide. Do not submit a real test address without an address explicitly intended for testing.
-11. Before the first post-rebrand send, review the email template/footer for sender identification, current contact information, and working unsubscribe behavior.
+5. Verify newsletter form action is exactly `https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages`, with `name="email"`, `embed=1`, source tags, POST method, and no JavaScript submission interception.
+6. Verify all repository-controlled newsletter links use `https://buttondown.com/entanglement-of-ages` rather than the stale `thefatherless` URL.
+7. Verify the browser follows Buttondown-hosted validation/CAPTCHA responses correctly rather than treating navigation away as an error.
+8. Run browser smoke tests for desktop/mobile layout and keyboard interaction.
+9. Verify no private canon, private repository coordinates, secrets, or subscriber data are introduced.
+10. Confirm all public adaptation copy remains consistent with the current private series architecture and public rights policy.
+11. Manually verify Buttondown's subscriber-visible display name, description, sender identity, confirmation page, and unsubscribe path before release. Do not submit a real test address without an address explicitly intended for testing.
+12. Before the next send, review the email template/footer for sender identification, current contact information, and working unsubscribe behavior.
 
 ## Rollout
 
-Ship as one focused marketing-site pull request tied to #122. Keep the existing Buttondown username during this change; renaming or moving the Buttondown account is a separate operational change only if later desired.
+Ship as one focused marketing-site pull request tied to #122. The current Buttondown identity is already `entanglement-of-ages`; no newsletter migration is part of this change.
