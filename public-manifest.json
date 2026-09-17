@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "5786de262427c359716948b69fc510a232ca224c380891e305545a0a5bdb5021",
+      "checksum_sha256": "f2b0402a3e29a90d36a529ce2305d702d75c06b7380a9b05fcf48aba0445e655",
       "replacement_status": "current"
     },
     {
@@ -58,7 +58,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/prequel/",
-      "checksum_sha256": "a94b5fda8620cb45065c73701852f83bdd694427fa810ad56db3a3bd8e6c6cd8",
+      "checksum_sha256": "3e7e95fb9f23f96763647274b5f115873e5750ae1438ddbeeb59fdbfaf735d1c",
       "replacement_status": "current"
     },
     {
@@ -118,7 +118,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/news/",
-      "checksum_sha256": "8442a9df2deb3fd40bfd418aeac8fcd001bd1427f0cf39d7b24cd352153eb7b1",
+      "checksum_sha256": "8cd1d753c00f20d10ac906a12b3de85c318845c9d68f20402fd45fdef6e3123a",
       "replacement_status": "current"
     },
     {
@@ -435,7 +435,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/press/",
-      "checksum_sha256": "84a3100e63ee4e2eaf51ec4519631f978dee93b4430b89b004d2d411d1bd9446",
+      "checksum_sha256": "0db269c2458bf61a8bc13580aae576b722d596491beeb0e625c45439d1a620b7",
       "replacement_status": "current"
     },
     {
