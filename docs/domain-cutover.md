@@ -1,31 +1,23 @@
 # Domain Cutover — Entanglement of Ages
 
-## Current canonical public domain
+## Canonical public domain
 
-The current public-domain target for **Entanglement of Ages** is:
+The canonical public-domain target for **Entanglement of Ages** is:
 
-- `https://eoa.ryanjennin.gs/`
+- `https://entanglementofages.com/`
 
-This replaces the older Fatherless-specific hostname as the series-level public identity.
+This is the series-level public identity for canonical metadata, feeds, sitemaps, social previews, structured data, and external links.
 
-## Future canonical domain
+## Cutover contract
 
-The intended later production-domain migration is:
+The production-domain migration is considered complete only when:
 
-- `https://entaglementofages.com/`
+1. DNS and TLS are provisioned for the canonical host;
+2. GitHub Pages is configured with `entanglementofages.com` as its custom domain;
+3. canonical URLs, sitemap, feed, robots metadata, and absolute public links use the canonical host;
+4. the previous series subdomain remains recoverable or redirects cleanly without becoming a competing canonical origin;
+5. Cloudflare/GitHub Pages origin identity and HTTPS are verified;
+6. repository homepage metadata and relevant external profiles use the canonical host;
+7. regression tests prevent mixed canonical origins from returning.
 
-Treat that as a future cutover, not an alias that should be introduced into current canonical metadata before DNS, TLS, redirects, analytics, sitemap, and deployment checks are ready.
-
-## Cutover rules
-
-When moving from `eoa.ryanjennin.gs` to `entaglementofages.com`:
-
-1. provision DNS and TLS first;
-2. update GitHub Pages/custom-domain configuration;
-3. update canonical URLs, sitemap and any absolute public links;
-4. preserve redirects from `eoa.ryanjennin.gs`;
-5. verify Cloudflare/GitHub Pages origin identity and HTTPS;
-6. update repository homepage metadata and external profiles;
-7. retain redirects long enough that existing public links and search indexing remain valid.
-
-The content repository remains independent of the private authoring repository throughout either domain transition.
+The public marketing repository remains independent of the private authoring repository throughout the transition. The private repository may reference the public site only through governed reader/release metadata.

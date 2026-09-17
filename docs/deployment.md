@@ -17,8 +17,8 @@ JavaScript is the only custom scripting language. Deployment diagnostics are sub
 ```sh
 node tools/site.mjs pages-state
 node tools/site.mjs origin https://ryjen.github.io/entanglement-of-ages-marketing/
-node tools/site.mjs origin https://eoa.ryanjennin.gs/
-node tools/site.mjs cloudflare https://eoa.ryanjennin.gs/
+node tools/site.mjs origin https://entanglementofages.com/
+node tools/site.mjs cloudflare https://entanglementofages.com/
 ```
 
 For normal development and validation, use the shared task front door:
@@ -88,7 +88,7 @@ Cutover sequence:
 
 GitHub Pages remains the origin; Cloudflare may provide public TLS/proxy/cache behavior.
 
-For `eoa.ryanjennin.gs`:
+For `entanglementofages.com`:
 
 - DNS should resolve the custom subdomain to the GitHub Pages user domain;
 - use end-to-end authenticated origin TLS (`Full (strict)`) once the Pages origin certificate is available;
