@@ -17,6 +17,7 @@ Add a producer-facing adaptation surface for *Entanglement of Ages* and make new
 - Do not add a backend, API key, secret, database, or server-side subscriber processing.
 - Preserve a no-email subscription alternative via the existing Atom feed.
 - Keep the site functional without JavaScript.
+- Do not imply that screen rights have been optioned, encumbered, or formally offered on specific terms; the public page invites adaptation and rights inquiries and leaves substantive rights status to private discussion.
 
 ## Public information architecture
 
@@ -42,7 +43,7 @@ The adaptation page is a concise screen-development surface, not a duplicate pre
 
 Position the property as literary IP for screen development:
 
-- *Entanglement of Ages*
+- *Entanglement of Ages*;
 - four eras, one recurring dramatic pressure;
 - stories about the reasons people and systems invent to own, define, rank, or save another life.
 
@@ -82,7 +83,7 @@ Avoid implying that screen rights have been optioned or that production partners
 
 ### Rights and contact
 
-- State that screen/adaptation rights are available for discussion unless and until the public rights state changes.
+- Say that screen/adaptation and rights inquiries are welcome; do not make a stronger representation about availability or encumbrances on the public page.
 - Link to `/press/` for approved assets and project facts.
 - Route confidential inquiries to the existing industry email (`info@ryanjennin.gs`).
 - Preserve the repository's All Rights Reserved boundary.
@@ -93,6 +94,16 @@ Avoid implying that screen rights have been optioned or that production partners
 
 Keep Buttondown as the subscriber system. The existing legacy username/slug `thefatherless` may remain; public-facing site copy should use *Entanglement of Ages* branding.
 
+Before making signup prominent site-wide, verify the Buttondown account's subscriber-visible configuration:
+
+- newsletter display name is *Entanglement of Ages*;
+- description reflects the four-book project rather than a Fatherless-only newsletter;
+- author/from name clearly identifies Ryan Jennings / Entanglement of Ages;
+- sender or reply-to address is current;
+- confirmation, archive, and unsubscribe surfaces do not create a misleading Fatherless-only identity.
+
+This is a branding/configuration check, not a requirement to change the `thefatherless` username. Buttondown treats the display name separately from the username/archive slug.
+
 ### Embedded form
 
 Use Buttondown's documented static HTML endpoint directly from the browser:
@@ -102,38 +113,57 @@ Use Buttondown's documented static HTML endpoint directly from the browser:
 Form requirements:
 
 - `method="post"`;
-- input `type="email"` and `name="email"`;
-- hidden `embed=1` field where required by Buttondown's embed flow;
+- input `type="email"`, `name="email"`, `required`, and `autocomplete="email"`;
+- a visible `<label>` associated with the email input;
+- hidden `embed=1` field;
 - hidden `tag` inputs for source attribution when useful (for example `release-updates` plus `source-home` or `source-news`);
 - submit button with explicit subscription wording;
-- visible privacy copy that the email is sent directly to Buttondown, confirmation is required, and unsubscribe is available from every email.
+- no JavaScript `fetch` wrapper around the form;
+- no email address in a query string, client log, analytics event, or repository-controlled storage;
+- visible privacy copy explaining that the email is submitted directly to Buttondown, confirmation may be required, and unsubscribe is available from sent emails.
+
+The standard HTML flow may navigate from the site to Buttondown when Buttondown needs to display validation, CAPTCHA, confirmation, or related subscriber UI. That navigation is expected progressive behavior, not a failure. Do not promise an inline-only success state unless a different Buttondown embed mechanism is deliberately adopted later.
 
 The site must not persist, log, proxy, or process subscriber email addresses.
 
 ### Placement
 
-1. Homepage: one compact signup section after the primary story/edition content, before the final contribution/utility material.
+1. Homepage: add one compact signup row within `home-endmatter`, after Planned editions and before Editorial development. This keeps the newsletter visible without adding another large card section.
 2. News: replace or augment the existing outbound signup button with the embedded form; retain Atom as the alternative.
-3. Adaptation page: do not foreground the newsletter, but a compact footer-level signup is acceptable if it follows the site-wide pattern.
+3. Adaptation page: do not foreground the newsletter. A footer-level or utility link to News is sufficient; avoid adding a third prominent signup form unless later evidence justifies it.
 
 Avoid modal popups, exit-intent prompts, or repeated sticky signup UI.
+
+## Rebranding and consent continuity
+
+The list originated under *The Fatherless*. The public project has since expanded/rebranded to *Entanglement of Ages*.
+
+For existing subscribers:
+
+- preserve the original scope: project, manuscript, publication, excerpt, and release updates;
+- do not silently broaden the list into unrelated author marketing;
+- the first newsletter sent under the *Entanglement of Ages* identity should briefly explain that *The Fatherless* has expanded into / is now presented within *Entanglement of Ages*;
+- keep Buttondown's consent/subscriber history rather than migrating addresses to a fresh list without need.
+
+For Canadian commercial-email compliance, treat the list as potentially subject to CASL whenever a message has a commercial purpose. Operationally this means preserving evidence of consent, clearly identifying the sender/contact, and keeping a working unsubscribe mechanism in every applicable message. Buttondown should remain the system of record for subscriber consent/status; the marketing repository should not duplicate that data.
 
 ## Data flow and privacy
 
 ```text
 reader browser
     -> POST email directly to Buttondown embed endpoint
-    -> Buttondown opt-in/confirmation flow
-    -> subscriber list managed by Buttondown
+    -> Buttondown validation / CAPTCHA / opt-in flow as required
+    -> subscriber list and consent state managed by Buttondown
 ```
 
 No subscriber PII crosses the GitHub Pages deployment or repository tooling.
 
 Failure behavior:
 
-- HTML validation must catch missing `name="email"` or malformed form fields.
+- HTML validation must catch missing `name="email"`, `required`, label association, or malformed form fields.
 - If Buttondown is unavailable, the site remains readable and the Atom feed remains usable.
 - No JavaScript-only success path.
+- Cross-origin navigation to Buttondown for validation/CAPTCHA is acceptable and expected.
 
 ## Visual treatment
 
@@ -155,22 +185,39 @@ Likely files:
 - `src/sitemap.xml`
 - `public-manifest.json`
 - public route/link/browser contract tests or tooling inputs as required
-- reader information architecture documentation if the route inventory is authoritative there
+- `docs/reader-information-architecture.md` to add `/adaptation/` as a secondary industry route
 
 Do not add client-side frameworks or a bespoke subscription script.
+
+## Publication governance
+
+The adaptation page is a governed public artifact:
+
+- content type: `press` (or another existing explicitly supported industry content type if validation requires it);
+- spoiler tier: `premise`;
+- approval state: `approved` only after the final copy review;
+- rights status: `repository-authored`;
+- provenance class: `public-native`;
+- stable canonical URL: `/adaptation/`;
+- checksum generated for the exact approved bytes.
+
+Every changed approved public artifact must receive a refreshed checksum and pass the repository's negative-regression/publication-boundary checks.
 
 ## Validation
 
 Before completion:
 
 1. Run the repository's full `mise run check` path.
-2. Verify source/publication manifest integrity.
-3. Validate HTML and accessibility semantics for the email form.
-4. Verify `/adaptation/` canonical URL, metadata, links, and sitemap inclusion.
-5. Verify newsletter form action, `name="email"`, hidden fields, and Buttondown source tags.
-6. Run browser smoke tests for desktop/mobile layout and keyboard interaction.
-7. Verify no private canon, private repository coordinates, secrets, or subscriber data are introduced.
-8. Confirm all public adaptation copy remains consistent with the current private series architecture and public rights policy.
+2. Verify source/publication manifest integrity and refreshed checksums for every changed approved artifact.
+3. Validate HTML and accessibility semantics for the email form, including visible label, `required`, `autocomplete="email"`, and keyboard operation.
+4. Verify `/adaptation/` canonical URL, metadata, links, sitemap inclusion, and secondary-navigation treatment.
+5. Verify newsletter form action, `name="email"`, `embed=1`, source tags, POST method, and absence of JavaScript submission interception.
+6. Verify the browser follows Buttondown-hosted validation/CAPTCHA responses correctly rather than treating navigation away as an error.
+7. Run browser smoke tests for desktop/mobile layout and keyboard interaction.
+8. Verify no private canon, private repository coordinates, secrets, or subscriber data are introduced.
+9. Confirm all public adaptation copy remains consistent with the current private series architecture and public rights policy.
+10. Manually verify Buttondown's subscriber-visible display name, description, sender identity, confirmation page, and unsubscribe path before promoting the form site-wide. Do not submit a real test address without an address explicitly intended for testing.
+11. Before the first post-rebrand send, review the email template/footer for sender identification, current contact information, and working unsubscribe behavior.
 
 ## Rollout
 
