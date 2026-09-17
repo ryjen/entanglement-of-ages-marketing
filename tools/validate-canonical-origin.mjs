@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const CANONICAL_ORIGIN = "https://eoa.ryanjennin.gs";
+const CANONICAL_ORIGIN = "https://entanglementofages.com";
 const RETIRED_ORIGIN = "https://fatherless.ryanjennin.gs";
 const TEXT_SUFFIXES = new Set([".html", ".xml", ".md", ".txt", ".json", ".yml", ".yaml"]);
 
