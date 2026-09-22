@@ -37,7 +37,7 @@
 - [ ] Add a test that reads `src/adaptation/index.html` and requires the approved Fatherless hook, all three format-flexible adaptation options, `info@ryanjennin.gs`, a link to `../press/`, and no `Adaptation` primary-nav item.
 - [ ] Add a test that requires Home and News to contain a POST form targeting `https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages`, a visible associated label, an email input named `email` with `required` and `autocomplete="email"`, and hidden `embed=1`.
 - [ ] In the same newsletter contract, read Home, News, and Press and assert that `buttondown.com/thefatherless` is absent.
-- [ ] Add a contextual-routing test requiring Home → `adaptation/`, Press → `../adaptation/`, and sitemap inclusion of `https://eoa.ryanjennin.gs/adaptation/`.
+- [ ] Add a contextual-routing test requiring Home → `adaptation/`, Press → `../adaptation/`, and sitemap inclusion of `https://entanglementofages.com/adaptation/`.
 - [ ] Commit only `tests/ux.test.mjs`, open a draft PR, and verify CI is RED because the adaptation page and new newsletter surfaces do not exist yet.
 
 The tests should use the repository's existing `node:test`/`assert` style and real static files rather than mocks.
