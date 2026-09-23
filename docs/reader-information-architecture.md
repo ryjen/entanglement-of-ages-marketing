@@ -21,7 +21,7 @@ Secondary destinations such as press, contact, FAQ, feeds, Great Ages, repositor
 
 `Home → Books → selected book → Characters / World → approved excerpt or update`
 
-The reader journey should establish what the trilogy is, where each volume sits, and what public material is available without requiring development knowledge or revealing later-book resolutions.
+The reader journey should establish what the four-book series is, where each volume sits, and what public material is available without requiring development knowledge or revealing later-book resolutions.
 
 ### Industry and press
 
@@ -73,11 +73,11 @@ The three books must be distinct but coherent in public presentation:
 - **The Fatherless:** present the approved core premise, public setting/context, and reader-facing conflict. Do not expose endings, hidden thematic machinery, or private canon notes.
 - **Sequel:** introduce only approved future context and initiating premise. Do not reveal cross-book resolutions, hidden correspondences, or private system architecture.
 
-Cross-book links may say that the works form a trilogy and may identify chronological order. Shared thematic arcs may be presented only as explicitly approved public questions or premise-level tensions under the thematic-arc contract below. Causal explanations, hidden correspondences, or resolutions remain private.
+Cross-book links may say that the works form a four-book series and may identify chronological order. Shared thematic arcs may be presented only as explicitly approved public questions or premise-level tensions under the thematic-arc contract below. Causal explanations, hidden correspondences, or resolutions remain private.
 
 ## Public thematic arcs
 
-The public site may expose recurring thematic arcs when doing so helps readers understand what the trilogy examines without explaining how the stories work.
+The public site may expose recurring thematic arcs when doing so helps readers understand what the series examines without explaining how the stories work.
 
 Approved arc presentation should stay at the level of:
 
