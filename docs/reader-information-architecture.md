@@ -65,13 +65,14 @@ Repository implementation details must never be required to understand the books
 
 The prequel and sequel route names are structural labels until an approved public title exists. A later approved title may change visible labels without changing the stable route unless there is a deliberate redirect migration.
 
-## Trilogy presentation contract
+## Four-book presentation contract
 
-The three books must be distinct but coherent in public presentation:
+The four works must be distinct but coherent in public presentation:
 
-- **Prequel:** introduce only its approved era, premise, and immediate story question. Do not explain how it resolves or privately connects symbolic architecture to later books.
-- **The Fatherless:** present the approved core premise, public setting/context, and reader-facing conflict. Do not expose endings, hidden thematic machinery, or private canon notes.
-- **Sequel:** introduce only approved future context and initiating premise. Do not reveal cross-book resolutions, hidden correspondences, or private system architecture.
+- **The Fatherless — first novel:** present the approved core premise, public setting/context, and reader-facing conflict. Do not expose endings, hidden thematic machinery, or private canon notes.
+- **Neurion — second novel:** introduce only approved future context and initiating premise. Do not reveal cross-book resolutions, hidden correspondences, or private system architecture.
+- **Age of Embers — prequel:** introduce only its approved era, premise, and immediate story question. Do not explain how it resolves or privately connects symbolic architecture to later books.
+- **The Age of Forms — fourth novel:** use only its approved public premise and presentation direction; do not expose private character trajectories, later-book resolutions, or hidden connections.
 
 Cross-book links may say that the works form a four-book series and may identify chronological order. Shared thematic arcs may be presented only as explicitly approved public questions or premise-level tensions under the thematic-arc contract below. Causal explanations, hidden correspondences, or resolutions remain private.
 
