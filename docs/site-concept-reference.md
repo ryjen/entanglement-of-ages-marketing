@@ -11,9 +11,9 @@ Use the concept primarily as a composition and hierarchy target:
 - a cinematic, full-width opening hero with the title immediately dominant;
 - restrained navigation integrated into the dark atmospheric header rather than a dashboard-like masthead;
 - a small eyebrow/tagline above the title and only one or two primary calls to action;
-- a clear three-title trilogy section directly below the hero;
+- a clear four-title series section directly below the hero;
 - large visual book/era panels that make the prequel, original, and sequel understandable at a glance;
-- concise copy inside the era panels rather than long explanatory blocks before the reader sees the trilogy;
+- concise copy inside the era panels rather than long explanatory blocks before the reader sees the series;
 - a lower thematic section that connects the three stories around one recurring moral question;
 - thin borders, controlled glow, deep near-black surfaces, generous negative space, and cinematic image crops;
 - imagery that communicates environment, power, scale, and social relationships rather than religious iconography.
