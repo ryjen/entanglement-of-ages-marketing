@@ -1,6 +1,6 @@
 # Reader information architecture
 
-This document defines the public site structure without importing private canon or unpublished story material. It describes routes, reader journeys, and content slots only. Story copy enters this repository through the controlled public-release process.
+This document records the public information-architecture target without importing private canon or unpublished story material. It describes routes, reader journeys, and content slots only. Where a proposed destination or navigation pattern differs from the currently published site, deployable `src/` and the public manifest take precedence; this document does not authorize publishing an unimplemented route or private story copy. Story copy enters this repository through the controlled public-release process.
 
 ## Primary navigation
 
@@ -46,9 +46,10 @@ Repository implementation details must never be required to understand the books
 ```text
 /
 /books/
-/books/prequel/
 /books/the-fatherless/
-/books/sequel/
+/books/neurion/
+/books/age-of-embers/
+/books/age-of-forms/
 /characters/
 /characters/{public-slug}/
 /world/
@@ -63,7 +64,7 @@ Repository implementation details must never be required to understand the books
 /contact/
 ```
 
-The prequel and sequel route names are structural labels until an approved public title exists. A later approved title may change visible labels without changing the stable route unless there is a deliberate redirect migration.
+The four title-based book URLs above are the current approved canonical routes. Older `/books/prequel/` and `/books/sequel/` paths, where retained, are compatibility routes rather than the canonical destination for new links or metadata. Reader order is The Fatherless → Neurion → Age of Embers (prequel) → The Age of Forms; chronological order is distinct.
 
 ## Four-book presentation contract
 
