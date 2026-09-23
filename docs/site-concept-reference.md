@@ -12,9 +12,9 @@ Use the concept primarily as a composition and hierarchy target:
 - restrained navigation integrated into the dark atmospheric header rather than a dashboard-like masthead;
 - a small eyebrow/tagline above the title and only one or two primary calls to action;
 - a clear four-title series section directly below the hero;
-- large visual book/era panels that make the prequel, original, and sequel understandable at a glance;
+- large visual book/era panels that make the first novel, second novel, prequel, and fourth novel understandable at a glance;
 - concise copy inside the era panels rather than long explanatory blocks before the reader sees the series;
-- a lower thematic section that connects the three stories around one recurring moral question;
+- a lower thematic section that connects the four stories around one recurring moral question;
 - thin borders, controlled glow, deep near-black surfaces, generous negative space, and cinematic image crops;
 - imagery that communicates environment, power, scale, and social relationships rather than religious iconography.
 
@@ -27,7 +27,7 @@ In particular:
 - the established era palettes remain authoritative: glacial/sky-fire for the prequel, graphite/oxidized-teal for the original, and indigo/signal-cyan for the sequel;
 - avoid drifting back toward a brown, parchment, gold-dominant historical treatment;
 - the original must remain a prestige political-drama aesthetic rather than a Biblical-film poster;
-- the three era panels should use the approved public-safe imagery and copy already governed by the public manifest;
+- the four book/era panels in the current site should use the approved public-safe imagery and copy already governed by the public manifest; the older concept image remains illustrative rather than a requirement for a three-panel layout;
 - any new iconography or thematic labels require the same public-content/spoiler review as other marketing material.
 
 ## Reference status
