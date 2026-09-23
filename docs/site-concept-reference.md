@@ -24,7 +24,7 @@ Do **not** treat the mockup's exact words, symbols, colors, character silhouette
 
 In particular:
 
-- the established era palettes remain authoritative: glacial/sky-fire for the prequel, graphite/oxidized-teal for the original, and indigo/signal-cyan for the sequel;
+- the established era palettes remain authoritative: glacial/sky-fire for Age of Embers, graphite/oxidized-teal for The Fatherless, and indigo/signal-cyan for Neurion; the fourth novel's public palette is not yet locked, so use its current approved visual-direction contract rather than inventing a fourth palette;
 - avoid drifting back toward a brown, parchment, gold-dominant historical treatment;
 - the original must remain a prestige political-drama aesthetic rather than a Biblical-film poster;
 - the four book/era panels in the current site should use the approved public-safe imagery and copy already governed by the public manifest; the older concept image remains illustrative rather than a requirement for a three-panel layout;
