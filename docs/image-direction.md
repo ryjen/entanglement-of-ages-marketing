@@ -59,7 +59,7 @@ Triptych/quadrant poster layout, religious iconography, a central saviour silhou
 
 `Four eras transition from an icy migration landscape, through monumental civic architecture and a networked city, into a later society living among inherited advanced systems.`
 
-## Book I — *Age of Embers*
+## *Age of Embers* — prequel
 
 **Asset key:** `age-of-embers-hero`
 
@@ -85,7 +85,7 @@ Heroic caveman close-up, fur-bikini stereotype, shaman circle, dominant campfire
 
 `A small migrating group crosses a glacial valley beneath a low sun and red aurora, carrying a protected ember through the cold.`
 
-## Book II — *The Fatherless*
+## *The Fatherless* — first novel
 
 **Asset key:** `fatherless-original-hero`
 
@@ -111,7 +111,7 @@ Jesus-like central male figure, halo/sunburst, mother-and-child devotional pose,
 
 `People gather beneath massive civic architecture while a small vulnerable group stands at the edge of the Republic's ordered public space.`
 
-## Book III — *Neurion*
+## *Neurion* — second novel
 
 **Asset key:** `neurion-hero`
 
@@ -137,7 +137,7 @@ Glowing robot face, chrome humanoid hero, Matrix code rain, neon cyberpunk alley
 
 `Humans and synthetic persons move through a partially dark future civic district lit by many independent signals during an infrastructure disruption.`
 
-## Book IV — *The Age of Forms*
+## *The Age of Forms* — fourth novel
 
 **Asset key:** `age-of-forms-hero`
 
