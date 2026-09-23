@@ -7,18 +7,16 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => readFile(path.join(root, relative), 'utf8');
 
-test('homepage uses consolidated narrative layout layers', async () => {
-  const [html, homeCss, arcCss, baseCss] = await Promise.all([
-    read('src/index.html'), read('src/styles/home.v2.css'), read('src/styles/arcs.v1.css'), read('src/styles/base.v1.css'),
-  ]);
-  assert.match(html, /styles\/home\.v2\.css/);
-  assert.match(html, /styles\/arcs\.v1\.css/);
-  assert.doesNotMatch(html, /home-polish|layout-polish|narrative\.v1/);
-  assert.match(html, /<h1 id="hero-title"><span class="title-lock">Entanglement<\/span><span class="title-lock">of Ages<\/span><\/h1>/);
-  assert.match(baseCss, /\.title-lock\{white-space:nowrap\}/);
-  assert.match(homeCss, /\.home-hero__panel h1\{display:flex;flex-wrap:wrap;justify-content:center/);
-  assert.match(arcCss, /\.arc-score/);
-  assert.match(arcCss, /\.story-sword-note/);
+test('redesigned homepage uses independently published static styles and canonical source media', async () => {
+  const [html, css] = await Promise.all([read('src/index.html'), read('src/styles/sites-home.v1.css')]);
+  assert.match(html, /styles\/sites-home\.v1\.css/);
+  assert.match(html, /<h1 id="hero-title">Entanglement<br>of <em>Ages\.<\/em><\/h1>/);
+  assert.match(html, /href="https:\/\/entanglementofages\.com\/"/);
+  assert.match(html, /href="books\/the-fatherless\/"/);
+  assert.match(html, /media\/covers\/the-fatherless-cover\.webp/);
+  assert.match(css, /\.hero-art::after/);
+  assert.match(css, /@media\(max-width:640px\)/);
+  assert.doesNotMatch(html, /chatgpt\.site|home-polish|layout-polish/);
 });
 
 test('About uses the shared title lock without a separate polish layer', async () => {
