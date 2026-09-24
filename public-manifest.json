@@ -572,6 +572,21 @@
       "canonical_url": "/books/age-of-forms/",
       "checksum_sha256": "998692552664035ce65dfda245f5cc92b57817239d3e9b24db2b5cbc3c704d96",
       "replacement_status": "current"
+    },
+    {
+      "id": "staging-experience-prototype",
+      "path": "staging/experience/index.html",
+      "title": "Immersive universe prototype",
+      "summary": "Exploratory four-age navigation concept, held for private editorial and accessibility review; never deployed from staging.",
+      "content_type": "page",
+      "spoiler_tier": "premise",
+      "approval_state": "candidate",
+      "rights_status": "repository-authored",
+      "provenance_class": "public-native",
+      "publication_date": null,
+      "canonical_url": null,
+      "checksum_sha256": null,
+      "replacement_status": "current"
     }
   ]
 }
