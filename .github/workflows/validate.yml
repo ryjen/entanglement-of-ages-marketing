@@ -77,7 +77,7 @@ jobs:
           node tools/site.mjs origin "$SITE_URL"
           node tools/site.mjs cloudflare "$SITE_URL"
       - name: Record Cloudflare probe result
-        if: steps.pages-state.outputs.custom_domain != '' && always()
+        if: steps.pages-state.outputs.custom_domain != '' && steps.deployment.outcome == 'success' && always()
         env:
           EDGE_OUTCOME: ${{ steps.edge-probe.outcome }}
           SITE_URL: https://${{ steps.pages-state.outputs.custom_domain }}/
