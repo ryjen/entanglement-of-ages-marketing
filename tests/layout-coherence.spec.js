@@ -9,49 +9,24 @@ async function boxCenterX(locator) {
   return box.x + box.width / 2;
 }
 
-test('mobile homepage centers Entanglement as its own wrapped title line', async ({ page }) => {
+test('mobile Sites-derived hero remains legible without horizontal overflow', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(siteUrl(''), { waitUntil: 'networkidle' });
-
-  const title = page.locator('#hero-title');
-  const words = title.locator('.title-lock');
-  await expect(words).toHaveCount(2);
-
-  const first = await words.nth(0).boundingBox();
-  const second = await words.nth(1).boundingBox();
-  expect(first).not.toBeNull();
-  expect(second).not.toBeNull();
-  expect(second.y).toBeGreaterThan(first.y + 1);
-
-  const titleCenter = await boxCenterX(title);
-  const wordCenter = first.x + first.width / 2;
-  expect(Math.abs(wordCenter - titleCenter)).toBeLessThanOrEqual(1);
-
-  const rectCount = await words.nth(0).evaluate(element => element.getClientRects().length);
-  expect(rectCount).toBe(1);
+  await expect(page.locator('#hero-title')).toContainText('Entanglement');
+  await expect(page.locator('.hero-art img')).toBeVisible();
+  await expect(page.locator('#books')).toBeVisible();
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
 });
 
-test('homepage editorial and release frames are centered while copy stays left aligned', async ({ page }) => {
+test('homepage keeps the Sites editorial rhythm and usable community and newsletter actions', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(siteUrl(''), { waitUntil: 'networkidle' });
-
-  const blocks = page.locator('.home-copy-block');
-  await expect(blocks).toHaveCount(2);
-  for (let index = 0; index < 2; index += 1) {
-    const block = blocks.nth(index);
-    const center = await boxCenterX(block);
-    expect(Math.abs(center - 720)).toBeLessThanOrEqual(1);
-    const style = await block.evaluate(element => getComputedStyle(element).textAlign);
-    expect(style).toBe('left');
-    const justify = await block.locator('.actions').evaluate(element => getComputedStyle(element).justifyContent);
-    expect(justify).toBe('flex-start');
-  }
-
-  const cardAlignment = await page.locator('.trilogy-question-grid article').first().evaluate(element => ({
-    textAlign: getComputedStyle(element).textAlign,
-    justifyItems: getComputedStyle(element).justifyItems,
-  }));
-  expect(cardAlignment).toEqual({ textAlign: 'left', justifyItems: 'start' });
+  await expect(page.locator('.book-grid article')).toHaveCount(4);
+  await expect(page.locator('.thread-list article')).toHaveCount(3);
+  await expect(page.locator('.timeline li')).toHaveCount(4);
+  await expect(page.locator('a.community-link').first()).toHaveAttribute('href', /github\.com\/ryjen\/entanglement-of-ages-marketing\/discussions/);
+  await expect(page.locator('form[action*="embed-subscribe/entanglement-of-ages"] input[type=email]')).toHaveCount(1);
 });
 
 test('About keeps Entanglement intact at mobile width and 200% text sizing', async ({ page }) => {

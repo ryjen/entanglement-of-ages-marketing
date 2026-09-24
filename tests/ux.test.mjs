@@ -34,33 +34,31 @@ const trilogyOverviewPages = [
 ];
 const primaryNavLabels = ['The books', 'Entanglement', 'The ages', 'Editions', 'Contribute', 'News'];
 
-test('homepage keeps a focused story-first journey', async () => {
+test('homepage carries the published Sites journey without dropping editorial and community routes', async () => {
   const html = await read('src/index.html');
-  const heroStart = html.indexOf('<section class="hero hero--trilogy');
-  const heroEnd = html.indexOf('</section>', heroStart);
-  assert.ok(heroStart >= 0 && heroEnd > heroStart, 'homepage hero must exist');
-  const hero = html.slice(heroStart, heroEnd);
-  const heroActions = [...hero.matchAll(/<a class="button(?: button--quiet)?"[^>]*>([^<]+)<\/a>/g)].map(match => match[1].trim());
-  assert.deepEqual(heroActions, ['Enter the cycle', 'See what connects the ages']);
-
-  const stages = [
-    html.search(/class="[^"]*\bbeta-status\b[^"]*"/),
-    html.indexOf('id="books"'), html.indexOf('id="entanglement"'), html.indexOf('id="ages"'),
-    html.indexOf('id="evolution-title"'), html.indexOf('id="editions"'), html.indexOf('id="contribute"'),
-  ];
-  assert.ok(stages.every(index => index >= 0), 'all narrative journey stages must exist');
-  assert.deepEqual([...stages].sort((a,b) => a-b), stages, 'narrative stages should appear in intentional order');
-  assert.match(html, /styles\/home\.v2\.css/);
-  assert.match(html, /styles\/arcs\.v1\.css/);
-  assert.doesNotMatch(html, /home-polish|layout-polish|narrative\.v1/);
+  const css = await read('src/styles/sites-home.v1.css');
+  assert.match(html, /class="hero hero--media"/);
+  assert.match(html, /id="hero-title"/);
+  assert.match(html, /media\/heroes\/fatherless-original-hero\.webp/);
+  assert.match(html, /styles\/sites-home\.v1\.css/);
+  assert.match(css, /\.hero-art::after/);
+  const stages = ['class="development"', 'id="books"', 'id="threads"', 'id="ages"',
+    'id="evolution-title"', 'id="editions"', 'id="contribute"'].map(marker => html.indexOf(marker));
+  assert.ok(stages.every(index => index >= 0), 'all narrative and community stages must exist');
+  assert.deepEqual([...stages].sort((a, b) => a - b), stages, 'sections remain in reading order');
+  assert.match(html, /github\.com\/ryjen\/entanglement-of-ages-marketing\/discussions/);
+  assert.match(html, /href="adaptation\/"/);
+  assert.match(html, /href="world\/"/);
+  assert.doesNotMatch(html, /chatgpt\.site|https:\/\/eoa\.ryanjennin\.gs/);
 });
 
-test('homepage arc treatment stays readable and avoids the retired question-card layer', async () => {
-  const [html, css] = await Promise.all([read('src/index.html'), read('src/styles/arcs.v1.css')]);
-  assert.match(html, /class="arc-score"/);
-  assert.match(html, /class="story-sword-note"/);
-  assert.doesNotMatch(html, /trilogy-question-grid/);
-  assert.match(css, /@media\(max-width:52rem\)/, 'narrative layout should include a compact mobile treatment');
+test('homepage presents cross-age threads as editorial narrative, not a redundant matrix', async () => {
+  const [html, css] = await Promise.all([read('src/index.html'), read('src/styles/sites-home.v1.css')]);
+  assert.match(html, /class="thread-list"/);
+  assert.match(html, /class="thread-detail"/);
+  assert.match(html, /class="thread-ages"/);
+  assert.doesNotMatch(html, /arc-score|trilogy-question-grid/);
+  assert.match(css, /@media\(max-width:640px\)/);
 });
 
 test('homepage exposes horror and ordinary miracle as a cross-cutting Story Sword', async () => {
@@ -89,19 +87,16 @@ test('book pages keep the cross-cutting arc narrative-first rather than duplicat
   }
 });
 
-test('Great Age is a primary paired recurrence arc with canonical public dates', async () => {
+test('Great Age retains both paired recurrences and the canonical public dates', async () => {
   const html = await read('src/index.html');
   assert.match(html, /id="great-age-title"/);
-  assert.match(html, /class="evolution-line great-age-line"/);
-  assert.match(html, /c\. 25,000 BCE/);
-  assert.match(html, /c\. 1 CE/);
-  assert.match(html, /2150 CE/);
-  assert.match(html, /c\. 28,000 CE/);
-  assert.match(html, /Age of Embers[\s\S]{0,500}Aries → Pisces/);
-  assert.match(html, /The Fatherless[\s\S]{0,500}Aries → Pisces/);
-  assert.match(html, /Neurion[\s\S]{0,500}Pisces → Aquarius/);
-  assert.match(html, /The Age of Forms[\s\S]{0,700}Pisces → Aquarius/);
-  assert.match(html, /one complete twelve-sign cycle[\s\S]{0,700}post-Neurion/i);
+  assert.match(html, /class="timeline"/);
+  for (const marker of ['c. 25,000 BCE', 'c. 1 CE', '2150 CE', 'c. 28,000 CE']) assert.ok(html.includes(marker), marker);
+  assert.match(html, /Age of Embers[\s\S]{0,250}Aries → Pisces/);
+  assert.match(html, /The Fatherless[\s\S]{0,250}Aries → Pisces/);
+  assert.match(html, /Neurion[\s\S]{0,250}Pisces → Aquarius/);
+  assert.match(html, /The Age of Forms[\s\S]{0,250}Pisces → Aquarius/);
+  assert.match(html, /one complete twelve-sign cycle[\s\S]{0,350}post-Neurion/i);
 });
 
 test('public canon keeps the solar flare unique to Age of Embers', async () => {
@@ -152,7 +147,7 @@ test('book pages and overview carry the sharpened horror-miracle summaries', asy
   assert.match(forms, /smaller miracle may be enough/i);
 
   assert.match(home, /healthy, ordinary child/);
-  assert.match(home, /consciousness brings both personhood and fear/);
+  assert.match(home, /consciousness brings both personhood and fear/i);
   assert.match(books, /catastrophe becomes durable memory/i);
   assert.match(books, /recognize the horror before catastrophe/);
 });
@@ -211,11 +206,11 @@ test('industry and discovery surfaces link contextually to adaptation', async ()
   assert.match(sitemap, /https:\/\/entanglementofages\.com\/adaptation\//);
 });
 
-test('homepage print treatment remains legible after CSS consolidation', async () => {
-  const css = await read('src/styles/arcs.v1.css');
-  assert.match(css, /@media print\{[\s\S]*\.home-page \*\{color:#000!important;text-shadow:none!important\}/);
-  assert.match(css, /\.home-page \.hero__media,\.era-card__media,\.era-card::after\{display:none\}/);
-  assert.match(css, /\.era-card__copy\{position:static\}/);
+test('Sites-derived homepage includes explicit readable print output', async () => {
+  const css = await read('src/styles/sites-home.v1.css');
+  assert.match(css, /@media print\{/);
+  assert.match(css, /\.hero-art,\.cover span,\.header-actions\{display:none!important\}/);
+  assert.match(css, /html,body\{color:#111!important;background:#fff!important\}/);
 });
 
 test('news index identifies News as the current primary destination', async () => {
@@ -229,7 +224,7 @@ test('all public HTML surfaces share the narrative primary navigation contract',
     const nav = html.match(/<nav class="primary-nav"[^>]*>([\s\S]*?)<\/nav>/);
     assert.ok(nav, `${pagePath} must contain the primary navigation`);
     const labels = [...nav[1].matchAll(/<a\b[^>]*>([^<]+)<\/a>/g)].map(match => match[1].trim());
-    assert.deepEqual(labels, primaryNavLabels, `${pagePath} should use the narrative nav order and labels`);
+    assert.deepEqual(labels, pagePath === 'src/index.html' ? ['The Novels', 'The Threads', 'The Great Age', 'Editions', 'News'] : primaryNavLabels, `${pagePath} should use the narrative nav order and labels`);
     assert.doesNotMatch(nav[1], />Books</);
     assert.doesNotMatch(nav[1], />World</);
     assert.doesNotMatch(nav[1], /#trilogy/);

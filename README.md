@@ -4,12 +4,14 @@ Public, reader-facing repository for the **Entanglement of Ages** book series.
 
 Canonical repository: `ryjen/entanglement-of-ages-marketing`.
 
-The public series currently covers:
+The public reader/discovery order is:
 
-1. **Book I — The Fatherless: Age of Embers**
-2. **Book II — The Fatherless**
-3. **Book III — The Fatherless II: Neurion**
-4. **Book IV — The Age of Forms**
+1. **The Fatherless** — first novel
+2. **Neurion** — second novel
+3. **Age of Embers** — prequel
+4. **The Age of Forms** — fourth novel
+
+This is reader order, not chronological order; the [public reading guide](src/books/index.html) distinguishes the two.
 
 This repository contains only material intentionally approved for public release. Canonical manuscripts, drafts, story foundations, editorial notes, private publishing records, and unreleased creative assets do not belong here.
 
