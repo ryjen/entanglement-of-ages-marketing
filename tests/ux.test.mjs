@@ -66,7 +66,7 @@ test('homepage exposes horror and ordinary miracle as a cross-cutting Story Swor
   assert.match(html, /The horror is when the form becomes authority[\s\S]{0,160}life exceeds it/i);
   assert.match(html, /ordinary miracle is not supernatural proof/i);
   assert.match(html, /Age of Embers[\s\S]{0,300}Memory becomes authority[\s\S]{0,120}life outlives the claim/);
-  assert.match(html, /The Fatherless[\\s\\S]{0,300}Consent is stolen[\\s\\S]{0,120}a child is simply alive/);
+  assert.match(html, /The Fatherless[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
   assert.match(html, /Neurion[\s\S]{0,300}A person is classified[\s\S]{0,120}selfhood precedes usefulness/);
   assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
 });
