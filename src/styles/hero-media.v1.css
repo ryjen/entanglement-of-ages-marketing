@@ -32,46 +32,46 @@
     linear-gradient(to top, rgb(5 9 14 / 0.92), rgb(5 9 14 / 0.08) 72%);
 }
 
-body[data-theme='prequel'] .hero--media::before {
+body[data-theme='age-of-embers'] .hero--media::before {
   background:
     linear-gradient(90deg, rgb(7 16 24 / 0.78), rgb(7 16 24 / 0.2) 58%, rgb(7 16 24 / 0.08)),
     linear-gradient(to bottom, rgb(7 16 24 / 0.04), rgb(7 16 24 / 0.2));
 }
 
-body[data-theme='prequel'] .hero--media::after {
+body[data-theme='age-of-embers'] .hero--media::after {
   background: linear-gradient(to top, rgb(7 16 24 / 0.94), rgb(7 16 24 / 0.04) 72%);
 }
 
-body[data-theme='original'] .hero--media::before {
+body[data-theme='the-fatherless'] .hero--media::before {
   background:
     linear-gradient(90deg, rgb(9 13 18 / 0.8), rgb(9 13 18 / 0.22) 58%, rgb(9 13 18 / 0.08)),
     linear-gradient(to bottom, rgb(9 13 18 / 0.04), rgb(9 13 18 / 0.22));
 }
 
-body[data-theme='original'] .hero--media::after {
+body[data-theme='the-fatherless'] .hero--media::after {
   background: linear-gradient(to top, rgb(9 13 18 / 0.94), rgb(9 13 18 / 0.06) 72%);
 }
 
-body[data-theme='sequel'] .hero--media::before {
+body[data-theme='neurion'] .hero--media::before {
   background:
     linear-gradient(90deg, rgb(5 9 19 / 0.78), rgb(5 9 19 / 0.2) 58%, rgb(5 9 19 / 0.06)),
     linear-gradient(to bottom, rgb(5 9 19 / 0.04), rgb(5 9 19 / 0.2));
 }
 
-body[data-theme='sequel'] .hero--media::after {
+body[data-theme='neurion'] .hero--media::after {
   background: linear-gradient(to top, rgb(5 9 19 / 0.94), rgb(5 9 19 / 0.04) 72%);
 }
 
 @media (max-width: 48rem) {
-  body[data-theme='prequel'] .hero--media .hero__media img {
+  body[data-theme='age-of-embers'] .hero--media .hero__media img {
     object-position: 40% center;
   }
 
-  body[data-theme='original'] .hero--media .hero__media img {
+  body[data-theme='the-fatherless'] .hero--media .hero__media img {
     object-position: 20% center;
   }
 
-  body[data-theme='sequel'] .hero--media .hero__media img {
+  body[data-theme='neurion'] .hero--media .hero__media img {
     object-position: 58% center;
   }
 

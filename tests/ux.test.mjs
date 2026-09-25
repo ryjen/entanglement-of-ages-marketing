@@ -10,10 +10,8 @@ const read = relative => readFile(path.join(root, relative), 'utf8');
 const publicHtmlPages = [
   'src/index.html',
   'src/books/index.html',
-  'src/books/prequel/index.html',
   'src/books/age-of-embers/index.html',
   'src/books/the-fatherless/index.html',
-  'src/books/sequel/index.html',
   'src/books/neurion/index.html',
   'src/books/age-of-forms/index.html',
   'src/world/index.html',
@@ -39,7 +37,7 @@ test('homepage carries the published Sites journey without dropping editorial an
   const css = await read('src/styles/sites-home.v1.css');
   assert.match(html, /class="hero hero--media"/);
   assert.match(html, /id="hero-title"/);
-  assert.match(html, /media\/heroes\/fatherless-original-hero\.webp/);
+  assert.match(html, /media\/heroes\/the-fatherless-hero\.webp/);
   assert.match(html, /styles\/sites-home\.v1\.css/);
   assert.match(css, /\.hero-art::after/);
   const stages = ['class="development"', 'id="books"', 'id="threads"', 'id="ages"',
@@ -68,7 +66,7 @@ test('homepage exposes horror and ordinary miracle as a cross-cutting Story Swor
   assert.match(html, /The horror is when the form becomes authority[\s\S]{0,160}life exceeds it/i);
   assert.match(html, /ordinary miracle is not supernatural proof/i);
   assert.match(html, /Age of Embers[\s\S]{0,300}Memory becomes authority[\s\S]{0,120}life outlives the claim/);
-  assert.match(html, /The Fatherless · Source expression[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
+  assert.match(html, /The Fatherless[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
   assert.match(html, /Neurion[\s\S]{0,300}A person is classified[\s\S]{0,120}selfhood precedes usefulness/);
   assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
 });
@@ -76,11 +74,9 @@ test('homepage exposes horror and ordinary miracle as a cross-cutting Story Swor
 test('book pages keep the cross-cutting arc narrative-first rather than duplicating it in panels', async () => {
   for (const pagePath of [
     'src/books/age-of-embers/index.html',
-    'src/books/prequel/index.html',
-    'src/books/the-fatherless/index.html',
+      'src/books/the-fatherless/index.html',
     'src/books/neurion/index.html',
-    'src/books/sequel/index.html',
-    'src/books/age-of-forms/index.html',
+      'src/books/age-of-forms/index.html',
   ]) {
     const html = await read(pagePath);
     assert.doesNotMatch(html, /<article class="panel"><h3>Horror \/ ordinary miracle/);
@@ -239,9 +235,9 @@ test('series-level overview pages use the shared four-age hero treatment', async
     const html = await read(pagePath);
     assert.match(html, /styles\/trilogy-pages\.v1\.css/, `${pagePath} should load the trilogy overview stylesheet`);
     assert.match(html, /class="hero trilogy-page-hero"/, `${pagePath} should use the trilogy hero`);
-    assert.match(html, /age-of-embers-hero\.webp/, `${pagePath} should include prequel artwork`);
-    assert.match(html, /fatherless-original-hero\.webp/, `${pagePath} should include original artwork`);
-    assert.match(html, /neurion-hero\.webp/, `${pagePath} should include sequel artwork`);
+    assert.match(html, /age-of-embers-hero\.webp/, `${pagePath} should include Age of Embers artwork`);
+    assert.match(html, /the-fatherless-hero\.webp/, `${pagePath} should include The Fatherless artwork`);
+    assert.match(html, /neurion-hero\.webp/, `${pagePath} should include Neurion artwork`);
     assert.match(html, /age-of-forms-hero\.webp/, `${pagePath} should include Book IV artwork`);
   }
 });

@@ -56,8 +56,6 @@ const expectedCanonicals = new Map([
   ["src/books/the-fatherless/index.html", `${CANONICAL_ORIGIN}/books/the-fatherless/`],
   ["src/books/neurion/index.html", `${CANONICAL_ORIGIN}/books/neurion/`],
   ["src/books/age-of-forms/index.html", `${CANONICAL_ORIGIN}/books/age-of-forms/`],
-  ["src/books/prequel/index.html", `${CANONICAL_ORIGIN}/books/age-of-embers/`],
-  ["src/books/sequel/index.html", `${CANONICAL_ORIGIN}/books/neurion/`],
 ]);
 
 for (const [file, expected] of expectedCanonicals) {
@@ -77,7 +75,6 @@ if (fs.existsSync(sitemapPath)) {
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   for (const url of urls) {
     if (!url.startsWith(`${CANONICAL_ORIGIN}/`)) fail(errors, `src/sitemap.xml: non-canonical origin ${url}`);
-    if (/\/books\/(?:prequel|original|sequel)\//.test(url)) fail(errors, `src/sitemap.xml: legacy book route must not be canonical: ${url}`);
   }
 }
 

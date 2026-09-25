@@ -9,7 +9,7 @@ The shared structural layer lives in `src/styles/base.v1.css`. Era-specific them
 - **Age of Embers** — glacial, prehistoric, exposed, and migratory; polar-night surfaces, glacier and meltwater blues, red sky-fire as the primary dramatic accent, and ember orange used only as a secondary carried-light cue;
 - **The Fatherless** — nocturnal, institutional, human, and politically tense; graphite and blue-black surfaces, cold stone text, oxidized teal accents, and restrained muted-wine atmospheric notes;
 - **Neurion** — networked, plural, civic, and distributed; near-black indigo surfaces, signal cyan and blue, restrained violet variation, and limited warning tones for system stress;
-- **The Age of Forms** — inherited, selective, comparative, and socially uneasy; advanced systems survive unevenly into a later civilization where visibility, ranking, reputation, desirability, and selection shape public life. A dedicated public palette is not yet locked; Book IV currently reuses shared/original site tokens as a provisional implementation and should not be treated as visually final.
+- **The Age of Forms** — inherited, selective, comparative, and socially uneasy; advanced systems survive unevenly into a later civilization where visibility, ranking, reputation, desirability, and selection shape public life. A dedicated public palette is not yet locked; Book IV currently reuses shared/The Fatherless site tokens as a provisional implementation and should not be treated as visually final.
 
 The Fatherless must not default to sepia, parchment, brown-gold historical styling, devotional imagery, or familiar Biblical-poster composition. Its public visual tone should read as a contemporary prestige political drama photographed inside an ancient world rather than as religious illustration.
 
@@ -163,7 +163,7 @@ Motion is optional enhancement, never a comprehension dependency. Prefer small o
 
 Public stylesheets use explicit versioned filenames such as `base.v1.css`. Any byte-changing stylesheet release must increment the filename version before deployment when stale CDN/browser caches could mix incompatible HTML and CSS. HTML refers only to versioned public stylesheet paths.
 
-The first era-specific reset after The Fatherless theme split uses `prequel.v2.css` and `sequel.v2.css`; the v1 files are removed from the deployable source rather than rewritten in place. Compatibility filenames may remain until a separate stable-title theme migration is explicitly performed.
+The first era-specific reset after The Fatherless theme split uses `age-of-embers.v2.css` and `neurion.v2.css`; title-based theme filenames are the only deployable era-specific identifiers.
 
 ## Performance budgets
 

@@ -1,12 +1,12 @@
-# Original visual direction — Institutional Eclipse
+# The Fatherless visual direction — Institutional Eclipse
 
-This document defines the public-safe maintenance direction for the original *The Fatherless* visual identity. Canon-sensitive prompts and interpretation remain in the private author repository.
+This document defines the public-safe maintenance direction for *The Fatherless* visual identity. Canon-sensitive prompts and interpretation remain in the private author repository.
 
 Tracked by #64. The base theme reset landed in PR #17.
 
 ## Intent
 
-The original should feel like a **dark civic and institutional drama**, not a sepia historical page and not a devotional/Biblical poster.
+The Fatherless should feel like a **dark civic and institutional drama**, not a sepia historical page and not a devotional/Biblical poster.
 
 The public visual language should emphasize:
 
@@ -31,7 +31,7 @@ Avoid brown, sepia, parchment beige, bronze, amber, or antique gold as dominant 
 
 ## Typography
 
-The original may use the shared body-reading system, but display and interface treatment should read as contemporary editorial/institutional rather than faux-antique.
+The Fatherless may use the shared body-reading system, but display and interface treatment should read as contemporary editorial/institutional rather than faux-antique.
 
 Do not rely on historical-looking display fonts, inscription effects, distressed lettering, or manuscript styling to communicate the era.
 
@@ -59,7 +59,7 @@ Avoid:
 
 ## Hero contract
 
-The homepage/original hero should:
+The homepage/The Fatherless hero should:
 
 1. read as institutional/civic before religious;
 2. preserve a clear text-safe region;
@@ -97,22 +97,22 @@ Every published raster asset must follow the existing media/publication rules:
 
 ## Trilogy separation
 
-This direction applies to the original and original-default public surfaces only.
+This direction applies to The Fatherless and its title-specific public surfaces only.
 
-- **Prequel:** retains its glacial/ember/elemental identity.
-- **Original:** graphite, cold civic stone, oxidized teal, institutional pressure.
-- **Sequel:** retains its luminous/networked future identity.
+- **Age of Embers:** retains its glacial/ember/elemental identity.
+- **The Fatherless:** graphite, cold civic stone, oxidized teal, institutional pressure.
+- **Neurion:** retains its luminous/networked future identity.
 
 Do not make the three eras visually uniform merely to simplify CSS or image grading.
 
 ## Validation
 
-Before accepting an original visual change:
+Before accepting a The Fatherless visual change:
 
 - [ ] no brown/sepia/parchment regression;
 - [ ] no devotional/Biblical-poster shorthand;
 - [ ] no unreadable hero copy at representative crops;
-- [ ] no prequel/sequel palette regression;
+- [ ] no Age of Embers/Neurion palette regression;
 - [ ] alt text describes only visible content;
 - [ ] provenance/manifest metadata is complete;
 - [ ] visual-regression baselines in #62 are refreshed only after the intended design is stable.

@@ -4,9 +4,9 @@ The production hero artwork is project-generated raster imagery created specific
 
 | Asset | Creator class | Rights basis | Metadata | Public use |
 | --- | --- | --- | --- | --- |
-| `age-of-embers-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | prequel hero and trilogy card |
-| `fatherless-original-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | homepage landing hero, original hero, and trilogy card |
-| `neurion-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | sequel hero and trilogy card |
+| `age-of-embers-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | Age of Embers hero and series card |
+| `the-fatherless-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | homepage landing hero, The Fatherless hero, and series card |
+| `neurion-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | Neurion hero and series card |
 | `age-of-forms-hero.webp` | generated | Project-generated original artwork approved for this public release | stripped | Book IV hero and series card |
 
 ## Production decision

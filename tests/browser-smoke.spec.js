@@ -5,9 +5,7 @@ const base = process.env.SITE_BASE_URL || 'http://127.0.0.1:4173/';
 const readerRoutes = [
   '',
   'books/',
-  'books/prequel/',
   'books/the-fatherless/',
-  'books/sequel/',
   'world/',
   'about/',
   'news/',
@@ -18,9 +16,7 @@ const readerRoutes = [
 ];
 const heroRoutes = [
   '',
-  'books/prequel/',
   'books/the-fatherless/',
-  'books/sequel/',
   'world/',
   'about/',
   'news/',
