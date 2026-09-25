@@ -35,7 +35,7 @@ export function identityFindings(file,value=""){
     }
   }
   const structured=[
-    new RegExp(`(?:data-theme|id|path|href|src|canonical_url|artifact_id)[^\\n]{0,80}${FIRST}`,"gi"),
+    new RegExp(`\\b(?:data-theme|id|path|href|src|canonical_url|artifact_id)\\b\\s*[:=]\\s*["\'][^"\']*\\b${FIRST}\\b`,"gi"),
     new RegExp(`(?:^|[/_.-])${FIRST}(?:[/_.-]|$)`,"gim"),
   ];
   for(const re of structured){
