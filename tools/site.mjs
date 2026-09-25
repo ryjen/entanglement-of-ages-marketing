@@ -368,7 +368,9 @@ export function validatePerformance(root = process.cwd()) {
 export function validateHeroMedia(root = process.cwd()) {
   const pages = [
     'src/index.html',
+    'src/books/age-of-embers/index.html',
     'src/books/the-fatherless/index.html',
+    'src/books/neurion/index.html',
     'src/books/age-of-forms/index.html',
   ];
   const combined = pages.map(file => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
