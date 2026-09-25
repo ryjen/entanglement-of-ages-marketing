@@ -8,7 +8,7 @@ The public reader/discovery order is:
 
 1. **The Fatherless** — first novel
 2. **Neurion** — second novel
-3. **Age of Embers** — prequel
+3. **Age of Embers** — third novel
 4. **The Age of Forms** — fourth novel
 
 This is reader order, not chronological order; the [public reading guide](src/books/index.html) distinguishes the two.
@@ -25,20 +25,18 @@ This repository contains only material intentionally approved for public release
 
 ## Stable book routes
 
-Reader-facing routes use title-based identities rather than relative `prequel` / `sequel` terminology:
+Reader-facing routes and implementation identifiers use title-based book identities:
 
 - `/books/age-of-embers/`
 - `/books/the-fatherless/`
 - `/books/neurion/`
 - `/books/age-of-forms/`
 
-Legacy public paths may remain temporarily for compatibility, but new links and metadata should use the stable routes.
+Retired relative-era compatibility routes are not part of the deployable public source.
 
 ## Design reference
 
-The landing-page composition target is preserved in [`docs/site-concept-reference.md`](docs/site-concept-reference.md). The shared visual contract is documented in [`docs/visual-system.md`](docs/visual-system.md). Book II's public-safe **Institutional Eclipse** direction is documented in [`docs/original-visual-direction.md`](docs/original-visual-direction.md).
-
-Some filenames and CSS identifiers still contain `trilogy`, `prequel`, `original`, or `sequel`. During this migration these are implementation compatibility names, not current series terminology. Rename them only as a separate validated tooling/asset migration.
+The landing-page composition target is preserved in [`docs/site-concept-reference.md`](docs/site-concept-reference.md). The shared visual contract is documented in [`docs/visual-system.md`](docs/visual-system.md). Book II's public-safe **Institutional Eclipse** direction is documented in [`docs/the-fatherless-visual-direction.md`](docs/the-fatherless-visual-direction.md).
 
 ## Development
 

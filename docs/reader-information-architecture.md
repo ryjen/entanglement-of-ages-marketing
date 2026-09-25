@@ -64,7 +64,7 @@ Repository implementation details must never be required to understand the books
 /contact/
 ```
 
-The four title-based book URLs above are the current approved canonical routes. Older `/books/prequel/` and `/books/sequel/` paths, where retained, are compatibility routes rather than the canonical destination for new links or metadata. Reader order is The Fatherless → Neurion → Age of Embers (prequel) → The Age of Forms; chronological order is distinct.
+The four title-based book URLs above are the current approved canonical routes. Retired relative-era compatibility paths are not deployable routes. Reader order is The Fatherless → Neurion → Age of Embers → The Age of Forms; chronological order is distinct.
 
 ## Four-book presentation contract
 

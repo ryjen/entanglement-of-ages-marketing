@@ -368,19 +368,17 @@ export function validatePerformance(root = process.cwd()) {
 export function validateHeroMedia(root = process.cwd()) {
   const pages = [
     'src/index.html',
-    'src/books/prequel/index.html',
     'src/books/the-fatherless/index.html',
-    'src/books/sequel/index.html',
     'src/books/age-of-forms/index.html',
   ];
   const combined = pages.map(file => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
   if (combined.includes('-hero.svg')) fail('public pages must not reference retired vector hero assets');
-  for (const name of ['age-of-embers-hero.webp', 'fatherless-original-hero.webp', 'neurion-hero.webp', 'age-of-forms-hero.webp']) {
+  for (const name of ['age-of-embers-hero.webp', 'the-fatherless-hero.webp', 'neurion-hero.webp', 'age-of-forms-hero.webp']) {
     if (!combined.includes(name)) fail(`public pages must reference ${name}`);
     if (!fs.existsSync(path.join(root, 'src', 'media', 'heroes', name))) fail(`missing production hero: ${name}`);
   }
   if (fs.existsSync(path.join(root, 'staging', 'raster-seed'))) fail('retired staging/raster-seed must remain absent');
-  for (const name of ['trilogy-overview-hero.svg', 'age-of-embers-hero.svg', 'fatherless-original-hero.svg', 'neurion-hero.svg']) {
+  for (const name of ['trilogy-overview-hero.svg', 'age-of-embers-hero.svg', 'the-fatherless-hero.svg', 'neurion-hero.svg']) {
     if (fs.existsSync(path.join(root, 'src', 'media', 'heroes', name))) fail(`retired vector hero restored: ${name}`);
   }
 }

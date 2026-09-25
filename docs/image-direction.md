@@ -59,7 +59,7 @@ Triptych/quadrant poster layout, religious iconography, a central saviour silhou
 
 `Four eras transition from an icy migration landscape, through monumental civic architecture and a networked city, into a later society living among inherited advanced systems.`
 
-## *Age of Embers* — prequel
+## *Age of Embers* — third novel
 
 **Asset key:** `age-of-embers-hero`
 
@@ -87,7 +87,7 @@ Heroic caveman close-up, fur-bikini stereotype, shaman circle, dominant campfire
 
 ## *The Fatherless* — first novel
 
-**Asset key:** `fatherless-original-hero`
+**Asset key:** `the-fatherless-hero`
 
 ### Narrative job
 
