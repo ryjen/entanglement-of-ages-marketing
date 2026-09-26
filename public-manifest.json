@@ -527,6 +527,21 @@
       "canonical_url": "/styles/sites-home.v1.css",
       "checksum_sha256": "37da68a061e98dc45170703481f6901c7d40a3e35d2f47437a670307a8d6a005",
       "replacement_status": "current"
+    },
+    {
+      "id": "staging-experience-prototype",
+      "path": "staging/experience/index.html",
+      "title": "Immersive universe prototype",
+      "summary": "Exploratory four-age navigation concept awaiting editorial and accessibility review; not deployable from staging.",
+      "content_type": "page",
+      "spoiler_tier": "premise",
+      "approval_state": "candidate",
+      "rights_status": "repository-authored",
+      "provenance_class": "public-native",
+      "publication_date": null,
+      "canonical_url": null,
+      "checksum_sha256": null,
+      "replacement_status": "current"
     }
   ]
 }
