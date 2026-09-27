@@ -160,7 +160,7 @@ test('press facts expose the same canonical year markers', async () => {
   for (const marker of ['c. 25,000 BCE', 'c. 1 CE', '2150 CE', 'c. 28,000 CE']) {
     assert.match(html, new RegExp(marker.replace('.', '\\.')));
   }
-  assert.doesNotMatch(html, /a later age|Aurelian Republic · 2150/);
+  assert.doesNotMatch(html, /a later age|Aurelian Republic · 2150|centre of the original/i);
 });
 
 test('adaptation page exposes the approved screen-development pitch without joining primary navigation', async () => {
@@ -172,6 +172,8 @@ test('adaptation page exposes the approved screen-development pitch without join
   assert.match(html, /info@ryanjennin\.gs/);
   assert.match(html, /href="\.\.\/press\/"/);
   assert.match(html, /completed working feature screenplay/i);
+  assert.match(html, /The wider property remains in active development/i);
+  assert.equal((html.match(/completed working feature screenplay/gi) ?? []).length, 1, 'screenplay readiness should be stated once, not repeated');
   assert.match(html, /historical political thriller/i);
   assert.match(html, /administrative crime expands into a public argument about personhood/i);
   assert.match(html, /one-page full-story synopsis/i);
@@ -201,13 +203,15 @@ test('newsletter signup posts directly to the Entanglement of Ages Buttondown li
 });
 
 test('industry and discovery surfaces link contextually to adaptation', async () => {
-  const [home, press, sitemap] = await Promise.all([
+  const [home, press, books, sitemap] = await Promise.all([
     read('src/index.html'),
     read('src/press/index.html'),
+    read('src/books/index.html'),
     read('src/sitemap.xml'),
   ]);
   assert.match(home, /href="adaptation\/"/);
   assert.match(press, /href="\.\.\/adaptation\/"/);
+  assert.match(books, /href="\.\.\/adaptation\/"/);
   assert.match(sitemap, /https:\/\/entanglementofages\.com\/adaptation\//);
 });
 
