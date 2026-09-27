@@ -94,6 +94,14 @@ test('Great Age retains both paired recurrences and the canonical public dates',
   assert.match(html, /one complete twelve-sign cycle[\s\S]{0,350}post-Neurion/i);
 });
 
+test('homepage book hooks progress from life through selfhood and knowledge to transcendence', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /The Fatherless[\s\S]{0,700}Turn a child into blame[\s\S]{0,160}Watch life become a saviour/i);
+  assert.match(html, /Neurion[\s\S]{0,700}Build a consciousness[\s\S]{0,160}Watch it claim itself/i);
+  assert.match(html, /Age of Embers[\s\S]{0,700}Fear the heavens[\s\S]{0,160}Learn what survives the fear/i);
+  assert.match(html, /The Age of Forms[\s\S]{0,700}Measure the person[\s\S]{0,180}Discover what exceeds the measure/i);
+});
+
 test('homepage Fatherless and Neurion summaries carry horror, personhood, and sacrifice without disclosing the resolution', async () => {
   const html = await read('src/index.html');
   assert.match(html, /The Fatherless[\s\S]{0,900}family violation[\s\S]{0,400}(salvation|saviour)[\s\S]{0,400}sacrifice/i);
