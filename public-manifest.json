@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "c66124cfe5958d944e298e6a64e65d93ec4ff32ddd0be23b726126c8718a5e9c",
+      "checksum_sha256": "6dc85e444d8b24874262d3243cba48ad4d9cf7cd9eb939f5a1e8a32ca5261345",
       "replacement_status": "current"
     },
     {
@@ -525,7 +525,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/styles/sites-home.v1.css",
-      "checksum_sha256": "37da68a061e98dc45170703481f6901c7d40a3e35d2f47437a670307a8d6a005",
+      "checksum_sha256": "8db8ee354464eb1883cd7c783f87555594d062a743eb331b0b2e93a773189827",
       "replacement_status": "current"
     }
   ]
