@@ -166,8 +166,8 @@ test('book pages and overview carry the sharpened horror-miracle summaries', asy
 
   assert.match(home, /family violation[\s\S]{0,300}salvation, sacrifice, and identity/i);
   assert.match(home, /machine mind awakens[\s\S]{0,300}personhood and control[\s\S]{0,300}sacrifice/i);
-  assert.match(books, /catastrophe becomes durable memory/i);
-  assert.match(books, /recognize the horror before catastrophe/);
+  assert.match(books, /durable knowledge carried across generations/i);
+  assert.match(books, /personhood toward a boundary its categories cannot contain/i);
 });
 
 test('book overview exposes the canonical year marker for every title', async () => {
@@ -175,6 +175,22 @@ test('book overview exposes the canonical year marker for every title', async ()
   for (const marker of ['c. 1 CE', '2150 CE', 'c. 25,000 BCE', 'c. 28,000 CE']) {
     assert.match(html, new RegExp(marker.replace('.', '\\.')));
   }
+});
+
+test('books and press carry the shared reader progression without exposing private resolutions', async () => {
+  const [books, press] = await Promise.all([
+    read('src/books/index.html'),
+    read('src/press/index.html'),
+  ]);
+  assert.match(books, /life, selfhood, knowledge, and transcendence/i);
+  for (const stage of ['life', 'selfhood', 'knowledge', 'transcendence']) {
+    assert.match(books, new RegExp(stage, 'i'));
+    assert.match(press, new RegExp(stage, 'i'));
+  }
+  assert.match(press, /The world changes\. The same pressures survive\./i);
+  assert.match(press, /horror is interpretation becoming authority/i);
+  assert.doesNotMatch(books, /Marek is quietly passed over|healthy, ordinary child|engineered atrocity/i);
+  assert.doesNotMatch(press, /Yasael becomes the opposite|withholding a truth only he knows/i);
 });
 
 test('press facts expose the same canonical year markers', async () => {
