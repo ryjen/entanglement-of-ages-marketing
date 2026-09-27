@@ -50,25 +50,24 @@ test('homepage carries the published Sites journey without dropping editorial an
   assert.doesNotMatch(html, /chatgpt\.site|https:\/\/eoa\.ryanjennin\.gs/);
 });
 
-test('homepage presents cross-age threads as editorial narrative, not a redundant matrix', async () => {
+test('homepage presents what survives the ages as four cross-cutting threads', async () => {
   const [html, css] = await Promise.all([read('src/index.html'), read('src/styles/sites-home.v1.css')]);
-  assert.match(html, /class="thread-list"/);
-  assert.match(html, /class="thread-detail"/);
-  assert.match(html, /class="thread-ages"/);
-  assert.doesNotMatch(html, /arc-score|trilogy-question-grid/);
+  assert.match(html, /02 \/ What survives the ages/);
+  assert.match(html, /The world changes[\s\S]{0,120}same pressures survive/i);
+  for (const thread of ['The horror', 'The ordinary miracle', 'Sacrifice', 'The witness']) {
+    assert.match(html, new RegExp(`<h3>${thread}</h3>`));
+  }
+  assert.doesNotMatch(html, /thread-detail|thread-ages|arc-score|trilogy-question-grid/);
   assert.match(css, /@media\(max-width:640px\)/);
 });
 
-test('homepage exposes horror and ordinary miracle as a cross-cutting Story Sword', async () => {
+test('homepage keeps all four books legible inside the surviving threads without disclosing resolutions', async () => {
   const html = await read('src/index.html');
-  assert.match(html, /id="horror-miracle-title"/);
-  assert.match(html, /Cross-cutting Story Sword/);
-  assert.match(html, /The horror is when the form becomes authority[\s\S]{0,160}life exceeds it/i);
-  assert.match(html, /ordinary miracle is not supernatural proof/i);
-  assert.match(html, /Age of Embers[\s\S]{0,300}Memory becomes authority[\s\S]{0,120}life outlives the claim/);
-  assert.match(html, /The Fatherless[\s\S]{0,300}Consent is stolen[\s\S]{0,120}a child is simply alive/);
-  assert.match(html, /Neurion[\s\S]{0,300}A person is classified[\s\S]{0,120}selfhood precedes usefulness/);
-  assert.match(html, /The Age of Forms[\s\S]{0,300}Identity becomes a prison[\s\S]{0,120}change does not erase the person/);
+  assert.match(html, /survival becomes exclusion[\s\S]{0,180}origin becomes judgment[\s\S]{0,180}intelligence becomes ownership[\s\S]{0,180}measurement becomes identity/i);
+  assert.match(html, /child no origin can define[\s\S]{0,220}created mind that becomes a self[\s\S]{0,260}categories meant to contain them/i);
+  assert.match(html, /Sacrifice[\s\S]{0,360}personhood or freedom[\s\S]{0,260}possession and release/i);
+  assert.match(html, /Habirim[\s\S]{0,260}traditions that follow them[\s\S]{0,320}interpretation as truth/i);
+  assert.match(html, /What gives anyone the right to define another life\?/i);
 });
 
 test('book pages keep the cross-cutting arc narrative-first rather than duplicating it in panels', async () => {
@@ -95,6 +94,23 @@ test('Great Age retains both paired recurrences and the canonical public dates',
   assert.match(html, /one complete twelve-sign cycle[\s\S]{0,350}post-Neurion/i);
 });
 
+test('homepage Fatherless and Neurion summaries carry horror, personhood, and sacrifice without disclosing the resolution', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /The Fatherless[\s\S]{0,900}family violation[\s\S]{0,400}(salvation|saviour)[\s\S]{0,400}sacrifice/i);
+  assert.match(html, /Neurion[\s\S]{0,900}machine mind[\s\S]{0,300}(own|ownership|control)[\s\S]{0,400}sacrifice/i);
+  assert.doesNotMatch(html, /Cassian engineers an atrocity|healthy, ordinary child is born/i);
+});
+
+test('homepage book summaries hint at the Embers and Forms horror-miracle turns without disclosing the reveal', async () => {
+  const html = await read('src/index.html');
+  assert.match(html, /Age of Embers[\s\S]{0,900}solar flare[\s\S]{0,500}watching the heavens/i);
+  assert.match(html, /Age of Embers[\s\S]{0,1000}uncertain knowledge[\s\S]{0,250}generations/i);
+  assert.match(html, /The Age of Forms[\s\S]{0,900}personhood[\s\S]{0,260}boundary no human has crossed before/i);
+  assert.match(html, /The Age of Forms[\s\S]{0,1000}liberation and loss/i);
+  assert.doesNotMatch(html, /roots of astrology|Habirim tradition|first human consciousness|digital form|sacrifices his embodied life/i);
+  assert.doesNotMatch(html, /03\s*\/\s*PREQUEL/i);
+});
+
 test('public canon keeps the solar flare unique to Age of Embers', async () => {
   const [embers, neurion, forms] = await Promise.all([
     read('src/books/age-of-embers/index.html'),
@@ -108,11 +124,10 @@ test('public canon keeps the solar flare unique to Age of Embers', async () => {
   assert.doesNotMatch(forms, /solar flare|flare warning|solar disturbance/i);
 });
 
-test('homepage exposes the Habirim witness Story Sword across all four ages', async () => {
+test('homepage keeps the Habirim tradition durable without depending on a provisional later-age name', async () => {
   const html = await read('src/index.html');
-  assert.match(html, /Habirim|witness/i);
-  assert.match(html, /observe[\s\S]{0,180}preserve[\s\S]{0,180}contradict[\s\S]{0,180}renew/i);
-  assert.match(html, /Frequency Holders/i);
+  assert.match(html, /Habirim[\s\S]{0,260}traditions that follow them[\s\S]{0,300}keeping uncertainty alive/i);
+  assert.doesNotMatch(html, /Frequency Holders/i);
 });
 
 test('Age of Forms public summary leads with concrete human stakes', async () => {
@@ -142,8 +157,8 @@ test('book pages and overview carry the sharpened horror-miracle summaries', asy
   assert.match(forms, /recognize the horror[\s\S]{0,180}while there is still time to change/i);
   assert.match(forms, /smaller miracle may be enough/i);
 
-  assert.match(home, /healthy, ordinary child/);
-  assert.match(home, /consciousness brings both personhood and fear/i);
+  assert.match(home, /family violation[\s\S]{0,300}salvation, sacrifice, and identity/i);
+  assert.match(home, /machine mind awakens[\s\S]{0,300}personhood and control[\s\S]{0,300}sacrifice/i);
   assert.match(books, /catastrophe becomes durable memory/i);
   assert.match(books, /recognize the horror before catastrophe/);
 });
