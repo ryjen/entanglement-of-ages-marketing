@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "eefba284ac1bd61e15fc6139615962cd8f274f30f84b729a8d6fa58758112cdc",
+      "checksum_sha256": "3cf2540dc9484ec2470b5b6e6aed0d0da09a7ed1477de58a7ddae4611063a2f0",
       "replacement_status": "current"
     },
     {
@@ -73,7 +73,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/world/",
-      "checksum_sha256": "ac50d9afd4ef21837ef1e9e99ce901c6fd0c0814a7dc1b68cebd0396303f2ff0",
+      "checksum_sha256": "72aa59288e260966dc5a7b40ad7b3a35626a580c26dadda43d0540f9736601da",
       "replacement_status": "current"
     },
     {
@@ -88,7 +88,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/news/",
-      "checksum_sha256": "9a6938495139d22aaaabb986adc1ca2a76e0c86cc174efbf4bec712a6a706fa7",
+      "checksum_sha256": "6fcbc20b7cde42a0d8f0763fc32cacbe6b3322d69f7572fc4dbca8004b8e8055",
       "replacement_status": "current"
     },
     {
@@ -103,7 +103,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/about/",
-      "checksum_sha256": "61d3fb7ecc86bf7454d2c1461105f5936b3cef05bc4dc6695ed2627458b75206",
+      "checksum_sha256": "65601eb6421ed7626f7d7e1b3691c18a0ad7264c70b32be15f197f385737236f",
       "replacement_status": "current"
     },
     {
@@ -137,8 +137,8 @@
       "replacement_status": "current"
     },
     {
-      "id": "style-trilogy-pages-v1",
-      "path": "src/styles/trilogy-pages.v1.css",
+      "id": "style-series-pages-v1",
+      "path": "src/styles/series-pages.v1.css",
       "title": "Series overview pages v1",
       "summary": "Shared four-age hero treatment for series-level overview pages.",
       "content_type": "site-asset",
@@ -147,7 +147,7 @@
       "rights_status": "repository-authored",
       "provenance_class": "public-native",
       "publication_date": null,
-      "canonical_url": "/styles/trilogy-pages.v1.css",
+      "canonical_url": "/styles/series-pages.v1.css",
       "checksum_sha256": null,
       "replacement_status": "current"
     },
@@ -375,14 +375,14 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/press/",
-      "checksum_sha256": "36f439752f98bd2907587be9c879c4b76b9bbf80bdba1ad2f45755b451ae252b",
+      "checksum_sha256": "57d7fc95401042ceb293d08347aae980343aabaf0cddb6843dbe035edd31c748",
       "replacement_status": "current"
     },
     {
       "id": "screen-adaptation",
       "path": "src/adaptation/index.html",
       "title": "Screen & Adaptation",
-      "summary": "Producer-facing premise-level screen adaptation positioning, development state, and rights/contact route for Entanglement of Ages.",
+      "summary": "Producer-facing screen positioning for The Fatherless and the four-book property, including development state, private-material availability, and rights/contact route.",
       "content_type": "press",
       "spoiler_tier": "premise",
       "approval_state": "approved",
@@ -390,7 +390,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/adaptation/",
-      "checksum_sha256": "f64d0e5aa6265f242ad7e1c8dd6e53374d85ec78e25ac5d68369b417543f71bb",
+      "checksum_sha256": "189736af2363250bf7d5de18adf622566d2958f8bb8f9f23df2884642fe4804d",
       "replacement_status": "current"
     },
     {
@@ -510,7 +510,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-forms/",
-      "checksum_sha256": "1684733ce1c4d5c57aa617a13e3c4c6e08653209a4b1a9dbee6a13359bb3190c",
+      "checksum_sha256": "20a55e9199397e0a94b7a54881c8ad89e892a49a3fa64b68e7833f6d0f20a30f",
       "replacement_status": "current"
     },
     {
