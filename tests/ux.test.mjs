@@ -22,7 +22,7 @@ const publicHtmlPages = [
   'src/adaptation/index.html',
   'src/characters/index.html',
 ];
-const trilogyOverviewPages = [
+const seriesOverviewPages = [
   'src/books/index.html',
   'src/world/index.html',
   'src/about/index.html',
@@ -171,6 +171,15 @@ test('adaptation page exposes the approved screen-development pitch without join
   assert.match(html, /individual novel adaptations/i);
   assert.match(html, /info@ryanjennin\.gs/);
   assert.match(html, /href="\.\.\/press\/"/);
+  assert.match(html, /completed working feature screenplay/i);
+  assert.match(html, /historical political thriller/i);
+  assert.match(html, /administrative crime expands into a public argument about personhood/i);
+  assert.match(html, /one-page full-story synopsis/i);
+  assert.match(html, /text-led screen lookbook/i);
+  assert.match(html, /chain-of-title and rights summary/i);
+  assert.match(html, /supplied privately on request/i);
+  assert.match(html, /series-wide right is available/i);
+  assert.doesNotMatch(html, /screen-package-v2|screenplay\/the-fatherless|governance\//i);
   assert.doesNotMatch(html.match(/<nav class="primary-nav"[^>]*>[\s\S]*?<\/nav>/)?.[0] ?? '', /Adaptation/);
 });
 
@@ -228,13 +237,14 @@ test('all public HTML surfaces share the narrative primary navigation contract',
 });
 
 test('series-level overview pages use the shared four-age hero treatment', async () => {
-  const css = await read('src/styles/trilogy-pages.v1.css');
+  const css = await read('src/styles/series-pages.v1.css');
   assert.match(css, /grid-template-columns:repeat\(4,1fr\)/, 'series overview hero should present four equal visual ages');
 
-  for (const pagePath of trilogyOverviewPages) {
+  for (const pagePath of seriesOverviewPages) {
     const html = await read(pagePath);
-    assert.match(html, /styles\/trilogy-pages\.v1\.css/, `${pagePath} should load the trilogy overview stylesheet`);
-    assert.match(html, /class="hero trilogy-page-hero"/, `${pagePath} should use the trilogy hero`);
+    assert.match(html, /styles\/series-pages\.v1\.css/, `${pagePath} should load the series overview stylesheet`);
+    assert.match(html, /class="hero series-page-hero"/, `${pagePath} should use the series hero`);
+    assert.doesNotMatch(html, /trilogy-page-hero|trilogy-pages\.v1\.css/, `${pagePath} should not retain the retired trilogy implementation identity`);
     assert.match(html, /age-of-embers-hero\.webp/, `${pagePath} should include Age of Embers artwork`);
     assert.match(html, /the-fatherless-hero\.webp/, `${pagePath} should include The Fatherless artwork`);
     assert.match(html, /neurion-hero\.webp/, `${pagePath} should include Neurion artwork`);
