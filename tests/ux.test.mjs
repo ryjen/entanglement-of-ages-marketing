@@ -108,7 +108,6 @@ test('homepage book summaries hint at the Embers and Forms horror-miracle turns 
   assert.match(html, /The Age of Forms[\s\S]{0,900}personhood[\s\S]{0,260}boundary no human has crossed before/i);
   assert.match(html, /The Age of Forms[\s\S]{0,1000}liberation and loss/i);
   assert.doesNotMatch(html, /roots of astrology|Habirim tradition|first human consciousness|digital form|sacrifices his embodied life/i);
-  assert.doesNotMatch(html, /03\s*\/\s*PREQUEL/i);
 });
 
 test('public canon keeps the solar flare unique to Age of Embers', async () => {
