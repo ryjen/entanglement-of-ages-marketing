@@ -19,13 +19,6 @@ header .primary-nav{flex-wrap:wrap;justify-content:center;row-gap:0;column-gap:2
 :where(html) .hero-art img{object-position:62% 35%}
 .hero-art::after{background:linear-gradient(90deg,#0d171c 0%,rgba(13,23,28,.98) 26%,rgba(13,23,28,.86) 46%,rgba(13,23,28,.38) 73%,rgba(13,23,28,.12) 100%)}
 :where(html) .hero-art figcaption{z-index:1}
-.thread-detail{border-top:1px solid var(--line);padding-top:36px;margin-top:50px}
-.thread-detail h3{font:normal clamp(1.45rem,2.6vw,2.4rem)/1.25 Georgia,serif;margin:10px 0 14px}
-.thread-detail>p{max-width:78ch}
-.thread-ages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin:30px 0 0}
-.thread-ages>div{border-top:1px solid var(--line);padding-top:12px}
-.thread-ages dt{color:var(--accent);font-weight:650;font-size:14px}
-.thread-ages dd{margin:7px 0 0;color:var(--muted);font-size:14px}
 .evolution-note{border-top:1px solid var(--line);padding-top:28px;margin-top:36px}
 .evolution-note h3{margin:10px 0}
 .evolution-note p:last-child{max-width:78ch}
@@ -39,6 +32,6 @@ header .primary-nav{flex-wrap:wrap;justify-content:center;row-gap:0;column-gap:2
 .join button:hover,.join button:focus-visible{background:#bdddd8}
 @media(max-width:1100px){header{align-items:flex-start}.header-actions{justify-content:flex-start}.header-link{display:inline-flex}.primary-nav{justify-content:flex-start!important}}
 @media(max-width:1000px){.hero-art{min-height:600px}}
-@media(max-width:640px){header{padding:16px 6%}.header-actions{width:100%;justify-content:space-between}.header-actions .header-link{display:inline-flex}.primary-nav{column-gap:18px!important}.primary-nav a{font-size:13px;min-height:44px}.hero{position:relative;isolation:isolate;display:grid;min-height:640px;overflow:hidden}.hero-copy{grid-area:1/1;position:relative;z-index:2;padding:62px 6% 105px;align-self:end}.hero-art{grid-area:1/1;position:absolute;inset:0;min-height:0;width:100%;z-index:0}.hero-art img{object-position:60% center}.hero-art::after{display:block;background:linear-gradient(180deg,rgba(13,23,28,.4) 0%,rgba(13,23,28,.80) 26%,rgba(13,23,28,.97) 68%,#0d171c 100%)}.hero-art figcaption{left:auto;right:0;bottom:0;max-width:100%;text-align:right}.hero-copy h1{font-size:clamp(2.7rem,11vw,4.3rem)}.hero-copy .intro{color:#e3eaea}.hero-foot{margin:23px 0 0}.thread-ages{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 15px}.join form .actions{display:flex}.section-heading{gap:22px}}
-@media(max-width:410px){.hero-copy{padding-top:50px}.hero{min-height:720px}.thread-ages{grid-template-columns:1fr}.header-actions{gap:10px}.header-actions .community-link,.header-actions .header-link{font-size:12px}}
+@media(max-width:640px){header{padding:16px 6%}.header-actions{width:100%;justify-content:space-between}.header-actions .header-link{display:inline-flex}.primary-nav{column-gap:18px!important}.primary-nav a{font-size:13px;min-height:44px}.hero{position:relative;isolation:isolate;display:grid;min-height:640px;overflow:hidden}.hero-copy{grid-area:1/1;position:relative;z-index:2;padding:62px 6% 105px;align-self:end}.hero-art{grid-area:1/1;position:absolute;inset:0;min-height:0;width:100%;z-index:0}.hero-art img{object-position:60% center}.hero-art::after{display:block;background:linear-gradient(180deg,rgba(13,23,28,.4) 0%,rgba(13,23,28,.80) 26%,rgba(13,23,28,.97) 68%,#0d171c 100%)}.hero-art figcaption{left:auto;right:0;bottom:0;max-width:100%;text-align:right}.hero-copy h1{font-size:clamp(2.7rem,11vw,4.3rem)}.hero-copy .intro{color:#e3eaea}.hero-foot{margin:23px 0 0}.join form .actions{display:flex}.section-heading{gap:22px}}
+@media(max-width:410px){.hero-copy{padding-top:50px}.hero{min-height:720px}.header-actions{gap:10px}.header-actions .community-link,.header-actions .header-link{font-size:12px}}
 @media print{html,body{color:#111!important;background:#fff!important}body *{color:#111!important;text-shadow:none!important}.hero-art,.cover span,.header-actions{display:none!important}.hero{min-height:0}.hero-copy{padding:25px}.section{padding:20px 0}.cover img{max-height:200px;object-fit:contain}.book-grid{grid-template-columns:repeat(2,1fr)}}
