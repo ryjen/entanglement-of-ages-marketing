@@ -198,6 +198,12 @@ test('adaptation page exposes the approved screen-development pitch without join
   assert.equal((html.match(/completed working feature screenplay/gi) ?? []).length, 1, 'screenplay readiness should be stated once, not repeated');
   assert.match(html, /historical political thriller/i);
   assert.match(html, /administrative crime expands into a public argument about personhood/i);
+  assert.match(html, /The world changes\. The same pressures survive\./i);
+  assert.match(html, /life, selfhood, knowledge, and transcendence/i);
+  assert.match(html, /The horror is interpretation becoming authority\. The miracle is life exceeding it\./i);
+  for (const stage of ['knowledge', 'life', 'selfhood', 'transcendence']) {
+    assert.match(html, new RegExp(stage, 'i'));
+  }
   assert.match(html, /one-page full-story synopsis/i);
   assert.match(html, /text-led screen lookbook/i);
   assert.match(html, /chain-of-title and rights summary/i);
