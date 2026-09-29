@@ -85,7 +85,6 @@ The tests should use the repository's existing `node:test`/`assert` style and re
 - [ ] Compute the exact SHA-256 of `src/adaptation/index.html` after its final content is fixed.
 - [ ] Add a `screen-adaptation` manifest entry adjacent to `press-industry` with path `src/adaptation/index.html`, title `Screen & Adaptation`, `content_type: "press"`, `spoiler_tier: "premise"`, `approval_state: "approved"`, `rights_status: "repository-authored"`, `provenance_class: "public-native"`, canonical URL `/adaptation/`, replacement status `current`, and the computed checksum.
 - [ ] Compute and refresh exact SHA-256 values for every changed approved manifest-backed artifact, including Home, News, Press, sitemap if governed as approved, and the new adaptation page.
-- [ ] Run `node tools/validate-manifest-checksums.mjs`; expected result: PASS.
 - [ ] Run `mise run contracts`, `mise run source`, `mise run build`, `mise run html`, `mise run css`, and `mise run validate`; expected result: all PASS with no stale newsletter URL, unmanifested deployable file, checksum mismatch, or validation failure.
 
 ---
