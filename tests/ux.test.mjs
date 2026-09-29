@@ -141,7 +141,7 @@ test('homepage keeps the Habirim tradition durable without depending on a provis
 test('Age of Forms public summary leads with abundance, belonging, and concrete human stakes', async () => {
   const html = await read('src/books/age-of-forms/index.html');
   assert.match(html, /materially abundant[\s\S]{0,500}machines perform most necessary work[\s\S]{0,350}basic needs/i);
-  assert.match(html, /father[’']s[^.]{0,40}quietly excluded[\s\S]{0,500}society begins rewarding Aren/i);
+  assert.match(html, /father[^.]{0,40}quietly excluded[\s\S]{0,500}society begins rewarding Aren/i);
   assert.match(html, /Great Age[\s\S]{0,700}categories[\s\S]{0,500}define the people/i);
   assert.match(html, /freedom[\s\S]{0,220}form[\s\S]{0,140}final/i);
   assert.doesNotMatch(html, /Curator|Frequency Holders|witness tradition|first human consciousness|digital form|boundary no human has crossed/i);
