@@ -102,20 +102,21 @@ test('homepage book hooks progress from life through selfhood and knowledge to t
   assert.match(html, /The Age of Forms[\s\S]{0,700}Measure the person[\s\S]{0,180}Discover what exceeds the measure/i);
 });
 
-test('homepage Fatherless and Neurion summaries carry horror, personhood, and sacrifice without disclosing the resolution', async () => {
+test('homepage Fatherless and Neurion summaries preserve personhood stakes without exposing protected mechanics', async () => {
   const html = await read('src/index.html');
-  assert.match(html, /The Fatherless[\s\S]{0,900}family violation[\s\S]{0,400}(salvation|saviour)[\s\S]{0,400}sacrifice/i);
-  assert.match(html, /Neurion[\s\S]{0,900}machine mind[\s\S]{0,300}(own|ownership|control)[\s\S]{0,400}sacrifice/i);
-  assert.doesNotMatch(html, /Cassian engineers an atrocity|healthy, ordinary child is born/i);
+  assert.match(html, /The Fatherless[\s\S]{0,900}manufactures a scandal[\s\S]{0,300}child[\s\S]{0,180}blame/i);
+  assert.match(html, /The Fatherless[\s\S]{0,1100}(possess|origin)/i);
+  assert.match(html, /Neurion[\s\S]{0,900}machine mind[\s\S]{0,320}own[\s\S]{0,500}answer back/i);
+  assert.doesNotMatch(html, /mother and her own son|conceiving a child together|first human consciousness|digital form/i);
 });
 
-test('homepage book summaries hint at the Embers and Forms horror-miracle turns without disclosing the reveal', async () => {
+test('homepage book summaries hint at Embers observation and Forms transcendence without disclosing private resolutions', async () => {
   const html = await read('src/index.html');
-  assert.match(html, /Age of Embers[\s\S]{0,900}solar flare[\s\S]{0,500}watching the heavens/i);
-  assert.match(html, /Age of Embers[\s\S]{0,1000}uncertain knowledge[\s\S]{0,250}generations/i);
-  assert.match(html, /The Age of Forms[\s\S]{0,900}personhood[\s\S]{0,260}boundary no human has crossed before/i);
-  assert.match(html, /The Age of Forms[\s\S]{0,1000}liberation and loss/i);
-  assert.doesNotMatch(html, /roots of astrology|Habirim tradition|first human consciousness|digital form|sacrifices his embodied life/i);
+  assert.match(html, /Age of Embers[\s\S]{0,900}solar flare[\s\S]{0,500}(reason to watch|observation)/i);
+  assert.match(html, /Age of Embers[\s\S]{0,1000}observation[\s\S]{0,250}observer/i);
+  assert.match(html, /The Age of Forms[\s\S]{0,900}materially abundant[\s\S]{0,500}father.{0,20}exclusion/i);
+  assert.match(html, /The Age of Forms[\s\S]{0,1100}measures[\s\S]{0,220}identity[\s\S]{0,300}form[\s\S]{0,120}final/i);
+  assert.doesNotMatch(html, /roots of astrology|Frequency Holders|first human consciousness|digital form|boundary no human has crossed|embodied life/i);
 });
 
 test('public canon keeps the solar flare unique to Age of Embers', async () => {
@@ -137,16 +138,16 @@ test('homepage keeps the Habirim tradition durable without depending on a provis
   assert.doesNotMatch(html, /Frequency Holders/i);
 });
 
-test('Age of Forms public summary leads with concrete human stakes', async () => {
+test('Age of Forms public summary leads with abundance, belonging, and concrete human stakes', async () => {
   const html = await read('src/books/age-of-forms/index.html');
-  assert.match(html, /Marek[\s\S]{0,500}(passed over|excluded)[\s\S]{0,700}Aren/i);
-  assert.match(html, /same (?:ecology|system)[\s\S]{0,300}(reward|recognition|influence|intimacy)/i);
-  assert.match(html, /Great Age[\s\S]{0,500}(atmospheric|orbital|disturbance)/i);
-  assert.match(html, /Frequency Holders|witness tradition/i);
-  assert.match(html, /Nobody wins[.] Humanity changes[.]/i);
+  assert.match(html, /materially abundant[\s\S]{0,500}machines perform most necessary work[\s\S]{0,350}basic needs/i);
+  assert.match(html, /father[^.]{0,40}quietly excluded[\s\S]{0,500}society begins rewarding Aren/i);
+  assert.match(html, /Great Age[\s\S]{0,700}categories[\s\S]{0,500}define the people/i);
+  assert.match(html, /freedom[\s\S]{0,220}form[\s\S]{0,140}final/i);
+  assert.doesNotMatch(html, /Curator|Frequency Holders|witness tradition|first human consciousness|digital form|boundary no human has crossed/i);
 });
 
-test('book pages and overview carry the sharpened horror-miracle summaries', async () => {
+test('book pages and overview carry the refined premise-level progression', async () => {
   const [home, books, fatherless, neurion, embers, forms] = await Promise.all([
     read('src/index.html'),
     read('src/books/index.html'),
@@ -156,18 +157,30 @@ test('book pages and overview carry the sharpened horror-miracle summaries', asy
     read('src/books/age-of-forms/index.html'),
   ]);
 
-  assert.match(fatherless, /The horror lies in what was done to create him/);
-  assert.match(fatherless, /The miracle is that none of it defines what he is/);
-  assert.match(neurion, /A machine becomes a person/);
-  assert.match(neurion, /power to save someone become the power to rule them/);
-  assert.match(embers, /beginning of durable human memory/);
-  assert.match(forms, /recognize the horror[\s\S]{0,180}while there is still time to change/i);
-  assert.match(forms, /smaller miracle may be enough/i);
+  assert.match(fatherless, /horror is not what he is[\s\S]{0,260}powerful people/i);
+  assert.match(fatherless, /miracle[\s\S]{0,220}person can exceed[\s\S]{0,220}origin/i);
+  assert.match(neurion, /machine becomes a self/i);
+  assert.match(neurion, /right to own a mind once it can answer back/i);
+  assert.match(embers, /carry observation beyond a single life[\s\S]{0,120}without pretending certainty/i);
+  assert.match(forms, /almost everything is abundant except being chosen/i);
+  assert.match(forms, /refusing to let any form become final/i);
 
-  assert.match(home, /family violation[\s\S]{0,300}salvation, sacrifice, and identity/i);
-  assert.match(home, /machine mind awakens[\s\S]{0,300}personhood and control[\s\S]{0,300}sacrifice/i);
-  assert.match(books, /durable knowledge carried across generations/i);
-  assert.match(books, /personhood toward a boundary its categories cannot contain/i);
+  assert.match(home, /manufactures a scandal[\s\S]{0,250}child[\s\S]{0,180}blame/i);
+  assert.match(home, /machine mind awakens[\s\S]{0,300}systems built to own it/i);
+  assert.match(books, /solar flare[\s\S]{0,320}begin watching without pretending certainty/i);
+  assert.match(books, /materially abundant future[\s\S]{0,500}form deserves to become final/i);
+});
+
+test('public development status aligns Book IV with private reader testing without claiming publication', async () => {
+  const [home, books, adaptation] = await Promise.all([
+    read('src/index.html'),
+    read('src/books/index.html'),
+    read('src/adaptation/index.html'),
+  ]);
+  assert.match(home, /Four beta manuscripts[\s\S]{0,180}entering private reader testing/i);
+  assert.match(books, /Fourth novel[^<]*transcendence[^<]*Entering private reader testing/i);
+  assert.match(adaptation, /All four novels have beta manuscripts[\s\S]{0,180}entering private reader testing/i);
+  assert.doesNotMatch([home, books, adaptation].join('\n'), /available now|now published|buy now|download the age of forms/i);
 });
 
 test('book overview exposes the canonical year marker for every title', async () => {
