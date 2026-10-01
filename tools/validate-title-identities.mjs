@@ -9,7 +9,7 @@ const EARLIER = ["pre","quel"].join("");
 const LATER = ["se","quel"].join("");
 const FIRST = ["ori","ginal"].join("");
 const TEXT_EXTENSIONS = new Set([".css",".html",".json",".md",".mjs",".js",".xml",".yml",".yaml",".toml"]);
-const ARCHIVE_PREFIXES = ["docs/references/","docs/superpowers/"];
+const ARCHIVE_PREFIXES = ["docs/references/"];
 
 function trackedFiles() {
   const r=spawnSync("git",["ls-files","-z"],{cwd:ROOT,encoding:"utf8"});
