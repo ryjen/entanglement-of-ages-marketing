@@ -82,12 +82,20 @@ jobs:
           const metadata = await api("");
           const defaultBranch = metadata.default_branch;
           const branches = await paginate("/branches");
-          const pulls = await paginate("/pulls?state=open");
+          const openPulls = await paginate("/pulls?state=open");
+          const closedPulls = await paginate("/pulls?state=closed");
           const openHeads = new Set(
-            pulls
+            openPulls
               .filter((pull) => pull.head?.repo?.full_name === repository)
               .map((pull) => pull.head.ref)
           );
+          const mergedHeadShas = new Map();
+          for (const pull of closedPulls) {
+            if (!pull.merged_at || pull.head?.repo?.full_name !== repository) continue;
+            const shas = mergedHeadShas.get(pull.head.ref) || new Set();
+            shas.add(pull.head.sha);
+            mergedHeadShas.set(pull.head.ref, shas);
+          }
           const byName = new Map(branches.map((branch) => [branch.name, branch]));
           const main = byName.get(defaultBranch);
           if (!main) throw new Error(`default branch ${defaultBranch} was not returned by GitHub`);
@@ -113,6 +121,10 @@ jobs:
 
           for (const branch of branches) {
             if (branch.name === defaultBranch || branch.protected || openHeads.has(branch.name)) continue;
+            if (mergedHeadShas.get(branch.name)?.has(branch.commit.sha)) {
+              await deleteBranch(branch, "exact-head-of-merged-pr");
+              continue;
+            }
             const comparison = await api(`/compare/${branch.commit.sha}...${main.commit.sha}`);
             if (comparison.status === "ahead" || comparison.status === "identical") {
               await deleteBranch(branch, "merged-into-main");
