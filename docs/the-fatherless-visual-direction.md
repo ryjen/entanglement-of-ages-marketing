@@ -95,15 +95,16 @@ Every published raster asset must follow the existing media/publication rules:
 - public-manifest registration before deployment;
 - mobile/desktop crop and text-contrast review.
 
-## Trilogy separation
+## Series separation
 
 This direction applies to The Fatherless and its title-specific public surfaces only.
 
 - **Age of Embers:** retains its glacial/ember/elemental identity.
 - **The Fatherless:** graphite, cold civic stone, oxidized teal, institutional pressure.
 - **Neurion:** retains its luminous/networked future identity.
+- **The Age of Forms:** uses its distinct far-future formal/synthetic visual language.
 
-Do not make the three eras visually uniform merely to simplify CSS or image grading.
+Do not make the four eras visually uniform merely to simplify CSS or image grading.
 
 ## Validation
 
