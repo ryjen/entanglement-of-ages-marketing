@@ -23,8 +23,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node <<'NODE'
-          const fs = require("node:fs");
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
 
           const token = process.env.GITHUB_TOKEN;
           const repository = process.env.REPOSITORY;
