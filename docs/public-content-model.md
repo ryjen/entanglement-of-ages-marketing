@@ -30,7 +30,7 @@ Structural public page such as home, index, about, contact, or utility content. 
 
 ### `book-summary`
 
-Approved reader-facing positioning for one trilogy volume. May include premise, era/context, publication status, and approved links. It must not contain endings, unreleased resolutions, or hidden thematic architecture.
+Approved reader-facing positioning for one series volume. May include premise, era/context, publication status, and approved links. It must not contain endings, unreleased resolutions, or hidden thematic architecture.
 
 ### `character-profile`
 
