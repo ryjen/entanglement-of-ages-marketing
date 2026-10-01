@@ -503,7 +503,7 @@ export async function pagesState() {
       accept: 'application/vnd.github+json',
       authorization: `Bearer ${token}`,
       'x-github-api-version': '2022-11-28',
-      'user-agent': 'the-fatherless-marketing-ci',
+      'user-agent': 'entanglement-of-ages-marketing-ci',
     },
     signal: AbortSignal.timeout(30_000),
   });
@@ -554,7 +554,7 @@ export function createStaticServer(root, prefix = '/') {
 }
 
 export async function runBrowserSmoke(root = process.cwd()) {
-  const server = createStaticServer(path.join(root, 'dist'), '/the-fatherless-marketing/');
+  const server = createStaticServer(path.join(root, 'dist'), '/entanglement-of-ages-marketing/');
   await new Promise((resolve, reject) => {
     server.once('error', reject);
     server.listen(4173, '127.0.0.1', resolve);
@@ -563,7 +563,7 @@ export async function runBrowserSmoke(root = process.cwd()) {
     const command = process.platform === 'win32' ? 'npx.cmd' : 'npx';
     const child = spawn(command, ['playwright', 'test', 'tests/browser-smoke.spec.js', '--reporter=line'], {
       cwd: root,
-      env: { ...process.env, SITE_BASE_URL: 'http://127.0.0.1:4173/the-fatherless-marketing/' },
+      env: { ...process.env, SITE_BASE_URL: 'http://127.0.0.1:4173/entanglement-of-ages-marketing/' },
       stdio: 'inherit',
     });
     const status = await new Promise((resolve, reject) => {
