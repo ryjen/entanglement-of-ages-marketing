@@ -1,0 +1,171 @@
+name: One-shot stale branch hygiene
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/branch-hygiene-once.yml"
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  prune:
+    name: Prune provably stale refs
+    if: ${{ github.ref_name == github.event.repository.default_branch }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Prune merged and exact-duplicate branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require("node:fs");
+
+          const token = process.env.GITHUB_TOKEN;
+          const repository = process.env.REPOSITORY;
+          const headers = {
+            accept: "application/vnd.github+json",
+            authorization: `Bearer ${token}`,
+            "x-github-api-version": "2022-11-28",
+            "user-agent": "entanglement-of-ages-branch-hygiene"
+          };
+
+          async function api(path, options = {}) {
+            const response = await fetch(`https://api.github.com/repos/${repository}${path}`, {
+              ...options,
+              headers: { ...headers, ...(options.headers || {}) }
+            });
+            if (response.status === 204) return null;
+            const body = await response.text();
+            if (!response.ok) throw new Error(`${options.method || "GET"} ${path}: ${response.status} ${body}`);
+            return body ? JSON.parse(body) : null;
+          }
+
+          async function paginate(path) {
+            const items = [];
+            for (let page = 1; ; page += 1) {
+              const separator = path.includes("?") ? "&" : "?";
+              const batch = await api(`${path}${separator}per_page=100&page=${page}`);
+              items.push(...batch);
+              if (batch.length < 100) return items;
+            }
+          }
+
+          function encodeRef(branch) {
+            return ["heads", ...branch.split("/")].map(encodeURIComponent).join("/");
+          }
+
+          function representativeScore(name) {
+            let penalty = 0;
+            if (name.startsWith("scratch/")) penalty += 100;
+            if (/(?:^|\/)(?:tmp|noop\d*)$/i.test(name)) penalty += 80;
+            if (/-v\d+$/i.test(name)) penalty += 30;
+            if (/(?:record|rebased\d*|direct\d*)$/i.test(name)) penalty += 20;
+            if (/-final$/i.test(name)) penalty += 5;
+            if (/-\d+$/i.test(name)) penalty += 10;
+            return [penalty, name.length, name];
+          }
+
+          function compareScore(a, b) {
+            for (let i = 0; i < a.length; i += 1) {
+              if (a[i] < b[i]) return -1;
+              if (a[i] > b[i]) return 1;
+            }
+            return 0;
+          }
+
+          const metadata = await api("");
+          const defaultBranch = metadata.default_branch;
+          const branches = await paginate("/branches");
+          const pulls = await paginate("/pulls?state=open");
+          const openHeads = new Set(
+            pulls
+              .filter((pull) => pull.head?.repo?.full_name === repository)
+              .map((pull) => pull.head.ref)
+          );
+          const byName = new Map(branches.map((branch) => [branch.name, branch]));
+          const main = byName.get(defaultBranch);
+          if (!main) throw new Error(`default branch ${defaultBranch} was not returned by GitHub`);
+
+          const deleted = [];
+          const skipped = [];
+          const deletedNames = new Set();
+
+          async function deleteBranch(branch, reason) {
+            if (branch.name === defaultBranch) return;
+            if (branch.protected) {
+              skipped.push({ name: branch.name, reason: "protected" });
+              return;
+            }
+            if (openHeads.has(branch.name)) {
+              skipped.push({ name: branch.name, reason: "open-pr" });
+              return;
+            }
+            await api(`/git/refs/${encodeRef(branch.name)}`, { method: "DELETE" });
+            deleted.push({ name: branch.name, sha: branch.commit.sha, reason });
+            deletedNames.add(branch.name);
+          }
+
+          for (const branch of branches) {
+            if (branch.name === defaultBranch || branch.protected || openHeads.has(branch.name)) continue;
+            const comparison = await api(`/compare/${branch.commit.sha}...${main.commit.sha}`);
+            if (comparison.status === "ahead" || comparison.status === "identical") {
+              await deleteBranch(branch, "merged-into-main");
+            }
+          }
+
+          const remaining = branches.filter(
+            (branch) =>
+              branch.name !== defaultBranch &&
+              !deletedNames.has(branch.name) &&
+              !branch.protected &&
+              !openHeads.has(branch.name)
+          );
+          const groups = new Map();
+          for (const branch of remaining) {
+            const list = groups.get(branch.commit.sha) || [];
+            list.push(branch);
+            groups.set(branch.commit.sha, list);
+          }
+
+          for (const [sha, group] of groups) {
+            if (group.length < 2) continue;
+            const representative = group
+              .slice()
+              .sort((a, b) => compareScore(representativeScore(a.name), representativeScore(b.name)))[0];
+            for (const branch of group) {
+              if (branch.name === representative.name) continue;
+              await deleteBranch(branch, `duplicate-of:${representative.name}@${sha.slice(0, 12)}`);
+            }
+          }
+
+          const finalCount = branches.length - deleted.length;
+          const summary = [
+            "# Branch hygiene audit",
+            "",
+            `- Repository: \`${repository}\``,
+            `- Default branch: \`${defaultBranch}\``,
+            `- Initial branch count: **${branches.length}**`,
+            `- Deleted stale refs: **${deleted.length}**`,
+            `- Final branch count (expected): **${finalCount}**`,
+            `- Open-PR heads preserved: **${openHeads.size}**`,
+            `- Protected/non-deletable refs skipped: **${skipped.length}**`,
+            "",
+            "## Deleted refs",
+            ...(deleted.length
+              ? deleted.map((item) => `- \`${item.name}\` — ${item.reason} — \`${item.sha.slice(0, 12)}\``)
+              : ["- None"]),
+            "",
+            "## Skipped refs",
+            ...(skipped.length
+              ? skipped.map((item) => `- \`${item.name}\` — ${item.reason}`)
+              : ["- None"])
+          ].join("\n");
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`);
+          console.log(JSON.stringify({ repository, initial: branches.length, deleted, skipped, expected_final: finalCount }, null, 2));
+          NODE
