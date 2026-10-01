@@ -74,10 +74,6 @@ body[data-theme='neurion'] .hero--media::after {
   body[data-theme='neurion'] .hero--media .hero__media img {
     object-position: 58% center;
   }
-
-  .hero--trilogy.hero--media .hero__media img {
-    object-position: 52% center;
-  }
 }
 
 @media (forced-colors: active) {
