@@ -27,16 +27,16 @@ This repository contains only material intentionally approved for public release
 
 Reader-facing routes and implementation identifiers use title-based book identities:
 
-- `/books/age-of-embers/`
-- `/books/the-fatherless/`
-- `/books/neurion/`
-- `/books/age-of-forms/`
+- `/books/the-fatherless/` — Book 1
+- `/books/neurion/` — Book 2
+- `/books/age-of-embers/` — Book 3
+- `/books/age-of-forms/` — Book 4
 
 Retired relative-era compatibility routes are not part of the deployable public source.
 
 ## Design reference
 
-The landing-page composition target is preserved in [`docs/site-concept-reference.md`](docs/site-concept-reference.md). The shared visual contract is documented in [`docs/visual-system.md`](docs/visual-system.md). Book II's public-safe **Institutional Eclipse** direction is documented in [`docs/the-fatherless-visual-direction.md`](docs/the-fatherless-visual-direction.md).
+The landing-page composition target is preserved in [`docs/site-concept-reference.md`](docs/site-concept-reference.md). The shared visual contract is documented in [`docs/visual-system.md`](docs/visual-system.md). *The Fatherless* public-safe **Institutional Eclipse** direction is documented in [`docs/the-fatherless-visual-direction.md`](docs/the-fatherless-visual-direction.md).
 
 ## Development
 
