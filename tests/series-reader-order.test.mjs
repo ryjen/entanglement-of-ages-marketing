@@ -28,7 +28,7 @@ test("book overview uses canonical discovery numbering, not timeline numbering",
   assert.equal(cards.length, 4);
   assert.deepEqual(cards.map((card) => card[1].match(/<h3>([^<]+)<\/h3>/)?.[1]), readerOrder.map(([, title]) => title));
   for (const [index, card] of cards.entries()) {
-    assert.match(card[1], new RegExp(`^(?:First|Second|Third|Fourth) novel`));
+    assert.match(card[1], new RegExp(`^${["First", "Second", "Third", "Fourth"][index]} novel`));
     assert.match(card[1], new RegExp(`href="${readerOrder[index][0]}/"`));
   }
 });
