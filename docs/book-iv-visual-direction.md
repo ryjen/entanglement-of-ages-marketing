@@ -37,7 +37,7 @@ The image should remain recognizably part of the same cinematic series language:
 - controlled darkness with readable local contrast;
 - no central sacred or heroic figure.
 
-It must also be distinct from Book III. Avoid Neurion's dominant signal-cyan/network-light language. Book IV should feel later, quieter, more materially settled, and more socially comparative.
+It must also be distinct from *Neurion* (Book 2). Avoid Neurion's dominant signal-cyan/network-light language. Book IV should feel later, quieter, more materially settled, and more socially comparative.
 
 ## Palette direction
 
