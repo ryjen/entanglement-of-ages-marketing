@@ -42,7 +42,6 @@
         </select>
       </div>
       <div><label for="version">Beta version</label><input id="version" name="version" type="text" maxlength="40" placeholder="0.1.0-beta.1" pattern="[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+" required></div>
-      <div><label for="source-revision">Source revision (optional)</label><input id="source-revision" name="source-revision" type="text" maxlength="40" pattern="[0-9a-f]{40}" placeholder="40-character revision from the book"></div>
       <div><label for="impact">What stayed with you?</label><textarea id="impact" name="impact" maxlength="1200" placeholder="A scene, image, relationship or question..." required></textarea></div>
       <div><label for="pacing">Where did the story slow down or lose you?</label><textarea id="pacing" name="pacing" maxlength="1200" placeholder="Chapters or moments, if you remember them..."></textarea></div>
       <div><label for="confusion">What was confusing or unconvincing?</label><textarea id="confusion" name="confusion" maxlength="1200" placeholder="Who wanted what, a character choice, a transition..."></textarea></div>
@@ -74,7 +73,7 @@
           'Entanglement of Ages — Beta Reader Review', '',
           'Book: ' + (data.get('book') || ''),
           'Beta version: ' + (data.get('version') || ''),
-          'Source revision: ' + (data.get('source-revision') || ''), '',
+          '',
           'What stayed with you?', String(data.get('impact') || ''), '',
           'Where did the story slow down?', String(data.get('pacing') || ''), '',
           'What was confusing or unconvincing?', String(data.get('confusion') || ''), '',
