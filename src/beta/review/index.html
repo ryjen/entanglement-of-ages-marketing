@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Private beta-reader feedback · Entanglement of Ages</title>
+  <meta name="description" content="Send private feedback on an Entanglement of Ages beta-reader edition.">
+  <link rel="canonical" href="https://entanglementofages.com/beta/review/">
+  <link rel="stylesheet" href="../../styles/sites-home.v1.css">
+  <style>
+    .reader-review {max-width: 800px; margin: 3rem auto; padding: 0 1.5rem 4rem}
+    .reader-review form {display:grid; gap:1.2rem; margin:2rem 0}
+    .reader-review label {display:block; margin-bottom:.35rem; font-weight:600}
+    .reader-review input,.reader-review select,.reader-review textarea {box-sizing:border-box; width:100%; padding:.8rem; font:inherit; background:var(--panel,#f8f8f8); color:var(--ink,#111); border:1px solid var(--muted,#777)}
+    .reader-review textarea {min-height:7rem}
+    .reader-review .actions {display:flex; flex-wrap:wrap; gap:1rem}
+    .reader-review .small {font-size:.95rem; line-height:1.6}
+    .reader-review button {cursor:pointer}
+    .reader-review .feedback-status {min-height:1.5rem}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">Entanglement of Ages</a>
+    <nav class="primary-nav" aria-label="Primary"><a href="../../books/">Books</a><a href="../../about/">About</a></nav>
+  </header>
+  <main id="main" class="reader-review">
+    <p class="eyebrow">For invited readers</p>
+    <h1>Share your reading experience</h1>
+    <p>Thank you for reading an early edition of <em>Entanglement of Ages</em>. There are no expected interpretations. Specific scenes, slow passages and points of confusion are more useful than praise alone.</p>
+    <p><strong>This is a private email review, not a public discussion or a website-stored form.</strong> Choosing “Open email to submit” prepares a message to the author in your email application; you must send that message yourself.</p>
+    <form id="reader-review" action="mailto:info@ryanjennin.gs" method="post" enctype="text/plain">
+      <div><label for="book">Book</label>
+        <select id="book" name="book" required>
+          <option value="">Select a book</option>
+          <option value="the-fatherless">1 — The Fatherless</option>
+          <option value="neurion">2 — Neurion</option>
+          <option value="age-of-embers">3 — Age of Embers</option>
+          <option value="age-of-forms">4 — The Age of Forms</option>
+        </select>
+      </div>
+      <div><label for="version">Beta version</label><input id="version" name="version" type="text" maxlength="40" placeholder="0.1.0-beta.1" pattern="[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+" required></div>
+      <div><label for="source-revision">Source revision (optional)</label><input id="source-revision" name="source-revision" type="text" maxlength="40" pattern="[0-9a-f]{40}" placeholder="40-character revision from the book"></div>
+      <div><label for="impact">What stayed with you?</label><textarea id="impact" name="impact" maxlength="1200" placeholder="A scene, image, relationship or question..." required></textarea></div>
+      <div><label for="pacing">Where did the story slow down or lose you?</label><textarea id="pacing" name="pacing" maxlength="1200" placeholder="Chapters or moments, if you remember them..."></textarea></div>
+      <div><label for="confusion">What was confusing or unconvincing?</label><textarea id="confusion" name="confusion" maxlength="1200" placeholder="Who wanted what, a character choice, a transition..."></textarea></div>
+      <div><label for="priority">What would you change first?</label><textarea id="priority" name="priority" maxlength="1200" placeholder="Up to three important improvements..."></textarea></div>
+      <div class="actions">
+        <button class="button" type="submit">Open email to submit</button>
+        <button class="button button--quiet" type="button" id="copy-feedback">Copy feedback</button>
+      </div>
+      <p id="feedback-status" class="feedback-status small" role="status" aria-live="polite"></p>
+    </form>
+    <p class="small">The site does not collect or store your answers. Submitting opens your email application; you control whether to send. Your email provider processes the sent message. If email does not open, use “Copy feedback” and send the result to <a href="mailto:info@ryanjennin.gs">info@ryanjennin.gs</a>. Avoid posting unpublished story material or your answers in public repositories or discussion forums.</p>
+    <p><a href="../../books/">Return to the books</a></p>
+  </main>
+  <footer class="site-footer"><span>Entanglement of Ages</span><span>Private reader correspondence</span></footer>
+  <script>
+    (() => {
+      const form = document.getElementById('reader-review');
+      const status = document.getElementById('feedback-status');
+      const allowed = new Set(['the-fatherless', 'neurion', 'age-of-embers', 'age-of-forms']);
+      const params = new URLSearchParams(window.location.search);
+      const book = params.get('book');
+      const version = params.get('version');
+      if (allowed.has(book)) form.elements.namedItem('book').value = book;
+      if (version && /^[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+$/.test(version)) form.elements.namedItem('version').value = version;
+
+      function reviewText() {
+        const data = new FormData(form);
+        return [
+          'Entanglement of Ages — Beta Reader Review', '',
+          'Book: ' + (data.get('book') || ''),
+          'Beta version: ' + (data.get('version') || ''),
+          'Source revision: ' + (data.get('source-revision') || ''), '',
+          'What stayed with you?', String(data.get('impact') || ''), '',
+          'Where did the story slow down?', String(data.get('pacing') || ''), '',
+          'What was confusing or unconvincing?', String(data.get('confusion') || ''), '',
+          'What would you change first?', String(data.get('priority') || '')
+        ].join('\n');
+      }
+      form.addEventListener('submit', event => {
+        if (!form.reportValidity()) { event.preventDefault(); return; }
+        event.preventDefault();
+        const bookId = form.elements.namedItem('book').value;
+        const versionId = form.elements.namedItem('version').value;
+        const subject = 'Entanglement of Ages beta review — ' + bookId + ' — ' + versionId;
+        const mail = 'mailto:info@ryanjennin.gs?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(reviewText());
+        status.textContent = 'Your email application should open. Your feedback is not sent until you send the message.';
+        window.location.href = mail;
+      });
+      document.getElementById('copy-feedback').addEventListener('click', async () => {
+        if (!form.reportValidity()) { status.textContent = 'Complete the required fields before copying.'; return; }
+        try {
+          await navigator.clipboard.writeText(reviewText());
+          status.textContent = 'Review copied. Paste it into an email to info@ryanjennin.gs.';
+        } catch {
+          status.textContent = 'Clipboard access unavailable. Select the responses above, or use the email link.';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

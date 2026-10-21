@@ -527,6 +527,21 @@
       "canonical_url": "/styles/sites-home.v1.css",
       "checksum_sha256": "1b2f8e26b0d7b717baeb2a1bafc220b43b76bf6beb21e7ce1339d78db06f1845",
       "replacement_status": "current"
+    },
+    {
+      "id": "beta-reader-review",
+      "path": "src/beta/review/index.html",
+      "title": "Beta Reader Review",
+      "summary": "Public-safe private email intake for invited beta readers; no manuscript or review storage.",
+      "content_type": "page",
+      "spoiler_tier": "placeholder",
+      "approval_state": "approved",
+      "rights_status": "repository-authored",
+      "provenance_class": "public-native",
+      "publication_date": null,
+      "canonical_url": "/beta/review/",
+      "checksum_sha256": "10b2a490d0991ecca7f5a38dd57b7a7aa2993813b356001dfb52947ea5ce6601",
+      "replacement_status": "current"
     }
   ]
 }
