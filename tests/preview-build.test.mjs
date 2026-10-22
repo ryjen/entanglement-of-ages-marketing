@@ -47,7 +47,7 @@ test('a deployed preview build disables both forms and writes noindex headers', 
     for (const relative of ['index.html', 'beta/editors/index.html']) {
       const html = fs.readFileSync(path.join(root, relative), 'utf8');
       assert.match(html, /data-preview-inert="true"/);
-      assert.doesNotMatch(html, /<form\\b[^>]*action="https:\\/\\//);
+      assert.doesNotMatch(html, new RegExp('<form[^>]*action="https?://', 'i'));
       assert.match(html, /signups are disabled/);
     }
     assert.match(fs.readFileSync(path.join(root, '_headers'), 'utf8'), /X-Robots-Tag: noindex, nofollow/);
