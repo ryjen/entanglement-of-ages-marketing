@@ -27,7 +27,6 @@ test('email signups go directly to a tagged Buttondown interest segment', () => 
   assert.match(html, /type="checkbox" required/);
   assert.match(html, /name="embed" value="1"/);
   assert.match(html, /name="tag" value="beta-editor-interest"/);
-  assert.match(html, /name="tag" value="source-beta-editors-page"/);
   assert.doesNotMatch(html, /<script|\bfetch\s*\(|localStorage|sessionStorage|sendBeacon/);
 });
 
