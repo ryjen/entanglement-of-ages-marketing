@@ -31,7 +31,7 @@ export function neutralizePreviewHtml(html) {
       })
       .replace(/<button\b[^>]*>/gi, tag => tag.replace(/>$/, ' disabled>'))
       .replace(/<\/form>$/i, `<p class="small" role="status"><strong>${PREVIEW_MESSAGE}</strong></p></form>`)
-      .replace(/^[ \\t]+$/gm, '');
+      .replace(/^[ ]+$/gm, '');
   });
   if (/<form\b[^>]*action="https?:\/\//i.test(output)) {
     throw new Error('external form action in preview output: fail closed');
