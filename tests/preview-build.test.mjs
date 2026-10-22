@@ -35,10 +35,11 @@ test('only two reviewed source newsletter signups are eligible for preview suppr
   }
 });
 
-test('a deployed preview build disables both forms and writes noindex headers', () => {
+test('a deployed preview build disables all three forms and writes noindex headers', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'eoa-preview-test-'));
   try {
     fs.mkdirSync(path.join(root, 'beta', 'editors'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'news'), { recursive: true });
     for (const relative of ['index.html', 'beta/editors/index.html', 'news/index.html']) {
       const source = fs.readFileSync(path.join('src', relative), 'utf8');
       fs.writeFileSync(path.join(root, relative), source);
