@@ -20,7 +20,9 @@ test('editor interest route is manifest-approved and linked from home and books'
 test('mailto composes a private editor interest message without auto-submitting', () => {
   const link = html.match(/href="(mailto:info@ryanjennin\.gs\?[^"]+)">Compose beta-editor application<\/a>/)?.[1];
   assert.ok(link, 'expected prefilled mailto');
-  assert.doesNotMatch(link, /\+/); // RFC 6068 mailto uses percent-encoded spaces, not form-style +\n  assert.match(link, /%0D%0A/);\n  const parsed = new URL(link.replaceAll('&amp;', '&'));
+  assert.doesNotMatch(link, /\+/); // RFC 6068 mailto uses percent-encoded spaces
+  assert.match(link, /%0D%0A/);
+  const parsed = new URL(link.replaceAll('&amp;', '&'));
   assert.equal(parsed.pathname, 'info@ryanjennin.gs');
   assert.equal(parsed.searchParams.get('subject'), 'Entanglement of Ages - Beta editor interest');
   const body = parsed.searchParams.get('body');
