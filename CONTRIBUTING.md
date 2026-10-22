@@ -4,7 +4,7 @@ This repository is a public publication surface. Do not use it for drafting, can
 
 ## Editorial participation
 
-Books I–III in *Entanglement of Ages* are currently editorial-beta manuscripts. Book IV, *The Age of Forms*, is in representative-prose development and is not yet a beta manuscript. Editors, beta readers, subject-matter readers, and other contributors are welcome to register interest through the public editorial-interest issue form.
+All four *Entanglement of Ages* novels have beta manuscripts; *The Age of Forms* is entering private reader testing. Editors, beta readers, and subject-matter readers can join the [beta editors interest list](https://entanglementofages.com/beta/editors/) with an email address only. Buttondown handles subscription and tags it as editorial interest; subscription does not grant manuscript access. The public editorial-interest issue form remains available for an optional detailed contribution proposal without personal contact information.
 
 The public issue is intake only. Use it to describe the kind of contribution you are interested in, relevant background, and the scope you would like to review. Do **not** post manuscript text, spoilers, unreleased canon, raw editorial feedback, private correspondence, contracts, payment details, email addresses, phone numbers, or other unnecessary personal information.
 

@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "e2e62556a9d29ef389a5fc325e602467ea823001d5d62f6f7d8dfebcb6089b44",
+      "checksum_sha256": "b682b62812f92d05b760315d627e8415cf466f54cc3b72009d40aa47797ab592",
       "replacement_status": "current"
     },
     {
@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "2604e768f04e9edb6a03f2e356444f9a951895853c4c7f93cc841b7decef04cd",
+      "checksum_sha256": "291fdf9714aa2a811de1af5d2e18ee02000db2956f310ab3251dd4407c40d794",
       "replacement_status": "current"
     },
     {
@@ -465,7 +465,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/sitemap.xml",
-      "checksum_sha256": "4da4fcf6b455e8e11ae8628d79c92377fd2329904e588583bc08c1788bd96c5f",
+      "checksum_sha256": "82d7e7303b442660f12ef614dc218b9982b7b2227ae824e82310bb4b1caeda52",
       "replacement_status": "current"
     },
     {
@@ -541,6 +541,21 @@
       "publication_date": null,
       "canonical_url": "/beta/review/",
       "checksum_sha256": "bb1a6828e996d1e768c969d5e99a63af7ab9cc1d981661dcb76eb6f77152c799",
+      "replacement_status": "current"
+    },
+    {
+      "id": "beta-editor-interest-signup",
+      "path": "src/beta/editors/index.html",
+      "title": "Beta Editors Interest Signup",
+      "summary": "Public email-only opt-in to register for private editorial opportunities across the four-book series.",
+      "content_type": "page",
+      "spoiler_tier": "premise",
+      "approval_state": "approved",
+      "rights_status": "repository-authored",
+      "provenance_class": "public-native",
+      "publication_date": null,
+      "canonical_url": "/beta/editors/",
+      "checksum_sha256": "c96cf06ffae3962965862453982970fa0bb6b81bc66957d7de0c5c4c61977006",
       "replacement_status": "current"
     }
   ]

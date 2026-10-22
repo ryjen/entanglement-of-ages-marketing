@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the beta editors list · Entanglement of Ages</title>
+  <meta name="description" content="Register your interest in editing or beta reading the four Entanglement of Ages novels. Invitations are private and by approval.">
+  <link rel="canonical" href="https://entanglementofages.com/beta/editors/">
+  <link rel="stylesheet" href="../../styles/sites-home.v1.css">
+  <style>
+    .editor-signup {max-width: 880px; padding: 4rem 1.5rem 5rem; margin: 0 auto}
+    .editor-signup h1 {font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin: .5rem 0 1.4rem}
+    .editor-signup h2 {font-size: clamp(1.4rem, 3vw, 2rem); margin: 2.5rem 0 1rem}
+    .editor-signup p, .editor-signup li {line-height: 1.7; max-width: 70ch}
+    .editor-signup .lede {font-size: clamp(1.1rem, 2vw, 1.3rem)}
+    .editor-signup .signup-form {margin: 2.5rem 0; padding: 2rem; border: 1px solid var(--line, #53646b); background: var(--panel, #192429)}
+    .editor-signup .signup-form label {display: block; margin-bottom: .5rem; font-weight: 600}
+    .editor-signup .signup-form input[type="email"] {box-sizing: border-box; width: 100%; max-width: 34rem; min-height: 48px; padding: .8rem; border: 1px solid #a1b2b6; border-radius: 2px; background: #fff; color: #111; font: inherit}
+    .editor-signup .consent {display: flex; align-items: flex-start; gap: .65rem; margin: 1.2rem 0}
+    .editor-signup .consent input {width: 1.2rem; height: 1.2rem; flex: none; margin: .25rem 0 0}
+    .editor-signup .consent label {font-weight: 400; margin: 0}
+    .editor-signup .signup-form button {cursor: pointer}
+    .editor-signup .small {font-size: .9rem; line-height: 1.6}
+    .editor-signup .steps {padding-left: 1.5rem}
+    @media(max-width: 640px) {.editor-signup {padding: 2.5rem 6% 4rem}.editor-signup .signup-form {padding: 1.3rem}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">Entanglement of Ages</a>
+    <nav class="primary-nav" aria-label="Primary"><a href="../../books/">The novels</a><a href="../../about/">About</a></nav>
+  </header>
+  <main id="main" class="editor-signup">
+    <p class="eyebrow">Private editorial participation</p>
+    <h1>Join the beta editors list.</h1>
+    <p class="lede">Four novels are in beta. We're inviting thoughtful readers and editors to help find what works, what drags, and what needs another look.</p>
+    <p>You don't need professional editing credentials. We welcome developmental editors, beta readers and subject-matter readers. Interest in one book or all four is welcome; the intended reader order is <em>The Fatherless</em>, <em>Neurion</em>, <em>Age of Embers</em>, then <em>The Age of Forms</em>.</p>
+    <section aria-labelledby="how-it-works">
+      <h2 id="how-it-works">How it works</h2>
+      <ol class="steps">
+        <li>Join the editorial-interest email list below.</li>
+        <li>If there's a suitable reading round, we'll contact you with its scope, expected timing, and confidentiality requirements.</li>
+        <li>Only approved invitees receive private reading material and instructions for submitting feedback.</li>
+      </ol>
+      <p><strong>Signing up is not a manuscript download, an editing appointment, or a promise of an invitation.</strong> Feedback from invited readers stays in private correspondence, not public GitHub issues.</p>
+    </section>
+    <section aria-labelledby="signup-title">
+      <h2 id="signup-title">Register your interest</h2>
+      <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages" method="post">
+        <label for="beta-editor-email">Email address</label>
+        <input id="beta-editor-email" type="email" name="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+        <div class="consent">
+          <input id="beta-editor-consent" type="checkbox" required>
+          <label for="beta-editor-consent">I agree to receive email from Entanglement of Ages about private editorial opportunities and occasional series development news. I can unsubscribe at any time.</label>
+        </div>
+        <input type="hidden" name="embed" value="1">
+        <input type="hidden" name="tag" value="beta-editor-interest">
+        <input type="hidden" name="tag" value="source-beta-editors-page">
+        <button class="button" type="submit">Join the beta editors list</button>
+        <p class="small">Your email is submitted directly to <a href="https://buttondown.com/entanglement-of-ages">Buttondown</a>, not stored on this website. You may be asked to confirm your email or complete a verification step on Buttondown. Existing subscribers can use this form to add editorial interest to their subscription.</p>
+      </form>
+    </section>
+    <p>Want to describe your editing background or a specific area of expertise? Use the <a href="https://github.com/ryjen/entanglement-of-ages-marketing/issues/new?template=editorial-interest.yml">public contributor-interest form</a>, but do not post email addresses, private notes, or unpublished story details there. That form is optional and requires GitHub.</p>
+    <p><a href="../../books/">Explore the four novels</a> · <a href="../../">Return home</a></p>
+  </main>
+  <footer class="site-footer"><span>Entanglement of Ages</span><span>Editorial interest · Private invitations</span></footer>
+</body>
+</html>
