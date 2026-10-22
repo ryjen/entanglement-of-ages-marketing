@@ -24,7 +24,10 @@ test('editor-interest page is an approved, discoverable, manifest-backed public 
 test('email signups go directly to a tagged Buttondown interest segment', () => {
   assert.match(html, /action="https:\/\/buttondown\.com\/api\/emails\/embed-subscribe\/entanglement-of-ages" method="post"/);
   assert.match(html, /name="email" autocomplete="email"[^>]+required/);
-  assert.match(html, /type="checkbox" required/);
+  assert.match(html, /type="checkbox" name="metadata__beta_editor_opt_in" value="eoa-beta-editors-v1-2026-10-22" required/);
+  assert.match(html, /This subscribes me to the existing series newsletter/);
+  assert.match(html, /For questions or consent withdrawal/);
+  assert.match(html, /mailto:info@ryanjennin\.gs/);
   assert.match(html, /name="embed" value="1"/);
   assert.match(html, /name="tag" value="beta-editor-interest"/);
   assert.doesNotMatch(html, /<script|\bfetch\s*\(|localStorage|sessionStorage|sendBeacon/);

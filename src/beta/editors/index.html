@@ -51,13 +51,14 @@
         <label for="beta-editor-email">Email address</label>
         <input id="beta-editor-email" type="email" name="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
         <div class="consent">
-          <input id="beta-editor-consent" type="checkbox" required>
-          <label for="beta-editor-consent">I agree to receive email from Entanglement of Ages about private editorial opportunities and occasional series development news. I can unsubscribe at any time.</label>
+          <input id="beta-editor-consent" type="checkbox" name="metadata__beta_editor_opt_in" value="eoa-beta-editors-v1-2026-10-22" required>
+          <label for="beta-editor-consent">I agree to receive email from Ryan Jennings about <em>Entanglement of Ages</em> editorial invitations, beta-reading opportunities, and occasional series development or release updates. This subscribes me to the existing series newsletter; I can unsubscribe at any time.</label>
         </div>
         <input type="hidden" name="embed" value="1">
         <input type="hidden" name="tag" value="beta-editor-interest">
         <button class="button" type="submit">Join the beta editors list</button>
-        <p class="small">Your email is submitted directly to <a href="https://buttondown.com/entanglement-of-ages">Buttondown</a>, not stored on this website. You may be asked to confirm your email or complete a verification step on Buttondown. Existing subscribers can use this form to add editorial interest to their subscription.</p>
+        <p class="small" id="sender-identification">Emails are sent by Ryan Jennings, author of <em>Entanglement of Ages</em>. For questions or consent withdrawal, contact <a href="mailto:info@ryanjennin.gs">info@ryanjennin.gs</a>. Each mailing includes an unsubscribe link.</p>
+        <p class="small">Your email and opt-in response are sent directly to <a href="https://buttondown.com/entanglement-of-ages">Buttondown</a>, not stored on this website. Buttondown handles confirmation. Existing subscribers can register editorial interest without losing their existing tags. Your interest tag does not grant manuscript access.</p>
       </form>
     </section>
     <p>Want to describe your editing background or a specific area of expertise? Use the <a href="https://github.com/ryjen/entanglement-of-ages-marketing/issues/new?template=editorial-interest.yml">public contributor-interest form</a>, but do not post email addresses, private notes, or unpublished story details there. That form is optional and requires GitHub.</p>
