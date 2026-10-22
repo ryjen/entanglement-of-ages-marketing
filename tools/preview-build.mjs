@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 const BUTTONDOWN_ACTION = 'https://buttondown.com/api/emails/embed-subscribe/entanglement-of-ages';
-const EXPECTED_SIGNUP_FILES = ['beta/editors/index.html', 'index.html'];
+const EXPECTED_SIGNUP_FILES = ['beta/editors/index.html', 'index.html', 'news/index.html'];
 const PREVIEW_MESSAGE = 'Preview only — newsletter and beta-editor signups are disabled.';
 
 // Pure transformation for the deployable *build output*, never approved source.

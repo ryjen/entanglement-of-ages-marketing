@@ -26,7 +26,7 @@ test('preview fails closed for unexpected third-party form actions', () => {
 });
 
 test('only two reviewed source newsletter signups are eligible for preview suppression', () => {
-  const pages = ['src/index.html', 'src/beta/editors/index.html'];
+  const pages = ['src/index.html', 'src/beta/editors/index.html', 'src/news/index.html'];
   for (const file of pages) {
     const out = neutralizePreviewHtml(fs.readFileSync(file, 'utf8'));
     assert.equal(out.signupsDisabled, 1, `expected exactly one newsletter form in ${file}`);
@@ -39,12 +39,12 @@ test('a deployed preview build disables both forms and writes noindex headers', 
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'eoa-preview-test-'));
   try {
     fs.mkdirSync(path.join(root, 'beta', 'editors'), { recursive: true });
-    for (const relative of ['index.html', 'beta/editors/index.html']) {
+    for (const relative of ['index.html', 'beta/editors/index.html', 'news/index.html']) {
       const source = fs.readFileSync(path.join('src', relative), 'utf8');
       fs.writeFileSync(path.join(root, relative), source);
     }
     securePreviewBuild(root);
-    for (const relative of ['index.html', 'beta/editors/index.html']) {
+    for (const relative of ['index.html', 'beta/editors/index.html', 'news/index.html']) {
       const html = fs.readFileSync(path.join(root, relative), 'utf8');
       assert.match(html, /data-preview-inert="true"/);
       assert.doesNotMatch(html, new RegExp('<form[^>]*action="https?://', 'i'));
