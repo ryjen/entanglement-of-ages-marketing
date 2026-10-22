@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "b682b62812f92d05b760315d627e8415cf466f54cc3b72009d40aa47797ab592",
+      "checksum_sha256": "0a9cd931e64aa78179af9b488d1073fa95d9c0a7622a605cca8c99d17a6414b7",
       "replacement_status": "current"
     },
     {
@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "291fdf9714aa2a811de1af5d2e18ee02000db2956f310ab3251dd4407c40d794",
+      "checksum_sha256": "f943cd24d2e0213c644c1511a1721b8637202caaab6d8c9344f2d3d507e79578",
       "replacement_status": "current"
     },
     {
@@ -555,7 +555,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/beta/editors/",
-      "checksum_sha256": "697741035cf9254a6e2081a52af4fb97769391e1dcf965e620d357bd074eaf14",
+      "checksum_sha256": "68c3f9e653561b6e0611332d31cd9a50abb469b2208183855c31f88021512f34",
       "replacement_status": "current"
     }
   ]
