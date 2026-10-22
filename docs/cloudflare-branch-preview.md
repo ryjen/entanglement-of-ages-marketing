@@ -4,7 +4,7 @@ This repository's **only production** deployment is GitHub Pages from validated 
 
 ## Cloudflare project
 
-- Project: `entanglement-of-ages-preview` (Cloudflare Pages, connected to GitHub `ryjen/entanglement-of-ages-marketing`).
+- Project: `entanglement-of-ages-preview` (Cloudflare Pages, connected to GitHub `ryjen/entanglement-of-ages-marketing`). Its assigned project subdomain is `entanglement-of-ages-preview.pages.dev`; **this is not the branch preview URL**. Obtain the actual deployment URL from Cloudflare deployment evidence.
 - Production branch: `main`, with `production_deployments_enabled=false`.
 - Preview branches: **custom include** `feat/beta-editor-interest-signup-20261022`; other branch deployments disabled. Preview deployment URL is assigned by Cloudflare; record the actual URL from the deployment, never infer it.
 - Build command: `npm install --no-package-lock --no-audit --no-fund && npm run build:preview`.

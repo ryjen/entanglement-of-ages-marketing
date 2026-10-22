@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { neutralizePreviewHtml, securePreviewBuild } from '../tools/preview-build.mjs';
 
 test('preview neutralizes signup without disrupting surrounding layout or leaking email fields', () => {
@@ -30,5 +32,26 @@ test('only two reviewed source newsletter signups are eligible for preview suppr
     assert.equal(out.signupsDisabled, 1, `expected exactly one newsletter form in ${file}`);
     assert.match(out.html, /data-preview-inert="true"/);
     assert.match(out.html, /signups are disabled/);
+  }
+});
+
+test('a deployed preview build disables both forms and writes noindex headers', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'eoa-preview-test-'));
+  try {
+    fs.mkdirSync(path.join(root, 'beta', 'editors'), { recursive: true });
+    for (const relative of ['index.html', 'beta/editors/index.html']) {
+      const source = fs.readFileSync(path.join('src', relative), 'utf8');
+      fs.writeFileSync(path.join(root, relative), source);
+    }
+    securePreviewBuild(root);
+    for (const relative of ['index.html', 'beta/editors/index.html']) {
+      const html = fs.readFileSync(path.join(root, relative), 'utf8');
+      assert.match(html, /data-preview-inert="true"/);
+      assert.doesNotMatch(html, /<form\\b[^>]*action="https:\\/\\//);
+      assert.match(html, /signups are disabled/);
+    }
+    assert.match(fs.readFileSync(path.join(root, '_headers'), 'utf8'), /X-Robots-Tag: noindex, nofollow/);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
   }
 });
