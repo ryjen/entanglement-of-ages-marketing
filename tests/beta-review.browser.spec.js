@@ -15,6 +15,17 @@ const synthetic = {
   priority: '1. Clarity\n2. Character agency',
 };
 
+function expectedReview(book, version, answers = synthetic) {
+  return [
+    'Entanglement of Ages — Beta Reader Review', '',
+    `Book: ${book}`, `Beta version: ${version}`, '',
+    'What stayed with you?', answers.impact, '',
+    'Where did the story slow down?', answers.pacing, '',
+    'What was confusing or unconvincing?', answers.confusion, '',
+    'What would you change first?', answers.priority,
+  ].join('\n');
+}
+
 async function fillReview(page, answers = synthetic) {
   for (const [name, value] of Object.entries(answers)) {
     await page.locator(`textarea[name="${name}"]`).fill(value);
@@ -96,9 +107,7 @@ test('mailto composes exact recipient-bound subject and Unicode multiline review
   await expect.poll(() => page.evaluate(() => window.__encodedFeedback.length)).toBe(2);
   const [subject, body] = await page.evaluate(() => window.__encodedFeedback);
   expect(subject).toBe(`Entanglement of Ages beta review — ${book} — ${version}`);
-  expect(body).toContain(`Book: ${book}\nBeta version: ${version}`);
-  for (const value of Object.values(synthetic)) expect(body).toContain(value);
-  expect(body).toContain('What would you change first?');
+  expect(body).toBe(expectedReview(book, version));
   await expect(page.locator('#feedback-status')).toContainText('not sent until you send the message');
 });
 
@@ -109,8 +118,7 @@ test('clipboard fallback preserves all answers and reports copy success', async 
   await page.getByRole('button', { name: 'Copy feedback' }).click();
   await expect.poll(() => page.evaluate(() => window.__clipboardWrites.length)).toBe(1);
   const copied = (await page.evaluate(() => window.__clipboardWrites))[0];
-  expect(copied).toContain('Book: age-of-embers\nBeta version: 0.1.0-beta.99');
-  for (const value of Object.values(synthetic)) expect(copied).toContain(value);
+  expect(copied).toBe(expectedReview('age-of-embers', '0.1.0-beta.99'));
   await expect(page.locator('#feedback-status')).toContainText('Review copied.');
 });
 
@@ -126,15 +134,19 @@ test('clipboard rejection provides a usable manual fallback rather than a false 
 test('long answers stay bounded and the generated review retains line breaks', async ({ page }) => {
   await mockClipboard(page);
   await page.goto(reviewUrl('?book=age-of-forms&version=0.1.0-beta.99'));
-  const nearLimit = ('↔ language\n').repeat(98).slice(0, 1199);
+  const nearLimit = ('↔ language\n').repeat(120).slice(0, 1199);
+  expect(nearLimit).toHaveLength(1199);
   for (const name of Object.keys(synthetic)) {
     await page.locator(`textarea[name="${name}"]`).fill(nearLimit);
   }
   await page.getByRole('button', { name: 'Copy feedback' }).click();
   const writes = await page.evaluate(() => window.__clipboardWrites);
   expect(writes).toHaveLength(1);
-  expect(writes[0].match(/↔ language/g)?.length).toBeGreaterThan(300);
-  expect(writes[0]).toContain(nearLimit);
+  // Assert all FOUR maximum-length answers survived, not just one substring.
+  expect(writes[0].split(nearLimit)).toHaveLength(5);
+  for (const name of Object.keys(synthetic)) {
+    await expect(page.locator(`textarea[name="${name}"]`)).toHaveValue(nearLimit);
+  }
   await page.locator('#impact').fill('x'.repeat(1201));
   await expect(page.locator('#impact')).toHaveValue('x'.repeat(1200));
 });
