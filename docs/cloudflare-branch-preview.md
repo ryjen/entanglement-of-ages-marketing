@@ -10,6 +10,8 @@ This repository's **only production** deployment is GitHub Pages from validated 
 - Build command: `npm install --no-package-lock --no-audit --no-fund && npm run build:preview`.
 - Output directory: `dist`; build environment Node 24.
 - Do not use GitHub-hosted Pages artifact as Cloudflare's source and do not add deploy secrets to the public repository.
+- Cloudflare may not create an initial preview for an existing branch on project creation. Push a reviewed commit to the included branch to trigger the GitHub integration; then confirm the deployment environment is `preview` and the returned commit SHA matches the branch HEAD before advertising its URL.
+- A preview URL is usable only when Cloudflare reports a successful deployment and a browser can verify the disabled forms and noindex header. Failed/stale deployment IDs are not preview links.
 
 ## Safety properties
 
