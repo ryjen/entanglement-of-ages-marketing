@@ -72,6 +72,7 @@ CI validates every pull request and push to `main`. Successful `main` runs uploa
 
 Pages must remain configured as **Settings → Pages → Source: GitHub Actions**. Do not switch to branch publishing; that bypasses the validated `dist/` artifact. Cutover, verification, cache, and rollback procedures are documented in [`docs/deployment.md`](docs/deployment.md).
 
+
 ## Rights
 
 Repository code is covered by `LICENSE`. Story text, excerpts, artwork, logos, names, and other creative assets are governed separately by `RIGHTS.md` unless an individual asset states otherwise.
