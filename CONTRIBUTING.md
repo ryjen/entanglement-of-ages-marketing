@@ -4,7 +4,7 @@ This repository is a public publication surface. Do not use it for drafting, can
 
 ## Editorial participation
 
-All four *Entanglement of Ages* novels have beta manuscripts; *The Age of Forms* is entering private reader testing. Editors, beta readers and subject-matter readers can express interest through the [beta editors page](https://entanglementofages.com/beta/editors/) using direct email to info@ryanjennin.gs. The page opens a draft in the visitor's own email app and does not store applications on the website or enroll applicants in Buttondown.
+All four *Entanglement of Ages* novels have beta manuscripts; *The Age of Forms* is entering private reader testing. Editors, beta readers and subject-matter readers can express interest through the [beta editors page](https://entanglementofages.com/beta/editors/) using direct email to editors@entanglementofages.com. The page opens a draft in the visitor's own email app and does not store applications on the website or enroll applicants in Buttondown.
 
 Applications are handled privately by email; selected readers receive separate invitations and only approved readers may access private manuscripts. Do not import addresses into promotional lists or post application details in public issues. See [email-intake operations](docs/beta-editor-signup.md).
 
