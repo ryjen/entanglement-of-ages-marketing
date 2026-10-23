@@ -540,7 +540,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/beta/review/",
-      "checksum_sha256": "bb1a6828e996d1e768c969d5e99a63af7ab9cc1d981661dcb76eb6f77152c799",
+      "checksum_sha256": "6c29453a4e5cf099c2b1860fac08b6780ac0163290664a0f809c7056dbfa58a4",
       "replacement_status": "current"
     },
     {
@@ -555,7 +555,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/beta/editors/",
-      "checksum_sha256": "cc6a7c64e342154e128ef2b8914637ac3e635b0d0f3afd7cb2b4c41b2625da08",
+      "checksum_sha256": "53447fd2d3770e83a783f5f2954d54ba1b765933d2b06f541327abb2d4b35f1e",
       "replacement_status": "current"
     }
   ]

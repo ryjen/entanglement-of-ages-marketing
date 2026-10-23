@@ -101,7 +101,7 @@ test('mailto composes exact recipient-bound subject and Unicode multiline review
   const version = '0.1.0-beta.99';
   await page.goto(reviewUrl(`?book=${book}&version=${version}`));
   await fillReview(page);
-  expect(await page.locator('form').getAttribute('action')).toBe('mailto:info@ryanjennin.gs');
+  expect(await page.locator('form').getAttribute('action')).toBe('mailto:reviews@entanglementofages.com');
   await page.getByRole('button', { name: 'Open email to submit' }).click();
 
   await expect.poll(() => page.evaluate(() => window.__encodedFeedback.length)).toBe(2);
@@ -189,6 +189,6 @@ test('live form code does not make a network submission or store unpublished ans
     note: document.querySelector('main')?.textContent.includes('The site does not collect or store your answers.'),
   }));
   expect(privacy.robots).toBe('noindex, nofollow');
-  expect(privacy.formAction).toBe('mailto:info@ryanjennin.gs');
+  expect(privacy.formAction).toBe('mailto:reviews@entanglementofages.com');
   expect(privacy.note).toBe(true);
 });

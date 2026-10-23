@@ -31,7 +31,7 @@
     <h1>Share your reading experience</h1>
     <p>Thank you for reading an early edition of <em>Entanglement of Ages</em>. There are no expected interpretations. Specific scenes, slow passages and points of confusion are more useful than praise alone.</p>
     <p><strong>This is a private email review, not a public discussion or a website-stored form.</strong> Choosing “Open email to submit” prepares a message to the author in your email application; you must send that message yourself.</p>
-    <form id="reader-review" action="mailto:info@ryanjennin.gs" method="post" enctype="text/plain">
+    <form id="reader-review" action="mailto:reviews@entanglementofages.com" method="post" enctype="text/plain">
       <div><label for="book">Book</label>
         <select id="book" name="book" required>
           <option value="">Select a book</option>
@@ -52,7 +52,7 @@
       </div>
       <p id="feedback-status" class="feedback-status small" role="status" aria-live="polite"></p>
     </form>
-    <p class="small">The site does not collect or store your answers. Submitting opens your email application; you control whether to send. Your email provider processes the sent message. If email does not open, use “Copy feedback” and send the result to <a href="mailto:info@ryanjennin.gs">info@ryanjennin.gs</a>. Avoid posting unpublished story material or your answers in public repositories or discussion forums.</p>
+    <p class="small">The site does not collect or store your answers. Submitting opens your email application; you control whether to send. Your email provider processes the sent message. If email does not open, use “Copy feedback” and send the result to <a href="mailto:reviews@entanglementofages.com">reviews@entanglementofages.com</a>. Avoid posting unpublished story material or your answers in public repositories or discussion forums.</p>
     <p><a href="../../books/">Return to the books</a></p>
   </main>
   <footer class="site-footer"><span>Entanglement of Ages</span><span>Private reader correspondence</span></footer>
@@ -86,7 +86,7 @@
         const bookId = form.elements.namedItem('book').value;
         const versionId = form.elements.namedItem('version').value;
         const subject = 'Entanglement of Ages beta review — ' + bookId + ' — ' + versionId;
-        const mail = 'mailto:info@ryanjennin.gs?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(reviewText());
+        const mail = 'mailto:reviews@entanglementofages.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(reviewText());
         status.textContent = 'Your email application should open. Your feedback is not sent until you send the message.';
         window.location.href = mail;
       });
@@ -94,7 +94,7 @@
         if (!form.reportValidity()) { status.textContent = 'Complete the required fields before copying.'; return; }
         try {
           await navigator.clipboard.writeText(reviewText());
-          status.textContent = 'Review copied. Paste it into an email to info@ryanjennin.gs.';
+          status.textContent = 'Review copied. Paste it into an email to reviews@entanglementofages.com.';
         } catch {
           status.textContent = 'Clipboard access unavailable. Select the responses above, or use the email link.';
         }

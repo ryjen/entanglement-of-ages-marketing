@@ -10,7 +10,7 @@ test('application link builds an email draft without any web submission', async 
   await expect(link).toBeVisible();
   const href = await link.getAttribute('href');
   const parsed = new URL(href.replaceAll('&amp;', '&'));
-  expect(parsed.pathname).toBe('info@ryanjennin.gs');
+  expect(parsed.pathname).toBe('editors@entanglementofages.com');
   expect(parsed.searchParams.get('subject')).toBe('Entanglement of Ages - Beta editor interest');
   expect(parsed.searchParams.get('body')).toContain('The Fatherless');
   expect(parsed.searchParams.get('body')).toContain('The Age of Forms');
@@ -29,7 +29,7 @@ for (const v of [
     const link = page.getByRole('link', { name: 'Compose beta-editor application' });
     await link.focus();
     await expect(link).toBeFocused();
-    await expect(page.getByRole('link', { name: 'info@ryanjennin.gs' })).toHaveAttribute('href', 'mailto:info@ryanjennin.gs');
+    await expect(page.getByRole('link', { name: 'editors@entanglementofages.com' })).toHaveAttribute('href', 'mailto:editors@entanglementofages.com');
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
   });
 }

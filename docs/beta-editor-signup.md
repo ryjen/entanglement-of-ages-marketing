@@ -1,6 +1,6 @@
 # Beta editors: direct-email intake
 
-The public site is informational; the beta editor page provides a mailto action to info@ryanjennin.gs with a suggested application outline. This is not a form, Buttondown signup, Google Forms application, Worker, or newsletter enrollment. No application records or passwords are stored by the website.
+The public site is informational; the beta editor page provides a mailto action to editors@entanglementofages.com with a suggested application outline. This is not a form, Buttondown signup, Google Forms application, Worker, or newsletter enrollment. No application records or passwords are stored by the website.
 
 ## Applicant experience
 
@@ -17,6 +17,14 @@ Some selected readers may receive a per-title **Google Play Books Content Review
 If a title is missing, ask the reader privately to check the account they signed in with, then verify that the correct title has the reader's account under Partner Center **Book Catalog → title → Content → Content Reviewers**, that the change was saved, and that content processed successfully. Google's [reviewer requirements](https://support.google.com/books/partner/answer/3156893) include account/country eligibility and the requirement that the book not already be in the reviewer's library. Do not publish a book or enable sales simply to debug reviewer access.
 
 This optional delivery method **does not** change the public email-only application route, grant access automatically, or create a reviewer-address registry. Avoid disclosing reader identities, invitation lists, manuscripts, or replies in the public repo or on the site.
+
+## Routing and feedback contact
+
+- Beta-editor inquiries use **editors@entanglementofages.com** (`/beta/editors/`).
+- Invited readers send feedback to **reviews@entanglementofages.com** (`/beta/review/`). The review route remains `noindex, nofollow`.
+- These are Cloudflare Email Routing forwarding aliases to an account-verified private inbox, **not** hosted mailboxes or authenticated outbound From identities. Incoming messages are retained by the destination email provider, not the website.
+- Verify delivery with a second sender account after DNS/routing changes. A prefilled `mailto:` draft and passing browser tests do not prove mail delivery.
+- This does not enroll the sender in any newsletter, grant reviewer access, or change manuscript distribution controls.
 
 ## Privacy and operations
 
