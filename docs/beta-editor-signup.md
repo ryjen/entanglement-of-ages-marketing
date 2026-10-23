@@ -31,4 +31,6 @@ This optional delivery method **does not** change the public email-only applicat
 
 ## Validation
 
-Run mise run check. The browser acceptance checks validate the mailto destination and subject, zero HTML forms or submission handlers, correct book order, keyboard navigation and mobile layout.
+Run `mise run check`. The standard browser gate now runs `tests/beta-editors-signup.browser.spec.js` alongside the reader-review and site smoke tests. It covers homepage-to-editor navigation, correct Google Play Books library guidance, a stubbed outbound navigation to Google Play Books, absence of application/provisioning side effects, email-only recovery, and mobile/desktop usability. The Google Play Books destination is mocked so CI never signs in, sends an invitation, changes Partner Center state, or discloses reader data.
+
+Only the site's invitation/onboarding flow is tested end to end. Actual Content Reviewer grants, reader country/account eligibility, processed-book visibility and delivery still require a private manual acceptance test; passing browser CI is not proof of Google-side access. For a targeted local run, use `mise run build` then `mise run browser` (or `mise run check` for the full gate).
