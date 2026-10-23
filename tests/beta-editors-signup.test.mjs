@@ -18,18 +18,20 @@ test('editor interest route is manifest-approved and linked from home and books'
   assert.match(sitemap, /entanglementofages\.com\/beta\/editors\//);
 });
 test('mailto composes a private editor interest message without auto-submitting', () => {
-  const link = html.match(/href="(mailto:info@ryanjennin\.gs\?[^"]+)">Compose beta-editor application<\/a>/)?.[1];
+  const link = html.match(/href="(mailto:editors@entanglementofages\.com\?[^"]+)">Compose beta-editor application<\/a>/)?.[1];
   assert.ok(link, 'expected prefilled mailto');
   assert.doesNotMatch(link, /\+/); // RFC 6068 mailto uses percent-encoded spaces
   assert.match(link, /%0D%0A/);
   const parsed = new URL(link.replaceAll('&amp;', '&'));
-  assert.equal(parsed.pathname, 'info@ryanjennin.gs');
+  assert.equal(parsed.pathname, 'editors@entanglementofages.com');
   assert.equal(parsed.searchParams.get('subject'), 'Entanglement of Ages - Beta editor interest');
   const body = parsed.searchParams.get('body');
   for (const name of ['The Fatherless', 'Neurion', 'Age of Embers', 'The Age of Forms']) assert.ok(body.includes(name));
   assert.match(body, /kind of feedback/);
   assert.match(body, /Availability \(optional\)/);
   assert.match(html, /If your email app does not open/);
+  assert.match(html, /mailto:editors@entanglementofages\.com/);
+  assert.doesNotMatch(html, /info@ryanjennin\.gs/);
   assert.match(html, /sent only when you choose to send it/);
 });
 test('editorial application has no web-based collection and no newsletter enrollment', () => {

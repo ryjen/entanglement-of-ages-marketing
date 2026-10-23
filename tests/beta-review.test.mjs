@@ -17,7 +17,10 @@ test('review entry is a public-safe noindex page with manifest provenance', () =
 });
 
 test('reader feedback goes through explicit private email, not public storage', () => {
-  assert.match(html, /action="mailto:info@ryanjennin\.gs"/);
+  assert.match(html, /action="mailto:reviews@entanglementofages\.com"/);
+  assert.match(html, /const mail = 'mailto:reviews@entanglementofages\.com\?subject='/);
+  assert.match(html, /Review copied\. Paste it into an email to reviews@entanglementofages\.com/);
+  assert.doesNotMatch(html, /info@ryanjennin\.gs/);
   assert.match(html, /window\.location\.href = mail/);
   assert.match(html, /not sent until you send the message/);
   assert.match(html, /navigator\.clipboard\.writeText/);
