@@ -561,7 +561,7 @@ export async function runBrowserSmoke(root = process.cwd()) {
   });
   try {
     const command = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-    const child = spawn(command, ['playwright', 'test', 'tests/browser-smoke.spec.js', 'tests/beta-review.browser.spec.js', '--reporter=line'], {
+    const child = spawn(command, ['playwright', 'test', 'tests/browser-smoke.spec.js', 'tests/beta-review.browser.spec.js', 'tests/beta-editors-signup.browser.spec.js', '--reporter=line'], {
       cwd: root,
       env: { ...process.env, SITE_BASE_URL: 'http://127.0.0.1:4173/entanglement-of-ages-marketing/' },
       stdio: 'inherit',
