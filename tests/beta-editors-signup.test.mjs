@@ -49,3 +49,11 @@ test('invited content reviewers are directed to the Google Play Books library', 
   assert.match(html, /same Google Account that was invited/);
   assert.match(html, /support\.google\.com\/books\/partner\/answer\/3156893/);
 });
+
+test('browser smoke includes beta-editor E2E coverage in the mandatory check gate', () => {
+  const site = fs.readFileSync('tools/site.mjs', 'utf8');
+  const start = site.indexOf('export async function runBrowserSmoke(');
+  const end = site.indexOf('async function cli()', start);
+  assert.ok(start >= 0 && end > start, 'browser smoke command must exist');
+  assert.match(site.slice(start, end), /tests\/beta-editors-signup\.browser\.spec\.js/);
+});
