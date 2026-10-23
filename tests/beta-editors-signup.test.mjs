@@ -39,3 +39,11 @@ test('editorial application has no web-based collection and no newsletter enroll
   assert.doesNotMatch(html, /<form\b|<input\b|<button\b|<script\b|embed-subscribe|metadata__beta_editor_opt_in/i);
   assert.doesNotMatch(html, /\.epub|download=["']|issues\/new\?template=editorial-interest/);
 });
+
+test('invited content reviewers are directed to the Google Play Books library', () => {
+  assert.match(html, /Already invited to read\?/);
+  assert.match(html, /https:\/\/play\.google\.com\/books/);
+  assert.match(html, /Google Books search library is different/);
+  assert.match(html, /same Google Account that was invited/);
+  assert.match(html, /support\.google\.com\/books\/partner\/answer\/3156893/);
+});
