@@ -33,3 +33,60 @@ for (const v of [
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
   });
 }
+
+
+test('home-to-editor route exposes invited-reader instructions without an application', async ({ page }) => {
+  const response = await page.goto(new URL('', base).href);
+  expect(response?.status()).toBe(200);
+  await page.getByRole('link', { name: /Join the beta editors list/ }).click();
+  await expect(page).toHaveURL(pageUrl);
+  const invited = page.getByRole('region', { name: 'Already invited to read?' });
+  await expect(invited.getByRole('heading', { name: 'Already invited to read?' })).toBeVisible();
+  await expect(invited).toContainText('same Google Account that was invited');
+  await expect(invited).toContainText('Library / Your books');
+  await expect(invited).toContainText('Google Books search library is different');
+  await expect(invited.getByRole('link', { name: 'Google Play Books' })).toHaveAttribute('href', 'https://play.google.com/books');
+  await expect(invited.getByRole('link', { name: /content reviewer guidance/ })).toHaveAttribute('href', 'https://support.google.com/books/partner/answer/3156893');
+  await expect(page.getByRole('heading', { name: 'Apply by email' })).toBeVisible();
+});
+
+test('Google Play Books link works without accessing a real account or sending reviewer details', async ({ page }) => {
+  const outbound = [];
+  await page.route(/^https:\/\/play\.google\.com\/books\/?$/, async route => {
+    outbound.push({ url: route.request().url(), method: route.request().method() });
+    await route.fulfill({
+      status: 200,
+      contentType: 'text/html',
+      body: '<!doctype html><html lang="en"><title>Play Books test destination</title><h1>Play Books test destination</h1></html>',
+    });
+  });
+  await page.goto(pageUrl);
+  const invited = page.getByRole('region', { name: 'Already invited to read?' });
+  const playBooks = invited.getByRole('link', { name: 'Google Play Books' });
+  await expect(playBooks).toHaveAttribute('href', 'https://play.google.com/books');
+  await Promise.all([
+    page.waitForURL(/^https:\/\/play\.google\.com\/books\/?$/),
+    playBooks.click(),
+  ]);
+  await expect(page.getByRole('heading', { name: 'Play Books test destination' })).toBeVisible();
+  expect(outbound).toEqual([{ url: 'https://play.google.com/books', method: 'GET' }]);
+});
+
+test('missing-book recovery uses private email and never provisions publisher access', async ({ page }) => {
+  const mutations = [];
+  page.on('request', request => {
+    if (request.method() !== 'GET') mutations.push(request.url());
+  });
+  await page.goto(pageUrl);
+  const invited = page.getByRole('region', { name: 'Already invited to read?' });
+  await expect(invited).toContainText('If your book is absent');
+  await expect(invited).toContainText('Reviewer access is granted separately for each title');
+  await expect(invited).toContainText('Applying for editorial participation does not itself provide book access');
+  const contact = invited.getByRole('link', { name: 'contact us privately' });
+  await expect(contact).toHaveAttribute('href', 'mailto:info@ryanjennin.gs');
+  await contact.focus();
+  await expect(contact).toBeFocused();
+  await expect(page).toHaveURL(pageUrl);
+  expect(await page.locator('form, input, button, script').count()).toBe(0);
+  expect(mutations).toEqual([]);
+});
