@@ -25,6 +25,7 @@ Public pull requests to this repository remain limited to publication-safe marke
 
 - Confirm every public artifact has a manifest entry.
 - Confirm spoiler tier, approval state, rights status, provenance class, replacement status, and checksum where required.
+- For changed reader-facing copy, perform the [public-safe copy-quality review](docs/public-content-policy.md#reader-facing-copy-quality); this review does not authorize new content or bypass the exact-byte release gate.
 - For media, record creator class, rights basis, attribution requirement, and metadata-review state.
 - Strip embedded metadata, or explicitly mark it `reviewed-retained` and document why retention is safe and necessary.
 - Do not include private repository paths or identifiers, private issue/revision references, correspondence, credentials, or internal rationale.
