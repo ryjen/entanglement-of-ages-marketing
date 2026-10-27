@@ -70,6 +70,17 @@ Before publication, identify whether each asset is author-created, commissioned,
 
 All recognized media formats require a metadata review state. Metadata must either be stripped or explicitly reviewed and retained. Retained metadata requires a public-safe rationale. When attribution is required, the exact attribution text must be recorded in the manifest.
 
+## Reader-facing copy quality
+
+This public site is a **separately curated derivative**, not a place to draft or describe private manuscript decisions. When proposing a new or revised public synopsis, book page, or announcement, review the exact proposed public wording for:
+
+- **Story before thesis:** a concrete human situation, pressure, or consequential question before abstract interpretation. Implication is often stronger than a complete explanation.
+- **Readable causality:** clear participants, chronology where needed, and a specific stake. Preserve mystery about protected reveals, never basic clarity about the published premise.
+- **Credible competing interests:** avoid reducing people or institutions to slogans or villains; do not disclose unreleased mechanisms to prove thematic claims.
+- **Natural rhythm:** remove repetitive rhetorical contrasts, redundant interpretation, and stacked dramatic one-liners; preserve purposeful restraint and readable paragraphs.
+
+These are **human editorial review criteria**, not automated text-rewrite rules or approval to publish. No private editorial source, author-influence notes, manuscript excerpt, or unreleased plot information may be copied here. Every changed deployable byte still requires the repository's manifest/checksum, spoiler, rights, provenance, and explicit publication gates.
+
 ## Review checklist
 
 Before merging public content:
