@@ -57,3 +57,12 @@ test('browser smoke includes beta-editor E2E coverage in the mandatory check gat
   assert.ok(start >= 0 && end > start, 'browser smoke command must exist');
   assert.match(site.slice(start, end), /tests\/beta-editors-signup\.browser\.spec\.js/);
 });
+
+test('one-time contribution proposal is inactive and independent of free editorial participation', () => {
+  assert.match(html, /Beta reading and editorial feedback are free/);
+  assert.match(html, /Contributions are not open yet/);
+  assert.match(html, /Proposed levels, in USD, paid once/);
+  assert.match(html, /No contribution would grant private manuscript repository access/);
+  assert.ok(html.indexOf('id="signup-title"') < html.indexOf('id="invited-reader-access"'), 'editorial application should precede troubleshooting');
+  assert.doesNotMatch(html, /github\.com\/sponsors|paypal\.com\/checkout|checkout\.stripe\.com|buymeacoffee\.com|ko-fi\.com/i);
+});
