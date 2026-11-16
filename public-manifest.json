@@ -13,7 +13,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/",
-      "checksum_sha256": "0a9cd931e64aa78179af9b488d1073fa95d9c0a7622a605cca8c99d17a6414b7",
+      "checksum_sha256": "9d3f82a3a48ebeb50af73962c00e4d7316efcdd96d8477505beb1c5c35b30f70",
       "replacement_status": "current"
     },
     {
@@ -28,7 +28,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/",
-      "checksum_sha256": "f943cd24d2e0213c644c1511a1721b8637202caaab6d8c9344f2d3d507e79578",
+      "checksum_sha256": "84f34cae9ec6364a3f3422c177e7d33f2f5429099a526d9af22bd4d3ff889eb3",
       "replacement_status": "current"
     },
     {
@@ -43,7 +43,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/the-fatherless/",
-      "checksum_sha256": "638cd212fb2fa9f1347355d59c49356f02663ccb68b51f61aa0b3c06be07cdf8",
+      "checksum_sha256": "6689dfd8ff2e17cdbe62a4a3aa70634dca9a119ea2d3ecc18c7d2740cf4d9b9d",
       "replacement_status": "current"
     },
     {
@@ -480,7 +480,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-embers/",
-      "checksum_sha256": "a41144fd15185a74495111a12a63d677921bc0c91d0bc0824dca88959dec1d44",
+      "checksum_sha256": "8f8e1429e8e2398a5086e7d0197b832d2fede5df2f99805d3071858cd89b1e20",
       "replacement_status": "current"
     },
     {
@@ -495,7 +495,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/neurion/",
-      "checksum_sha256": "c41c6e9b657f0998e55afcb5a54b56831fd3a9b50ea422e7c53b2d241d7cf3e3",
+      "checksum_sha256": "49b07d854c70bfc98f7e72ee0f67de22c772b8a7b79cf61c0a800cfe9062ed7e",
       "replacement_status": "current"
     },
     {
@@ -510,7 +510,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/books/age-of-forms/",
-      "checksum_sha256": "10a86987b6840f77feb3bce26d5a619657dc0ed39e26c8ac22eed4fad7c32ed9",
+      "checksum_sha256": "31f22d928a5d0a404fcf5a12eb5f9e8fdc11a357cf3d4b12b900265fc55b5a8e",
       "replacement_status": "current"
     },
     {
@@ -525,7 +525,7 @@
       "provenance_class": "public-native",
       "publication_date": null,
       "canonical_url": "/styles/sites-home.v1.css",
-      "checksum_sha256": "1b2f8e26b0d7b717baeb2a1bafc220b43b76bf6beb21e7ce1339d78db06f1845",
+      "checksum_sha256": "79b0cc7bdf90582b8fda86e42e07df30c2a787de039d8a70eaf2f55057b4f72f",
       "replacement_status": "current"
     },
     {
