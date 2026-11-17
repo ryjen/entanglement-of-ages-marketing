@@ -64,5 +64,11 @@ test('one-time contribution proposal is inactive and independent of free editori
   assert.match(html, /Proposed levels, in USD, paid once/);
   assert.match(html, /No contribution would grant private manuscript repository access/);
   assert.ok(html.indexOf('id="signup-title"') < html.indexOf('id="invited-reader-access"'), 'editorial application should precede troubleshooting');
-  assert.doesNotMatch(html, /github\.com\/sponsors|paypal\.com\/checkout|checkout\.stripe\.com|buymeacoffee\.com|ko-fi\.com/i);
+  const sponsorLinks = [...html.matchAll(/href="(https:\/\/github\.com\/sponsors[^"]*)"/g)].map(match => match[1]);
+  assert.deepEqual(sponsorLinks, ['https://github.com/sponsors/hackelia-micrantha']);
+  assert.match(html, /Sponsorship there does not purchase books, literary patron benefits, or editorial access/);
+  const literary = html.match(/<section aria-labelledby="support-series">([\s\S]*?)<\/section>/)?.[1];
+  assert.ok(literary, 'expected separate literary support section');
+  assert.doesNotMatch(literary, /<a\b|<form\b|<button\b/);
+  assert.doesNotMatch(html, /paypal\.com\/checkout|checkout\.stripe\.com|buymeacoffee\.com|ko-fi\.com/i);
 });
