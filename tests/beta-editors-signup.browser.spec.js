@@ -30,6 +30,13 @@ for (const v of [
     await link.focus();
     await expect(link).toBeFocused();
     await expect(page.getByRole('link', { name: 'editors@entanglementofages.com' })).toHaveAttribute('href', 'mailto:editors@entanglementofages.com');
+    const openSource = page.getByRole('region', { name: 'Support the open-source tools' });
+    const sponsor = openSource.getByRole('link', { name: 'Support Micrantha on GitHub' });
+    await expect(sponsor).toBeVisible();
+    await expect(sponsor).toHaveAttribute('href', 'https://github.com/sponsors/hackelia-micrantha');
+    const literary = page.getByRole('region', { name: 'Support the series' });
+    await expect(literary).toContainText('Contributions are not open yet.');
+    await expect(literary.getByRole('link')).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
   });
 }
